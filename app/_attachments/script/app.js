@@ -1,70 +1,30 @@
-// Apache 2.0 J Chris Anderson 2011
-$(function() {
-    var app = Sammy('#main', function(){
-        this.use('Handlebars');
-    }
-);
-    // friendly helper http://tinyurl.com/6aow6yn
-    $.fn.serializeObject = function() {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
+//Apache 2.0 J Chris Anderson 2011
+var app = Sammy('#main', function()
+		{
+	this.use('Handlebars', 'hb');
+	this.element_selector = '#displayBox';
+	this.get('#/', function()
+			{
+		this.load('/localhost/f89841dd6e9867194d09fe0e1e0026a7', {json: true}).render('templates/someTemplate.hb').swap();
+			});
 
-    var path = unescape(document.location.pathname).split('/'),
-        design = path[3],
-        db = $.couch.db(path[1]);
-    function drawItems() {
-        db.view(design + "/recent-items", {
-            descending : "true",
-            limit : 50,
-            update_seq : true,
-            success : function(data) {
-                setupChanges(data.update_seq);
-                var them = $.mustache($("#recent-messages").html(), {
-                    items : data.rows.map(function(r) {return r.value;})
-                });
-                $("#content").html(them);
-            }
-        });
-    };
-    drawItems();
-    var changesRunning = false;
-    function setupChanges(since) {
-        if (!changesRunning) {
-            var changeHandler = db.changes(since);
-            changesRunning = true;
-            changeHandler.onChange(drawItems);
-        }
-    }
-    $.couchProfile.templates.profileReady = $("#new-message").html();
-    $("#account").couchLogin({
-        loggedIn : function(r) {
-            $("#profile").couchProfile(r, {
-                profileReady : function(profile) {
-                    $("#create-message").submit(function(e){
-                        e.preventDefault();
-                        var form = this, doc = $(form).serializeObject();
-                        doc.created_at = new Date();
-                        doc.profile = profile;
-                        db.saveDoc(doc, {success : function() {form.reset();}});
-                        return false;
-                    }).find("input").focus();
-                }
-            });
-        },
-        loggedOut : function() {
-            $("#profile").html('<p>Please log in to see your profile.</p>');
-        }
-    });
- });
+//	this.get('#/challenge', function()
+//			{
+//		while (true)
+//		{
+//			problems = this.load('/localhost/problemSet.json');
+//			$('#displayBox').html("<p>" + )
+//		}
+//			})
+//		});
+$(function()
+		{
+	app.run('#/');
+		});
+
+//function loadNewRandomProblem()
+//{
+//	problems = this.load('/localhost/problemSet.json');
+//	randomNum = Math.floor(random()) * problems.length;
+//	return 
+//}

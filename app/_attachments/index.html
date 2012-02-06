@@ -5,20 +5,13 @@
     <link rel="stylesheet" href="style/main.css" type="text/css">
   </head>
   <body>
-    <div id="account"></div>
-
-    <h1>CouchApp</h1>
-
-    <div id="profile">
-    </div>
-    <div id="content"></div>
-
-    <div id="sidebar">
-      <p>Edit welcome message.</p>
-      <p>Ideas: You could easily turn this into a photo sharing app, 
-          or a grocery list, or a chat room. <a href="https://github.com/couchapp/example">Code for this app is on Github.</a></p>
+    <div id="navigationMenu"/>
+    <div id="textAdventure">
+    <div id="displayBox"/>
+    <div id="inputBox"/>
     </div>
   </body>
+  
   <script src="/_utils/script/sha1.js"></script>
   <script src="/_utils/script/json2.js"></script>
   <script src="/_utils/script/jquery.js"></script>
@@ -29,6 +22,7 @@
   <script src="vendor/couchapp/jquery.mustache.js"></script>
   <script src="script/handlebars.js"></script>
   <script src="script/sammy.js"></script>
+  <script src="script/sammy.handlebars.js"></script>
 
 <!-- templates used by app.js -->
   <script id="new-message" type="text/x-mustache" charset="utf-8">
