@@ -1,11 +1,12 @@
 //Apache 2.0 J Chris Anderson 2011
+const maxInt = 9007199254740992;
 randomObject = function(context)
 {
 	callback = function(item)
 	{
 		problems = item['problems'];
 		console.log(problems);
-		randomNum = 0;
+		randomNum = Math.floor(Math.random() * maxInt) % problems.length;
 		problem = problems[randomNum];
 		this.render('templates/problemTemplate.hb', problem).replace('#displayBox');
 	}
