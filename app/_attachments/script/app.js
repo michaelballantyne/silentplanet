@@ -42,13 +42,12 @@ var app = Sammy('#displayBox', function()
     
     this.post("#/problems", function() {
         var problem = new Problem(this.params['question'], this.params['answer']);
-        console.log(problem);
-        this.redirect('#/');
         db.saveDoc(problem);
+        this.redirect('#/');
     });
     
     this.get("#/problems/new", function() {
-        this.render('templates/admin/addproblem.hb').replace('#displayBox');
+        this.partial('templates/admin/addproblem.hb');
     })
 });
 
