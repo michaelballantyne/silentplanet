@@ -21,6 +21,30 @@ form {
 	color: green;
 }
 
+input {
+    border-width: 1px;
+    border-color: gray;
+}
+
+label {
+    display: block;
+}
+
+textarea {
+    background-color: black;
+    color: green;
+
+}
 ul {
 	list-style: none;
+}
+
+li {
+    display: inline;
+    padding-right: 10px;
+}
+
+a:visited, a:link {
+    color: green;
+    text-decoration: none
 }
