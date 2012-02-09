@@ -1,13 +1,13 @@
 //Apache 2.0 J Chris Anderson 2011
 const maxInt = 9007199254740992;
-randomObject = function(context)
+var randomObject = function(context)
 {
     callback = function(item)
     {
-        problems = item['problems'];
+        var problems = item['problems'];
         console.log(problems);
-        randomNum = Math.floor(Math.random() * maxInt) % problems.length;
-        problem = problems[randomNum];
+        var randomNum = Math.floor(Math.random() * maxInt) % problems.length;
+        var problem = problems[randomNum];
         this.render('templates/problemTemplate.hb', problem).replace('#displayBox');
     }
     context.load('/localhost/problemSet.json').then(callback);
