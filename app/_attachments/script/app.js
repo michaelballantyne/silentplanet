@@ -1,5 +1,15 @@
-//Apache 2.0 J Chris Anderson 2011
+(function($) {
 const maxInt = 9007199254740992;
+
+var Problem = function(question, answer) {
+    return {
+        problem: question,
+        answer: answer
+    };
+};
+
+var db = $.couch.db('localhost')
+
 var randomObject = function(context)
 {
     callback = function(item)
@@ -13,10 +23,10 @@ var randomObject = function(context)
     context.load('/localhost/problemSet.json').then(callback);
 }
 
-var app = Sammy('#main', function()
+var app = Sammy('#displayBox', function()
 {
     this.use('Handlebars', 'hb');
-    this.element_selector = '#displayBox';
+
     this.get('#/', function()
     {
         this.load('/localhost/f89841dd6e9867194d09fe0e1e0026a7',
@@ -29,9 +39,21 @@ var app = Sammy('#main', function()
     {
         randomObject(this);
     });
+    
+    this.post("#/problems", function() {
+        var problem = new Problem(this.params['question'], this.params['answer']);
+        console.log(problem);
+        this.redirect('#/');
+        db.saveDoc(problem);
+    });
+    
+    this.get("#/problems/new", function() {
+        this.render('templates/admin/addproblem.hb').replace('#displayBox');
+    })
 });
 
 $(function()
 {
     app.run('#/');
 });
+})(jQuery);
