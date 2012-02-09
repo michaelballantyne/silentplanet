@@ -30,6 +30,7 @@ var app = Sammy('#main', function()
         randomObject(this);
     });
 });
+
 $(function()
 {
     app.run('#/');
