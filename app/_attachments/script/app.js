@@ -16,6 +16,9 @@ var ProblemSet = {
     
     deleteProblem: function(id, rev, callback) {
         db.removeDoc({_id: id, _rev: rev}, {success: callback});
+    },
+    saveProblem: function(doc, callback) {
+        db.saveDoc(doc, {success: callback});
     }
 };
 
@@ -50,19 +53,25 @@ var app = Sammy('#main', function()
 
     this.get('#/challenge', function()
     {
-        this.partial('templates/game.hb');
-        randomObject(this);
-    });
+        this.partial('templates/game.hb').then(function() {
+             $('#input').focus();
+            randomObject(this);
+        });
+    }); 
     
     this.post("#/problems", function() {
-        var problem = new Problem(this.params['question'], this.params['answer']);
-        db.saveDoc(problem);
-        this.redirect('#/problems/new');
+        var self = this;
+        ProblemSet.saveProblem(new Problem(this.params['question'], this.params['answer']), function() {
+            self.redirect('#/problems/new');
+        });
     });
     
     this.get("#/problems/new", function() {
         ProblemSet.getProblems(this, function(view){
-            this.partial('templates/admin/addproblem.hb', {rows: view.rows});
+            this.partial('templates/admin/addproblem.hb', {rows: view.rows})
+                .then(function() {
+                    $('#question').focus();
+                });
         });
     });
     

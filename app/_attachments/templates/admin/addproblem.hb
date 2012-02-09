@@ -8,7 +8,7 @@
 </table>
 
 <form action="#/problems" method="post">
-    <label>Problem: </label><textarea rows="4" cols="30" name="question"></textarea>
+    <label>Problem: </label><textarea rows="4" cols="30" id="question" name="question"></textarea>
 
     <label>Answer: </label><input type="text" name="answer">
     <input type="submit" value="Submit">
