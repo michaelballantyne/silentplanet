@@ -26,6 +26,8 @@ var db = $.couch.db('localhost')
 
 var currentProblem;
 
+var username = null;
+
 var randomObject = function(context)
 {
     var callback = function(view)
@@ -45,6 +47,15 @@ var randomObject = function(context)
 var app = Sammy('#main', function()
 {
     this.use('Handlebars', 'hb');
+    
+    this.before({except: {path: '#/login'}}, function() {
+        if (username != null)
+            return true;
+        else {
+            this.partial('templates/login.hb');
+            return false;
+        }
+    });
 
     this.get('#/', function()
     {
@@ -80,6 +91,19 @@ var app = Sammy('#main', function()
         if (answer == currentProblem.answer) {
             this.redirect('#/challenge');
         }
+    });
+    
+    this.post("#/login", function(){
+       var context = this;
+       var entered_username = this.params['user'];
+       this.load("/localhost/_design/app/_view/students", {json: true}).then(function(view) {
+          for(var i = 0; i < view.rows.length; i++){
+            if(view.rows[i].key == entered_username)
+                username = entered_username;
+          }
+          
+          context.redirect('#/')
+       });
     });
     
     this.get("#/problems/delete/:id/:rev", function() {
