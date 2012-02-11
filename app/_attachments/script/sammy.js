@@ -1,5 +1,5 @@
 // name: sammy
-// version: 0.7.1
+// version: 0.7.0
 
 // Sammy.js / http://sammyjs.org
 
@@ -8,7 +8,7 @@
   var Sammy,
       PATH_REPLACER = "([^\/]+)",
       PATH_NAME_MATCHER = /:([\w\d]+)/g,
-      QUERY_STRING_MATCHER = /\?([^#]*)?$/,
+      QUERY_STRING_MATCHER = /\?([^#]*)$/,
       // mainly for making `arguments` an Array
       _makeArray = function(nonarray) { return Array.prototype.slice.call(nonarray); },
       // borrowed from jQuery
@@ -44,7 +44,7 @@
   //      // returns the app at #main or a new app
   //      Sammy('#main')
   //
-  //      // equivalent to "new Sammy.Application", except appends to apps
+  //      // equivilent to "new Sammy.Application", except appends to apps
   //      Sammy();
   //      Sammy(function() { ... });
   //
@@ -65,7 +65,7 @@
           app.use(plugin);
         });
       }
-      // if the selector changes make sure the reference in Sammy.apps changes
+      // if the selector changes make sure the refrence in Sammy.apps changes
       if (app.element_selector != selector) {
         delete Sammy.apps[selector];
       }
@@ -74,7 +74,7 @@
     }
   };
 
-  Sammy.VERSION = '0.7.1';
+  Sammy.VERSION = '0.7.0';
 
   // Add to the global logger pool. Takes a function that accepts an
   // unknown number of arguments and should print them or send them somewhere
@@ -262,9 +262,6 @@
         });
         // bind to link clicks that have routes
         $('a').live('click.history-' + this.app.eventNamespace(), function(e) {
-          if (e.isDefaultPrevented()) {
-            return;
-          }
           var full_path = lp.fullPath(this);
           if (this.hostname == window.location.hostname && app.lookupRoute('get', full_path)) {
             e.preventDefault();
@@ -386,7 +383,7 @@
     // When set to true, logs all of the default events using `log()`
     debug: false,
 
-    // When set to true, and the error() handler is not overridden, will actually
+    // When set to true, and the error() handler is not overriden, will actually
     // raise JS errors in routes (500) and when routes can't be found (404)
     raise_errors: false,
 
@@ -401,7 +398,7 @@
     // `EventContext`. `template_engine` can either be a string that
     // corresponds to the name of a method/helper on EventContext or it can be a function
     // that takes two arguments, the content of the unrendered partial and an optional
-    // JS object that contains interpolation data. Template engine is only called/referred
+    // JS object that contains interpolation data. Template engine is only called/refered
     // to if the extension of the partial is null or unknown. See `partial()`
     // for more information
     template_engine: null,
@@ -450,7 +447,7 @@
     //      });
     //
     // If plugin is passed as a string it assumes your are trying to load
-    // Sammy."Plugin". This is the preferred way of loading core Sammy plugins
+    // Sammy."Plugin". This is the prefered way of loading core Sammy plugins
     // as it allows for better error-messaging.
     //
     // ### Example
@@ -511,12 +508,6 @@
       }
     },
 
-  // provide log() override for inside an app that includes the relevant application element_selector
-    log: function() {
-      Sammy.log.apply(Sammy, Array.prototype.concat.apply([this.element_selector],arguments));
-    },
-
-
     // `route()` is the main method for defining routes within an application.
     // For great detail on routes, check out:
     // [http://sammyjs.org/docs/routes](http://sammyjs.org/docs/routes)
@@ -530,7 +521,7 @@
     //    the first argument is the path, the second is the callback and the verb
     //    is assumed to be 'any'.
     // * `path` A Regexp or a String representing the path to match to invoke this verb.
-    // * `callback` A Function that is called/evaluated when the route is run see: `runRoute()`.
+    // * `callback` A Function that is called/evaluated whent the route is run see: `runRoute()`.
     //    It is also possible to pass a string as the callback, which is looked up as the name
     //    of a method on the application.
     //
@@ -631,7 +622,7 @@
       return ['sammy-app', this.namespace].join('-');
     },
 
-    // Works just like `jQuery.fn.bind()` with a couple notable differences.
+    // Works just like `jQuery.fn.bind()` with a couple noteable differences.
     //
     // * It binds all events to the application element
     // * All events are bound within the `eventNamespace()`
@@ -744,7 +735,7 @@
     // that take a single argument `callback` which is the entire route
     // execution path wrapped up in a closure. This means you can decide whether
     // or not to proceed with execution by not invoking `callback` or,
-    // more usefully wrapping callback inside the result of an asynchronous execution.
+    // more usefuly wrapping callback inside the result of an asynchronous execution.
     //
     // ### Example
     //
@@ -908,7 +899,7 @@
     },
 
     // The opposite of `run()`, un-binds all event listeners and intervals
-    // `run()` Automatically binds a `onunload` event to run this when
+    // `run()` Automaticaly binds a `onunload` event to run this when
     // the document is closed.
     unload: function() {
       if (!this.isRunning()) { return false; }
@@ -975,7 +966,7 @@
     // possible URL params and then invokes the route's callback within a new
     // `Sammy.EventContext`. If the route can not be found, it calls
     // `notFound()`. If `raise_errors` is set to `true` and
-    // the `error()` has not been overridden, it will throw an actual JS
+    // the `error()` has not been overriden, it will throw an actual JS
     // error.
     //
     // You probably will never have to call this directly.
@@ -1082,7 +1073,7 @@
     //     // match against a path string
     //     app.contextMatchesOptions(context, '#/mypath'); //=> true
     //     app.contextMatchesOptions(context, '#/otherpath'); //=> false
-    //     // equivalent to
+    //     // equivilent to
     //     app.contextMatchesOptions(context, {only: {path:'#/mypath'}}); //=> true
     //     app.contextMatchesOptions(context, {only: {path:'#/otherpath'}}); //=> false
     //     // match against a path regexp
@@ -1097,20 +1088,11 @@
     //     // match all except a path
     //     app.contextMatchesOptions(context, {except: {path:'#/otherpath'}}); //=> true
     //     app.contextMatchesOptions(context, {except: {path:'#/mypath'}}); //=> false
-    //     // match multiple paths
-    //     app.contextMatchesOptions(context, {path: ['#/mypath', '#/otherpath']}); //=> true
-    //     app.contextMatchesOptions(context, {path: ['#/otherpath', '#/thirdpath']}); //=> false
-    //     // equivalent to
-    //     app.contextMatchesOptions(context, {only: {path: ['#/mypath', '#/otherpath']}}); //=> true
-    //     app.contextMatchesOptions(context, {only: {path: ['#/otherpath', '#/thirdpath']}}); //=> false
-    //     // match all except multiple paths
-    //     app.contextMatchesOptions(context, {except: {path: ['#/mypath', '#/otherpath']}}); //=> false
-    //     app.contextMatchesOptions(context, {except: {path: ['#/otherpath', '#/thirdpath']}}); //=> true
     //
     contextMatchesOptions: function(context, match_options, positive) {
       // empty options always match
       var options = match_options;
-      if (typeof options === 'undefined' || $.isPlainObject(options)) {
+      if (typeof options === 'undefined' || options == {}) {
         return true;
       }
       if (typeof positive === 'undefined') {
@@ -1120,17 +1102,6 @@
       if (typeof options === 'string' || _isFunction(options.test)) {
         options = {path: options};
       }
-      // Do we have to match against multiple paths?
-      if (_isArray(options.path)){
-        var results, numopt, opts;
-        results = [];
-        for (numopt in options.path){
-          opts = $.extend({}, options, {path: options.path[numopt]});
-          results.push(this.contextMatchesOptions(context, opts));
-        }
-        var matched = $.inArray(true, results) > -1 ? true : false;
-        return positive ? matched : !matched;
-      }
       if (options.only) {
         return this.contextMatchesOptions(context, options.only, true);
       } else if (options.except) {
@@ -1138,7 +1109,7 @@
       }
       var path_matched = true, verb_matched = true;
       if (options.path) {
-        // weird regexp test
+        // wierd regexp test
         if (!_isFunction(options.path.test)) {
           options.path = new RegExp(options.path.toString() + '$');
         }
@@ -1181,29 +1152,23 @@
     //      var app = $.sammy(function() {
     //
     //        // implements a 'fade out'/'fade in'
-    //        this.swap = function(content, callback) {
-    //          var context = this;
-    //          context.$element().fadeOut('slow', function() {
-    //            context.$element().html(content);
-    //            context.$element().fadeIn('slow', function() {
-    //              if (callback) {
-    //                callback.apply();
-    //              }
-    //            });
-    //          });
-    //        };
+    //        this.swap = function(content) {
+    //          this.$element().hide('slow').html(content).show('slow');
+    //        }
+    //
+    //        get('#/', function() {
+    //          this.partial('index.html.erb') // will fade out and in
+    //        });
     //
     //      });
     //
-    swap: function(content, callback) {
-      var $el = this.$element().html(content);
-      if (_isFunction(callback)) { callback(content); }
-      return $el;
+    swap: function(content) {
+      return this.$element().html(content);
     },
 
     // a simple global cache for templates. Uses the same semantics as
     // `Sammy.Cache` and `Sammy.Storage` so can easily be replaced with
-    // a persistent storage that lasts beyond the current request.
+    // a persistant storage that lasts beyond the current request.
     templateCache: function(key, value) {
       if (typeof value != 'undefined') {
         return _template_cache[key] = value;
@@ -1217,7 +1182,7 @@
       return _template_cache = {};
     },
 
-    // This throws a '404 Not Found' error by invoking `error()`.
+    // This thows a '404 Not Found' error by invoking `error()`.
     // Override this method or `error()` to provide custom
     // 404 behavior (i.e redirecting to / or showing a warning)
     notFound: function(verb, path) {
@@ -1273,9 +1238,7 @@
       verb  = this._getFormVerb($form);
       this.log('_checkFormSubmission', $form, path, verb);
       if (verb === 'get') {
-        params = this._serializeFormParams($form);
-        if (params !== '') { path += '?' + params; }
-        this.setLocation(path);
+        this.setLocation(path + '?' + this._serializeFormParams($form));
         returned = false;
       } else {
         params = $.extend({}, this._parseFormParams($form));
@@ -1326,7 +1289,7 @@
     },
 
     _parseParamPair: function(params, key, value) {
-      if (typeof params[key] !== 'undefined') {
+      if (params[key]) {
         if (_isArray(params[key])) {
           params[key].push(value);
         } else {
@@ -1349,11 +1312,11 @@
   });
 
   // `Sammy.RenderContext` is an object that makes sequential template loading,
-  // rendering and interpolation seamless even when dealing with asynchronous
+  // rendering and interpolation seamless even when dealing with asyncronous
   // operations.
   //
   // `RenderContext` objects are not usually created directly, rather they are
-  // instantiated from an `Sammy.EventContext` by using `render()`, `load()` or
+  // instatiated from an `Sammy.EventContext` by using `render()`, `load()` or
   // `partial()` which all return `RenderContext` objects.
   //
   // `RenderContext` methods always returns a modified `RenderContext`
@@ -1362,7 +1325,7 @@
   // The core magic is in the `then()` method which puts the callback passed as
   // an argument into a queue to be executed once the previous callback is complete.
   // All the methods of `RenderContext` are wrapped in `then()` which allows you
-  // to queue up methods by chaining, but maintaining a guaranteed execution order
+  // to queue up methods by chaining, but maintaing a guarunteed execution order
   // even with remote calls to fetch templates.
   //
   Sammy.RenderContext = function(event_context) {
@@ -1383,9 +1346,9 @@
     // is executed immediately.
     //
     // The value returned from the callback is stored in `content` for the
-    // subsequent operation. If you return `false`, the queue will pause, and
+    // subsiquent operation. If you return `false`, the queue will pause, and
     // the next callback in the queue will not be executed until `next()` is
-    // called. This allows for the guaranteed order of execution while working
+    // called. This allows for the guarunteed order of execution while working
     // with async operations.
     //
     // If then() is passed a string instead of a function, the string is looked
@@ -1473,7 +1436,7 @@
     },
 
     // Load a template into the context.
-    // The `location` can either be a string specifying the remote path to the
+    // The `location` can either be a string specifiying the remote path to the
     // file, a jQuery object, or a DOM element.
     //
     // No interpolation happens by default, the content is stored in
@@ -1522,7 +1485,7 @@
           $.ajax($.extend({
             url: location,
             data: {},
-            dataType: is_json ? 'json' : 'text',
+            dataType: is_json ? 'json' : null,
             type: 'get',
             success: function(data) {
               if (should_cache) {
@@ -1557,16 +1520,13 @@
     //      this.loadPartials({mypartial: '/path/to/partial'});
     //
     loadPartials: function(partials) {
-      var name;
       if(partials) {
         this.partials = this.partials || {};
         for(name in partials) {
-          (function(context, name) {
-            context.load(partials[name])
-                   .then(function(template) {
-                     this.partials[name] = template;
+          this.load(partials[name])
+              .then(function(template) {
+                      this.partials[name] = template;
                    });
-          })(this, name);
         }
       }
       return this;
@@ -1591,17 +1551,10 @@
       }
     },
 
-    // `render()` the `location` with `data` and then `swap()` the
+    // `render()` the the `location` with `data` and then `swap()` the
     // app's `$element` with the rendered content.
-    partial: function(location, data, callback) {
-      if (_isFunction(callback)) {
-        return this.render(location, data).swap(callback);
-      } else if (!callback && _isFunction(data)) {
-        // invoked as partial(location, callback)
-        return this.render(location).swap(data);
-      } else {
-        return this.render(location, data).swap();
-      }
+    partial: function(location, data) {
+      return this.render(location, data).swap();
     },
 
     // defers the call of function to occur in order of the render queue.
@@ -1633,7 +1586,7 @@
       });
     },
 
-    // iterates over an array, applying the callback for each item item. the
+    // itterates over an array, applying the callback for each item item. the
     // callback takes the same style of arguments as `jQuery.each()` (index, item).
     // The return value of each callback is collected as a single string and stored
     // as `content` to be used in the next iteration of the `RenderContext`.
@@ -1707,11 +1660,10 @@
       });
     },
 
-    // Swap the return contents ensuring order. See `Application#swap`
-    swap: function(callback) {
+    // executes `EventContext#swap()` with the `content`
+    swap: function() {
       return this.then(function(content) {
-        this.event_context.swap(content, callback);
-        return content;
+        this.event_context.swap(content);
       }).trigger('changed', {});
     },
 
@@ -1738,13 +1690,12 @@
     },
 
     // trigger the event in the order of the event context. Same semantics
-    // as `Sammy.EventContext#trigger()`. If data is omitted, `content`
+    // as `Sammy.EventContext#trigger()`. If data is ommitted, `content`
     // is sent as `{content: content}`
     trigger: function(name, data) {
       return this.then(function(content) {
         if (typeof data == 'undefined') { data = {content: content}; }
         this.event_context.trigger(name, data);
-        return content;
       });
     }
 
@@ -1799,10 +1750,10 @@
     // Look up a templating engine within the current app and context.
     // `engine` can be one of the following:
     //
-    // * a function: should conform to `function(content, data) { return interpolated; }`
+    // * a function: should conform to `function(content, data) { return interploated; }`
     // * a template path: 'template.ejs', looks up the extension to match to
     //   the `ejs()` helper
-    // * a string referring to the helper: "mustache" => `mustache()`
+    // * a string referering to the helper: "mustache" => `mustache()`
     //
     // If no engine is found, use the app's default `template_engine`
     //
@@ -1872,10 +1823,10 @@
       return new Sammy.RenderContext(this).load(location, options, callback);
     },
 
-    // `render()` the `location` with `data` and then `swap()` the
+    // `render()` the the `location` with `data` and then `swap()` the
     // app's `$element` with the rendered content.
-    partial: function(location, data, callback) {
-      return new Sammy.RenderContext(this).partial(location, data, callback);
+    partial: function(location, data) {
+      return new Sammy.RenderContext(this).partial(location, data);
     },
 
     // create a new `Sammy.RenderContext` calling `send()` with an arbitrary
@@ -1892,7 +1843,7 @@
     // ### Example
     //
     //      redirect('#/other/route');
-    //      // equivalent to
+    //      // equivilent to
     //      redirect('#', 'other', 'route');
     //
     redirect: function() {
@@ -1940,8 +1891,8 @@
     },
 
     // A shortcut to app's `swap()`
-    swap: function(contents, callback) {
-      return this.app.swap(contents, callback);
+    swap: function(contents) {
+      return this.app.swap(contents);
     },
 
     // Raises a possible `notFound()` error for the current path.
