@@ -1,10 +1,11 @@
 (function($) {
 const maxInt = 9007199254740992;
 
-var Problem = function(question, answer) {
+var Problem = function(question, answer, difficulty) {
     return {
         problem: question,
         answer: answer,
+        difficulty: difficulty,
         record_type: 'problem'
     };
 };
@@ -35,7 +36,7 @@ var randomObject = function(context)
         var randomNum = Math.floor(Math.random() * view.rows.length);
         var problem = view.rows[randomNum].value;
         if (problem) {
-            this.render('templates/problemTemplate.hb', problem).replace('#displayBox');
+            this.render('templates/problemTemplate.hb', problem).appendTo('#displayBox');
             currentProblem = problem;
         }
     }
@@ -61,7 +62,7 @@ var app = Sammy('#main', function()
     
     this.post("#/problems", function() {
         var self = this;
-        ProblemSet.saveProblem(new Problem(this.params['question'], this.params['answer']), function() {
+        ProblemSet.saveProblem(new Problem(this.params['question'], this.params['answer'], this.params['difficulty']), function() {
             self.redirect('#/problems/new');
         });
     });
@@ -77,8 +78,13 @@ var app = Sammy('#main', function()
     
     this.post("#/answer", function(){
         var answer = this.params['answer'];
-        if (answer == currentProblem.answer) {
-            this.redirect('#/challenge');
+        if (answer == currentProblem.answer)
+        {
+        	$('#displayBox').append("<br/>")
+        	$('#displayBox').append("Correct!");
+        	$('#displayBox').append("<br/>")
+        	$('#input').text("");
+        	randomObject(this);
         }
     });
     

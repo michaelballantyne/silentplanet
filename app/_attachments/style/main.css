@@ -1,13 +1,18 @@
 /* add styles here */
-body {
+body
+{
 	background-color: black;
 	font: 1em Helvetica, sans-serif;
 	color: green;
 }
-input {
+input
+{
+	width:100%;
 	background-color: black;
 	font: 1em Helvetica, sans-serif;
 	color: green;
+	border-width: 1px;
+    border-color: gray;
 }
 
 h1 {
@@ -21,11 +26,6 @@ form {
 	color: green;
 }
 
-input {
-    border-width: 1px;
-    border-color: gray;
-}
-
 label {
     display: block;
 }
@@ -33,7 +33,7 @@ label {
 textarea {
     background-color: black;
     color: green;
-
+	width:100%
 }
 ul {
 	list-style: none;
@@ -47,4 +47,24 @@ li {
 a:visited, a:link {
     color: green;
     text-decoration: none
+}
+table
+{
+	border:2px solid red;
+	width:100%;
+	padding: 4px;
+	margin: 6px;
+}
+tr
+{
+	border:2px solid red;
+	width : 100%;
+}
+th
+{
+	border:2px solid red;
+}
+td
+{
+	border:2px solid red;
 }
