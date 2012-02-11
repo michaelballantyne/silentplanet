@@ -10,6 +10,28 @@ var Problem = function(question, answer, difficulty) {
     };
 };
 
+var Student = function(username) {
+    return {
+        username: username,
+        record_type: 'student'
+    };
+};
+
+var StudentSet = {
+    getStudents: function(context, callback) {
+        context.load('/localhost/_design/app/_view/students', {json: true, cache: false}).then(callback);  
+    },
+    
+    deleteStudent: function(id, rev, callback) {
+        db.removeDoc({_id: id, _rev: rev}, {success: callback});        
+    },
+    
+    saveStudent: function(doc, callback) {
+        db.saveDoc(doc, {success: callback});        
+    }
+};
+
+
 var ProblemSet = {
     getProblems: function(context, callback) {
         context.load('/localhost/_design/app/_view/problems', {json: true, cache: false}).then(callback);
@@ -33,8 +55,10 @@ var randomObject = function(context)
 {
     var callback = function(view)
     {
-        if (view.rows.length == 0)
+        if (view.rows.length == 0) {
             $('displayBox').html('Empty Database');
+            return;
+        }
         var randomNum = Math.floor(Math.random() * view.rows.length);
         var problem = view.rows[randomNum].value;
         if (problem) {
@@ -56,6 +80,11 @@ var app = Sammy('#main', function()
             this.partial('templates/login.hb');
             return false;
         }
+    });
+
+    this.get('#/logout', function(){
+       username = null;
+       this.redirect('#/');
     });
 
     this.get('#/', function()
@@ -83,6 +112,22 @@ var app = Sammy('#main', function()
             this.partial('templates/admin/addproblem.hb', {rows: view.rows})
                 .then(function() {
                     $('#question').focus();
+                });
+        });
+    });
+    
+    this.post("#/students", function() {
+        var self = this;
+        StudentSet.saveStudent(new Student(this.params['username']), function() {
+            self.redirect('#/student/new');
+        });
+    });
+    
+    this.get("#/students/new", function() {
+        StudentSet.getStudents(this, function(view){
+            this.partial('templates/admin/addstudent.hb', {rows: view.rows})
+                .then(function() {
+                    $('#student').focus();
                 });
         });
     });
@@ -116,6 +161,13 @@ var app = Sammy('#main', function()
         var self = this;
         ProblemSet.deleteProblem(this.params['id'], this.params['rev'], function() {
             self.redirect("#/problems/new");
+        });
+    });
+    
+    this.get("#/students/delete/:id/:rev", function() {
+        var self = this;
+        StudentSet.deleteStudent(this.params['id'], this.params['rev'], function() {
+            self.redirect("#/students/new");
         });
     });
 });
