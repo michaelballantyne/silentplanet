@@ -116,12 +116,11 @@
 			});
 		}); 
 
-		this.post("#/problems", function()
+		this.post("#/problems", function(context)
 		{
-			var self = this;
 			ProblemSet.saveProblem(new Problem(this.params['question'], this.params['answer'], this.params['difficulty']), function()
 			{
-				self.redirect('#/problems/new');
+				context.redirect('#/problems/new');
 			});
 		});
 
@@ -147,12 +146,11 @@
 			});
 		});
 
-		this.post("#/students", function()
+		this.post("#/students", function(context)
 		{
-			var self = this;
 			StudentSet.saveStudent(new Student(this.params['username']), function()
 			{
-				self.redirect('#/students/new');
+				context.redirect('#/students/new');
 			});
 		});
 
@@ -185,7 +183,7 @@
 				$('#displayBox').append("Incorrect, try again!");
 				$('#displayBox').append("<br/>");
 				$('#input').val("");
-				this.render('templates/problemTemplate.hb', currentProblem).appendTo('#displayBox');
+				this.render('templates/problem.hb', currentProblem).appendTo('#displayBox');
 			}
 		});
 
@@ -208,21 +206,19 @@
 			});
 		});
 
-		this.get("#/problems/delete/:id/:rev", function()
+		this.get("#/problems/delete/:id/:rev", function(context)
 		{
-			var self = this;
 			ProblemSet.deleteProblem(this.params['id'], this.params['rev'], function()
 			{
-				self.redirect("#/problems/new");
+				context.redirect("#/problems/new");
 			});
 		});
 
-		this.get("#/students/delete/:id/:rev", function()
+		this.get("#/students/delete/:id/:rev", function(context)
 		{
-			var self = this;
 			StudentSet.deleteStudent(this.params['id'], this.params['rev'], function()
 			{
-				self.redirect("#/students/new");
+				context.redirect("#/students/new");
 			});
 		});
 	});
