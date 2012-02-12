@@ -79,11 +79,18 @@
 
 		this.before({except: {path: '#/login'}}, function()
 		{
+                        if (username == null)
+                        {
+                                username = $.cookie('username');
+                        }
+                        
 			if (username != null)
+                        {
 				return true;
+                        }
 			else
 			{
-				this.partial('templates/login.hb');
+				this.partial('templates/login.hb', {redirectpath: window.location.hash});
 				return false;
 			}
 		});
@@ -91,6 +98,7 @@
 		this.get('#/logout', function()
 		{
 			username = null;
+                        $.cookie('username', null);
 			this.redirect('#/');
 		});
 
@@ -190,10 +198,13 @@
 				for(var i = 0; i < view.rows.length; i++)
 				{
 					if(view.rows[i].key == entered_username)
+                                        {
 						username = entered_username;
+                                                $.cookie('username', entered_username);
+                                        }
 				}
 
-				context.redirect('#/')
+				context.redirect(context.params['redirectpath']);
 			});
 		});
 
