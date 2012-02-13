@@ -97,6 +97,11 @@
         {
             this.use('Handlebars', 'hb');
 
+            this.get('#/', function()
+            {
+                this.redirect('#/challenge');
+            });
+
             this.before({
                 except: {
                     path: '#/login'
@@ -122,16 +127,33 @@
                     }
                 });
 
+            this.post("#/login", function()
+            {
+                var context = this;
+                var entered_username = this.params['user'];
+                this.load("/localhost/_design/app/_view/students", {
+                    json: true
+                }).then(function(view)
+
+                {
+                        for(var i = 0; i < view.rows.length; i++)
+                        {
+                            if(view.rows[i].key == entered_username)
+                            {
+                                username = entered_username;
+                                $.cookie('username', entered_username);
+                            }
+                        }
+
+                        context.redirect(context.params['redirectpath']);
+                    });
+            });
+            
             this.get('#/logout', function()
             {
                 username = null;
                 $.cookie('username', null);
                 this.redirect('#/');
-            });
-
-            this.get('#/', function()
-            {
-                this.redirect('#/challenge');
             });
 
             this.get('#/challenge', function()
@@ -142,7 +164,28 @@
                     randomObject(this);
                 });
             }); 
-
+                           
+            this.post("#/answer", function()
+            {
+                var answer = this.params['answer'];
+                if (answer.toUpperCase() == currentProblem.answer.toUpperCase())
+                {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Correct!");
+                    $('#displayBox').append("<br/>");
+                    $('#input').val("");
+                    randomObject(this);
+                }
+                else
+                {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Incorrect, try again!");
+                    $('#displayBox').append("<br/>");
+                    $('#input').val("");
+                    this.render('templates/problem.hb', currentProblem).appendTo('#displayBox');
+                }
+            });
+            
             this.post("#/problems", function(context)
             {
                 ProblemSet.saveProblem(new Problem(this.params['question'], this.params['answer'], this.params['difficulty']), function()
@@ -175,6 +218,14 @@
                 });
             });
 
+            this.get("#/problems/delete/:id/:rev", function(context)
+            {
+                ProblemSet.deleteProblem(this.params['id'], this.params['rev'], function()
+                {
+                    context.redirect("#/problems/new");
+                });
+            });
+
             this.post("#/students", function(context)
             {
                 StudentSet.saveStudent(new Student(this.params['username']), function()
@@ -197,57 +248,6 @@
                 });
             });
 		
-            this.post("#/answer", function()
-            {
-                var answer = this.params['answer'];
-                if (answer.toUpperCase() == currentProblem.answer.toUpperCase())
-                {
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Correct!");
-                    $('#displayBox').append("<br/>");
-                    $('#input').val("");
-                    randomObject(this);
-                }
-                else
-                {
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Incorrect, try again!");
-                    $('#displayBox').append("<br/>");
-                    $('#input').val("");
-                    this.render('templates/problem.hb', currentProblem).appendTo('#displayBox');
-                }
-            });
-
-            this.post("#/login", function()
-            {
-                var context = this;
-                var entered_username = this.params['user'];
-                this.load("/localhost/_design/app/_view/students", {
-                    json: true
-                }).then(function(view)
-
-                {
-                        for(var i = 0; i < view.rows.length; i++)
-                        {
-                            if(view.rows[i].key == entered_username)
-                            {
-                                username = entered_username;
-                                $.cookie('username', entered_username);
-                            }
-                        }
-
-                        context.redirect(context.params['redirectpath']);
-                    });
-            });
-
-            this.get("#/problems/delete/:id/:rev", function(context)
-            {
-                ProblemSet.deleteProblem(this.params['id'], this.params['rev'], function()
-                {
-                    context.redirect("#/problems/new");
-                });
-            });
-
             this.get("#/students/delete/:id/:rev", function(context)
             {
                 StudentSet.deleteStudent(this.params['id'], this.params['rev'], function()
