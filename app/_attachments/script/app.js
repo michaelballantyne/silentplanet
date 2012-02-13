@@ -86,7 +86,7 @@
                 var problem = view.rows[randomNum].value;
                 if (problem)
                 {
-                    this.render('templates/problemTemplate.hb', problem).appendTo('#displayBox');
+                    this.render('templates/problem.hb', problem).appendTo('#displayBox');
                     currentProblem = problem;
                 }
             };
