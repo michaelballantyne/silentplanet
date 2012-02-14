@@ -123,6 +123,7 @@
                         this.partial('templates/login.hb', {
                             redirectpath: window.location.hash
                         });
+                        $('#navigationMenu').hide();
                         return false;
                     }
                 });
@@ -142,10 +143,16 @@
                             {
                                 username = entered_username;
                                 $.cookie('username', entered_username);
+                                $('#navigationMenu').show();
                             }
                         }
-
-                        context.redirect(context.params['redirectpath']);
+                        
+                        
+                        if (username != null)
+                            context.redirect(context.params['redirectpath']);
+                        else {
+                            $('#loginInfo').show();
+                        }
                     });
             });
             

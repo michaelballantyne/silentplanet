@@ -3,3 +3,4 @@
     <label>Username: </label><input type="text" name="user"/>
     <input class="submit" type="submit" value="Log In"/>
 </form>
+<div id="loginInfo" style="display: none">Invalid username</div>
