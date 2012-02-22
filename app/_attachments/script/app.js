@@ -231,7 +231,7 @@
                 }).then(function(view)
 
                 {
-                        if(view.rows != null)
+                        if(view.rows.length != 0)
                         {
                             currentStudent = Student(view.rows[0]);
                             $.cookie('username', entered_username);
