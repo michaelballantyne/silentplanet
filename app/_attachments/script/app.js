@@ -1,7 +1,7 @@
 (function($)
     {
         const maxInt = 9007199254740992;
-
+        
         var Problem = function(question, answer, difficulty)
         {
             return {
@@ -11,11 +11,32 @@
                 record_type: 'problem'
             };
         };
+        
+        var ProblemReport = function(id, correct, incorrect)
+        {
+            return {
+                id: id,
+                correct: correct,
+                incorrect: incorrect
+            };
+        };
+        
+        var ProblemReportRow = function(id, problem, difficulty, correct, incorrect)
+        {
+            return {
+                id: id,
+                problem:problem,
+                difficulty:difficulty,
+                correct:correct,
+                incorrect:incorrect
+            };
+        };
 
-        var Student = function(username)
+        var Student = function(username, problemReports)
         {
             return {
                 username: username,
+                problemReports: problemReports,
                 record_type: 'student'
             };
         };
@@ -26,6 +47,13 @@
                     json: true, 
                     cache: false
                 }).then(callback);  
+            },
+            
+            getStudent: function(username, context, callback) {
+                context.load('/localhost/_design/app/_view/students?key=' + '"' + escape(username) + '"', {
+                    json: true,
+                    cache: false
+                }).then(callback);
             },
 
             deleteStudent: function(id, rev, callback) {
@@ -51,6 +79,14 @@
                     cache: false
                 }).then(callback);
             },
+            
+            getProblem: function(id, context, callback) {
+                context.load('/localhost/_design/app/_view/problems?key=' + '"' + escape(id) + '"', {
+                    _id: id,
+                    json: true,
+                    cachse: false
+                }).then(callback);
+            },
 
             deleteProblem: function(id, rev, callback) {
                 db.removeDoc({
@@ -69,10 +105,55 @@
 
         var db = $.couch.db('localhost');
 
-        var currentProblem;
+        var currentProblem = null;
 
+        var currentStudent = null;
+        
         var username = null;
 
+        var updateStudentOnServer = function()
+        {
+            StudentSet.saveStudent(currentStudent, function(){});
+        }
+        
+        //updates currentStudent after the username has been set
+        var updateCurrentStudent = function(context)
+        {
+            var callback = function(view)
+            {
+                currentStudent = view.rows[0].value;
+            };
+            StudentSet.getStudent(username, context, callback);
+        };
+        
+        var addOrUpdateProblemReport = function(id, correct, context)
+        {
+            if(!currentStudent.problemReports)
+            {
+                currentStudent.problemReports = [];
+            }
+            for(var i = 0; i < currentStudent.problemReports.length; i++)
+            {
+                if(currentStudent.problemReports[i].id == id)
+                    break;
+            }
+            if(i == currentStudent.problemReports.length)
+            {
+                currentStudent.problemReports[i] = new ProblemReport(id, 0, 0);
+            }
+            
+            if(correct)
+            {
+                currentStudent.problemReports[i].correct += 1;
+            }
+            else
+            {
+                currentStudent.problemReports[i].incorrect += 1;
+            }
+            updateStudentOnServer(context);
+        }
+        
+        //grabs a random problem and puts it in the displaybox
         var randomObject = function(context)
         {
             var callback = function(view)
@@ -95,6 +176,16 @@
 
         var app = Sammy('#main', function()
         {
+            Handlebars.registerHelper("formatDifficulty", function(difficulty)
+            {
+                var difficultyAsAsterisk = "";
+                for(var i = 0; i < difficulty; i++)
+                {
+                    difficultyAsAsterisk += "*";
+                }
+                return new Handlebars.SafeString(difficultyAsAsterisk);
+            });
+            
             this.use('Handlebars', 'hb');
 
             this.get('#/', function()
@@ -109,13 +200,16 @@
             }, function()
 
             {
-                    if (username == null)
+                    if (username != null) //case where the user is already logged in
                     {
-                        username = $.cookie('username');
+                        return true;
                     }
+                    
+                    username = $.cookie('username');
                         
-                    if (username != null)
+                    if (username != null) //case where cookie wasn't empty
                     {
+                        updateCurrentStudent(this);
                         return true;
                     }
                     else
@@ -132,23 +226,20 @@
             {
                 var context = this;
                 var entered_username = this.params['user'];
-                this.load("/localhost/_design/app/_view/students", {
+                this.load("/localhost/_design/app/_view/students?key=" + "\"" + escape(entered_username) + "\"", {
                     json: true
                 }).then(function(view)
 
                 {
-                        for(var i = 0; i < view.rows.length; i++)
+                        if(view.rows != null)
                         {
-                            if(view.rows[i].key == entered_username)
-                            {
-                                username = entered_username;
-                                $.cookie('username', entered_username);
-                                $('#navigationMenu').show();
-                            }
+                            currentStudent = Student(view.rows[0]);
+                            $.cookie('username', entered_username);
+                            $('#navigationMenu').show();
                         }
                         
                         
-                        if (username != null)
+                        if (currentStudent != null)
                             context.redirect(context.params['redirectpath']);
                         else {
                             $('#loginInfo').show();
@@ -175,7 +266,9 @@
             this.post("#/answer", function()
             {
                 var answer = this.params['answer'];
-                if (answer.toUpperCase() == currentProblem.answer.toUpperCase())
+                var correct = answer.toUpperCase() == currentProblem.answer.toUpperCase();
+                addOrUpdateProblemReport(currentProblem._id, correct, this);
+                if (correct)
                 {
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("Correct!");
@@ -203,16 +296,6 @@
 
             this.get("#/problems/new", function()
             {
-                Handlebars.registerHelper("formatDifficulty", function(difficulty)
-                {
-                    var difficultyAsAsterisk = "";
-                    for(var i = 0; i < difficulty; i++)
-                    {
-                        difficultyAsAsterisk += "*";
-                    }
-                    return new Handlebars.SafeString(difficultyAsAsterisk);
-                });
-			
                 ProblemSet.getProblems(this, function(view)
                 {
                     this.partial('templates/admin/addproblem.hb', {
@@ -235,7 +318,7 @@
 
             this.post("#/students", function(context)
             {
-                StudentSet.saveStudent(new Student(this.params['username']), function()
+                StudentSet.saveStudent(new Student(this.params['username'], []), function()
                 {
                     context.redirect('#/students/new');
                 });
@@ -253,6 +336,36 @@
                         $('#student').focus();
                     });
                 });
+            });
+            
+            this.get("#/students/reports", function()
+            {  
+                updateStudentOnServer();
+                var problemReportRows = [];
+                for(var i = 0; i < currentStudent.problemReports.length; i++)
+                {
+                    problemReportRows[i] = new ProblemReportRow(currentStudent.problemReports[i].id, "", "", currentStudent.problemReports[i].correct, currentStudent.problemReports[i].incorrect);
+                }
+               
+                ProblemSet.getProblems(this, function(view)
+                {
+                    for(var i = 0; i < view.rows.length; i++)
+                    {
+                        for(var j = 0; j < problemReportRows.length; j++)
+                        {
+                            if(view.rows[i].id == problemReportRows[j].id)
+                            {
+                                var returnedValue = view.rows[i].value;
+                                problemReportRows[j].problem = returnedValue.problem;
+                                problemReportRows[j].difficulty = returnedValue.difficulty;
+                            }
+                        }
+                    }
+                    this.partial('templates/student-report.hb', {
+                        rows: problemReportRows
+                    });
+                });
+                
             });
 		
             this.get("#/students/delete/:id/:rev", function(context)
