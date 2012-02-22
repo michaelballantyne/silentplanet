@@ -109,15 +109,13 @@
 
         var currentStudent = null;
         
-        var username = null;
-
         var updateStudentOnServer = function()
         {
             StudentSet.saveStudent(currentStudent, function(){});
         }
         
         //updates currentStudent after the username has been set
-        var updateCurrentStudent = function(context)
+        var updateCurrentStudent = function(context, username)
         {
             var callback = function(view)
             {
@@ -200,16 +198,16 @@
             }, function()
 
             {
-                    if (username != null) //case where the user is already logged in
+                    if (currentStudent != null) //case where the user is already logged in
                     {
                         return true;
                     }
                     
-                    username = $.cookie('username');
+                    var username = $.cookie('username');
                         
                     if (username != null) //case where cookie wasn't empty
                     {
-                        updateCurrentStudent(this);
+                        updateCurrentStudent(this, username);
                         return true;
                     }
                     else
@@ -233,7 +231,7 @@
                 {
                         if(view.rows.length != 0)
                         {
-                            currentStudent = Student(view.rows[0]);
+                            currentStudent = view.rows[0].value;
                             $.cookie('username', entered_username);
                             $('#navigationMenu').show();
                         }
@@ -249,7 +247,7 @@
             
             this.get('#/logout', function()
             {
-                username = null;
+                currentStudent = null;
                 $.cookie('username', null);
                 this.redirect('#/');
             });
