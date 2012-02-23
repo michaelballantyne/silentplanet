@@ -151,6 +151,19 @@
             updateStudentOnServer(context);
         }
         
+        trimProblemReports = function(ids)
+        {
+            for(var i = 0; i < currentStudent.problemReports.length; i++)
+            {
+                if($.inArray(currentStudent.problemReports[i].id, ids) >= 0)
+                {
+                    currentStudent.problemReports.splice(i, 1);
+                    i--;
+                }
+            }
+            updateStudentOnServer();
+        };
+        
         //grabs a random problem and puts it in the displaybox
         var randomObject = function(context)
         {
@@ -359,6 +372,20 @@
                             }
                         }
                     }
+                    
+                    //kind of a hack here, but basically a lazy removal of problemReports for problems which are no longer in the database
+                    var problemIDsToRemove = [];
+                    for(var i = 0; i < problemReportRows.length; i++)
+                    {
+                            if(!problemReportRows[i].problem)
+                            {
+                                problemIDsToRemove.push(problemReportRows[i].id);
+                                problemReportRows.splice(i, 1);
+                                i--; //we don't want to skip anything in the array for this...
+                            }
+                    }
+                    
+                    trimProblemReports(problemIDsToRemove);
                     this.partial('templates/student-report.hb', {
                         rows: problemReportRows
                     });
