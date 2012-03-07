@@ -1,5 +1,4 @@
-(function($)
-    {
+define(['jquery', 'sammy', 'jquery.couch', 'handlebars', 'sammy.handlebars'], function($, Sammy, Handlebars) {
         //constants
         const maxInt = 9007199254740992;
 
@@ -500,8 +499,5 @@
             });
         });
 
-        $(function()
-        {
-            app.run('#/');
-        });
-    })(jQuery);
+        return app;
+});

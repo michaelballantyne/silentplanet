@@ -3,6 +3,7 @@
 
 // Sammy.js / http://sammyjs.org
 
+define(['jquery'], function ($) {
 (function($, window) {
 
   var Sammy,
@@ -1917,3 +1918,5 @@
   $.sammy = window.Sammy = Sammy;
 
 })(jQuery, window);
+return Sammy;
+});

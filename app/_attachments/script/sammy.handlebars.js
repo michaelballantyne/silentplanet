@@ -1,4 +1,4 @@
-(function($) {
+require(['jquery', 'sammy', 'handlebars'], function ($, Sammy, Handlebars){
 
     Sammy = Sammy || {};
 
@@ -118,4 +118,4 @@
       app.helper(method_alias, handlebars);
     };
 
-})(jQuery);
+});
