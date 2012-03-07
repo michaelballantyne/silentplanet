@@ -1,7 +1,15 @@
 (function($)
     {
+        //constants
         const maxInt = 9007199254740992;
-        
+
+        //variables
+        var db = $.couch.db('localhost');
+        var currentProblem = null;
+        var currentStudent = null;
+        var currentRoom = null;
+        var inventory = [];
+       
         var Problem = function(question, answer, difficulty)
         {
             return {
@@ -32,13 +40,91 @@
             };
         };
 
-        var Student = function(username, problemReports)
+        var Student = function(username, problemReports, itemFlags, roomFlags)
         {
             return {
                 username: username,
                 problemReports: problemReports,
+                itemFlags: itemFlags,
+                roomFlags: roomFlags,
                 record_type: 'student'
             };
+        };
+        
+        var Item = function(itemID, itemName, dialogs)
+        {
+            return {
+                id : itemID,
+                name: itemName,
+                dialogs: dialogs,
+                record_type: 'item'
+            };
+        };
+        
+        var ItemSet = {
+                getItem: function(context, callback)
+                {
+                    context.load('/localhost/_design/app/_view/items', {
+                        json:true,
+                        cache:false
+                    }).then(callback);
+                },
+                
+                saveItem: function(context, callback)
+                {
+                    db.saveDoc(doc, {
+                        success: callback
+                    });
+                },
+                
+                deleteItem: function(id, rev, callback)
+                {
+                    db.removeDoc({
+                        _id: id, 
+                        _rev: rev
+                    }, {
+                        success: callback
+                    });        
+                }
+        }
+        
+        var Room = function(roomID, roomName, description, exits, items)
+        {
+            return {
+                id : roomID,
+                name : roomName,
+                description: description,
+                exits: exits,
+                items: items,
+                record_type: 'room'
+            };
+        };
+        
+        var RoomSet = {
+                getRoom: function(context, callback)
+                {
+                    context.load('/localhost/_design/app/_view/rooms', {
+                        json: true,
+                        cache: false
+                    }).then(callback);
+                },
+                
+                saveRoom: function(context, callback)
+                {
+                    db.saveDoc(doc, {
+                        success: callback
+                    });
+                },
+                
+                deleteRoom: function(id, rev, callback)
+                {
+                    db.removeDoc({
+                        _id: id, 
+                        _rev: rev
+                    }, {
+                        success: callback
+                    });        
+                }         
         };
 
         var StudentSet = {
@@ -103,11 +189,23 @@
             }
         };
 
-        var db = $.couch.db('localhost');
-
-        var currentProblem = null;
-
-        var currentStudent = null;
+        var moveItem = function(itemID, roomID)
+        {
+            if(currentStudent.itemFlags == null)
+                {
+                    currentStudent.itemFlags = [];
+                }
+            var i;
+            for(i=0; i<currentStudent.itemFlags.length;i++)
+                {
+                    if(currentStudent.itemFlags[i].itemID == itemID)
+                        {
+                            break;
+                        }
+                }
+             currentStudent.itemFlags[i].itemID=itemID;
+             currentStudent.itemFlags[i].roomID=roomID;
+        }
         
         var updateStudentOnServer = function()
         {
