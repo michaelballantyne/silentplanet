@@ -1,4 +1,4 @@
-define(['jquery', 'sammy', 'jquery.couch', 'handlebars', 'sammy.handlebars'], function($, Sammy, Handlebars) {
+define(['jquery', 'sammy', 'handlebars', 'jquery.couch', 'sammy.handlebars', 'jquery.cookie'], function($, Sammy, Handlebars) {
         //constants
         const maxInt = 9007199254740992;
 

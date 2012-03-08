@@ -1486,7 +1486,7 @@ define(['jquery'], function ($) {
           $.ajax($.extend({
             url: location,
             data: {},
-            dataType: is_json ? 'json' : null,
+            dataType: is_json ? 'json' : 'html',
             type: 'get',
             success: function(data) {
               if (should_cache) {
