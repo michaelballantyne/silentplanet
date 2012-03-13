@@ -12,7 +12,7 @@
 //        <script src="script/sammy.handlebars.js"></script>
 //        <script src="script/app.js"></script>
 
-require(['jquery', 'app'], function($, app) {
+require(['libraries/jquery', 'app'], function($, app) {
     $(function()
     {
         app.run('#/');

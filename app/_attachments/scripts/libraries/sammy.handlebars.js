@@ -1,4 +1,4 @@
-require(['jquery', 'sammy', 'handlebars'], function ($, Sammy, Handlebars){
+require(['jquery', 'libraries/sammy', 'libraries/handlebars'], function ($, Sammy, Handlebars){
 
     Sammy = Sammy || {};
 
