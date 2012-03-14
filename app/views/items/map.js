@@ -1,4 +1,5 @@
-function(doc) {
-  if(doc.record_type == 'item')
-    emit(doc._id, doc);
+function (doc) {
+    if (doc.record_type === 'item') {
+        emit(doc._id, doc);
+    }
 }

@@ -1,4 +1,5 @@
-function(doc) {
-  if(doc.record_type == 'student')
-    emit(doc.username, doc);
+function (doc) {
+    if (doc.record_type === 'student') {
+        emit(doc.username, doc);
+    }
 }

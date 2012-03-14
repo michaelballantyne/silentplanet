@@ -93,7 +93,7 @@ Handlebars.registerHelper('with', function(context, options) {
 Handlebars.registerHelper('log', function(context) {
   Handlebars.log(context);
 });
-;
+
 // lib/handlebars/compiler/parser.js
 /* Jison generated parser */
 var handlebars = (function(){

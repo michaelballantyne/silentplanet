@@ -1,20 +1,20 @@
-define(['models/db'], function(db) {
-    var Problem = function(question, answer, difficulty) {   
-        this.problem = question,
-        this.answer = answer,
-        this.difficulty = difficulty,
-        this.record_type = 'problem'
+define(['models/db'], function (db) {
+    var Problem = function (question, answer, difficulty) {
+        this.problem = question;
+        this.answer = answer;
+        this.difficulty = difficulty;
+        this.record_type = 'problem';
     };
 
     return {
-        getProblems: function(context, callback) {
+        getProblems: function (context, callback) {
             context.load('/localhost/_design/app/_view/problems', {
-                json: true, 
+                json: true,
                 cache: false
             }).then(callback);
         },
 
-        getProblem: function(id, context, callback) {
+        getProblem: function (id, context, callback) {
             context.load('/localhost/_design/app/_view/problems?key=' + '"' + escape(id) + '"', {
                 _id: id,
                 json: true,
@@ -22,23 +22,23 @@ define(['models/db'], function(db) {
             }).then(callback);
         },
 
-        deleteProblem: function(id, rev, callback) {
+        deleteProblem: function (id, rev, callback) {
             db.removeDoc({
-                _id: id, 
+                _id: id,
                 _rev: rev
             }, {
                 success: callback
             });
         },
 
-        saveProblem: function(doc, callback) {
+        saveProblem: function (doc, callback) {
             db.saveDoc(doc, {
                 success: callback
             });
         },
 
-        createProblem: function(question, answer, difficulty) {
+        createProblem: function (question, answer, difficulty) {
             return new Problem(question, answer, difficulty);
         }
-    }
+    };
 });
