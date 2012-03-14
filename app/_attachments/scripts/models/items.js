@@ -33,5 +33,23 @@ require(['models/model'], function(model) {
                 });        
             }
         }
-    })();    
+    })();
+
+    model.moveItem = function(itemID, roomID)
+    {
+        if(model.currentStudent.itemFlags == null)
+            {
+                model.currentStudent.itemFlags = [];
+            }
+        var i;
+        for(i=0; i<model.currentStudent.itemFlags.length;i++)
+            {
+                if(model.currentStudent.itemFlags[i].itemID == itemID)
+                    {
+                        break;
+                    }
+            }
+            model.currentStudent.itemFlags[i].itemID=itemID;
+            model.currentStudent.itemFlags[i].roomID=roomID;
+    }
 });

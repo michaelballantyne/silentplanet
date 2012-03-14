@@ -39,6 +39,23 @@ require(['models/model'], function(model) {
             }
         };
     })();
+    
+    model.currentStudent = null
+    
+    model.updateStudentOnServer = function()
+    {
+        model.studentSet.saveStudent(model.currentStudent, function(){});
+    }
+    
+    model.updateCurrentStudent = function(context, username, callback)
+    {
+        var privcallback = function(view)
+        {
+            model.currentStudent = view.rows[0].value;
+            callback();
+        };
+        model.studentSet.getStudent(username, context, privcallback);
+    };
 });
 
 
