@@ -17,7 +17,7 @@ define(['libraries/jquery', 'libraries/sammy', 'libraries/handlebars', 'models/p
             {
                 context.redirect('#/problems/new');
             });
-        });
+        }); 
 
         this.get("#/problems/new", function()
         {

@@ -1,12 +1,12 @@
 define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/jquery.cookie'], function($, Sammy, studentSet) {
     var login = login || {}
     
-    login.currentStudent = null
+    login.currentStudent = null;
 
     login.updateStudentOnServer = function()
     {
         studentSet.saveStudent(login.currentStudent, function(){});
-    }
+    };
 
     var updateCurrentStudent = function(context, username, callback)
     {

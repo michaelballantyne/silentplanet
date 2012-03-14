@@ -3,7 +3,7 @@
 
 // Sammy.js / http://sammyjs.org
 
-define(['jquery'], function ($) {
+define(['libraries/jquery'], function ($) {
 (function($, window) {
 
   var Sammy,
