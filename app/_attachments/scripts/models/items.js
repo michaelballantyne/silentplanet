@@ -35,11 +35,13 @@ define(['models/db', 'controllers/login'], function (db, login) {
             if (login.currentStudent.itemFlags === null) {
                 login.currentStudent.itemFlags = [];
             }
+
             for (i = 0; i < login.currentStudent.itemFlags.length; i++) {
                 if (login.currentStudent.itemFlags[i].itemID === itemID) {
                     break;
                 }
             }
+
             login.currentStudent.itemFlags[i].itemID = itemID;
             login.currentStudent.itemFlags[i].roomID = roomID;
         }
