@@ -1,5 +1,5 @@
-require(['models/model'], function(model) {
-    model.Room = function(roomID, roomName, description, exits, items) {
+define(['models/db'], function(db) {        
+    var Room = function(roomID, roomName, description, exits, items) {
         this.id = roomID;
         this.name = roomName;
         this.description = description;
@@ -7,35 +7,36 @@ require(['models/model'], function(model) {
         this.items = items;
         this.record_type = 'room';
     };
-        
-    model.roomSet = (function() {
-        return {
-            getRoom: function(context, callback)
-            {
-                context.load('/localhost/_design/app/_view/rooms', {
-                    json: true,
-                    cache: false
-                }).then(callback);
-            },
 
-            saveRoom: function(context, callback)
-            {
-                model.db.saveDoc(doc, {
-                    success: callback
-                });
-            },
+    return {
+        getRoom: function(context, callback)
+        {
+            context.load('/localhost/_design/app/_view/rooms', {
+                json: true,
+                cache: false
+            }).then(callback);
+        },
 
-            deleteRoom: function(id, rev, callback)
-            {
-                model.db.removeDoc({
-                    _id: id, 
-                    _rev: rev
-                }, {
-                    success: callback
-                });        
-            }    
+        saveRoom: function(context, callback)
+        {
+            db.saveDoc(doc, {
+                success: callback
+            });
+        },
+
+        deleteRoom: function(id, rev, callback)
+        {
+            db.removeDoc({
+                _id: id, 
+                _rev: rev
+            }, {
+                success: callback
+            });        
+        },
+        createRoom: function (roomID, roomName, description, exits, items) {
+            return new Room(roomID, roomName, description, exits, items);
         }
-    })();
+    }
 });
 
 

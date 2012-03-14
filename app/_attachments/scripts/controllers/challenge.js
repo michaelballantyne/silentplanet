@@ -1,4 +1,4 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemreports', 'models/problems'], function($, Sammy, model) {
+define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports'], function($, Sammy, problemSet, problemReports) {
     var currentProblem = null;
     
     var randomObject = function(context)
@@ -18,7 +18,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemre
                 currentProblem = problem;
             }
         };
-        model.problemSet.getProblems(context, callback);
+        problemSet.getProblems(context, callback);
     }
     
     Sammy('#main', function() {
@@ -35,7 +35,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemre
         {
             var answer = this.params['answer'];
             var correct = answer.toUpperCase() == currentProblem.answer.toUpperCase();
-            model.addOrUpdateProblemReport(currentProblem._id, correct, this);
+            problemReports.addOrUpdateProblemReport(currentProblem._id, correct, this);
             if (correct)
             {
                 $('#displayBox').append("<br/>");

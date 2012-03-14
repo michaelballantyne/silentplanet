@@ -1,4 +1,23 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/students', 'libraries/jquery.cookie'], function($, Sammy, model) {
+define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/jquery.cookie'], function($, Sammy, studentSet) {
+    var login = login || {}
+    
+    login.currentStudent = null
+
+    login.updateStudentOnServer = function()
+    {
+        studentSet.saveStudent(login.currentStudent, function(){});
+    }
+
+    var updateCurrentStudent = function(context, username, callback)
+    {
+        var privcallback = function(view)
+        {
+            login.currentStudent = view.rows[0].value;
+            callback();
+        };
+        studentSet.getStudent(username, context, privcallback);
+    };
+    
     Sammy('#main', function()
     {
         this.before({
@@ -6,7 +25,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/students'
                 path: '#/login'
             }
         }, function(context) {
-            if (model.currentStudent != null) //case where the user is already logged in
+            if (login.currentStudent != null) //case where the user is already logged in
             {
                 return true;
             }
@@ -15,7 +34,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/students'
 
             if (username != null) //case where cookie wasn't empty
             {
-                model.updateCurrentStudent(this, username, function() {
+                updateCurrentStudent(this, username, function() {
                     context.app.refresh();
                 });
                 
@@ -42,13 +61,13 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/students'
             {
                     if(view.rows.length != 0)
                     {
-                        model.currentStudent = view.rows[0].value;
+                        login.currentStudent = view.rows[0].value;
                         $.cookie('username', entered_username);
                         $('#navigationMenu').show();
                     }
 
 
-                    if (model.currentStudent != null)
+                    if (login.currentStudent != null)
                         context.redirect(context.params['redirectpath']);
                     else {
                         $('#loginInfo').show();
@@ -58,10 +77,11 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/students'
 
         this.get('#/logout', function()
         {
-            model.currentStudent = null;
+            login.currentStudent = null;
             $.cookie('username', null);
             this.redirect('#/');
         });
-
     });
+    
+    return login;
 });

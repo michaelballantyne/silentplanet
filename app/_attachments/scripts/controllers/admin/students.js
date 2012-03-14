@@ -1,8 +1,20 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemreports', 'models/problems', 'models/students'], function($, Sammy, model) {
+define(['libraries/jquery', 'libraries/sammy', 'controllers/login',
+    'models/students', 'models/problems', 'models/problemreports'],
+    function($, Sammy, login, studentSet, problemSet, problemReports) {
+    
+    var ProblemReportRow = function(id, problem, difficulty, correct, incorrect)
+    {
+        this.id = id;
+        this.problem = problem;
+        this.difficulty = difficulty;
+        this.correct = correct;
+        this.incorrect = incorrect;
+    };  
+    
     Sammy('#main', function() {
         this.post("#/students", function(context)
         {
-            model.studentSet.saveStudent(new model.Student(this.params['username'], []), function()
+            studentSet.saveStudent(new studentSet.createStudent(this.params['username'], []), function()
             {
                 context.redirect('#/students/new');
             });
@@ -10,7 +22,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemre
 
         this.get("#/students/new", function()
         {
-            model.studentSet.getStudents(this, function(view)
+            studentSet.getStudents(this, function(view)
             {
                 this.partial('templates/admin/addstudent.hb', {
                     rows: view.rows
@@ -24,14 +36,14 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemre
         
         this.get("#/students/reports", function()
         {
-            model.updateStudentOnServer();
+            login.updateStudentOnServer();
             var problemReportRows = [];
-            for(var i = 0; i < model.currentStudent.problemReports.length; i++)
+            for(var i = 0; i < login.currentStudent.problemReports.length; i++)
             {
-                problemReportRows[i] = new model.ProblemReportRow(model.currentStudent.problemReports[i].id, "", "", model.currentStudent.problemReports[i].correct, model.currentStudent.problemReports[i].incorrect);
+                problemReportRows[i] = new ProblemReportRow(login.currentStudent.problemReports[i].id, "", "", login.currentStudent.problemReports[i].correct, login.currentStudent.problemReports[i].incorrect);
             }
 
-            model.problemSet.getProblems(this, function(view)
+            problemSet.getProblems(this, function(view)
             {
                 for(var i = 0; i < view.rows.length; i++)
                 {
@@ -58,7 +70,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemre
                         }
                 }
 
-                model.trimProblemReports(problemIDsToRemove);
+                problemReports.trimProblemReports(problemIDsToRemove);
                 this.partial('templates/student-report.hb', {
                     rows: problemReportRows
                 });
@@ -68,8 +80,8 @@ define(['libraries/jquery', 'libraries/sammy', 'models/model', 'models/problemre
 
         this.get("#/students/delete/:id/:rev", function(context)
         {
-            model.
-                studentSet.deleteStudent(this.params['id'], this.params['rev'], function()
+            
+            studentSet.deleteStudent(this.params['id'], this.params['rev'], function()
             {
                 context.redirect("#/students/new");
             });
