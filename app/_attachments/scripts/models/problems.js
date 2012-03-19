@@ -1,4 +1,14 @@
-define(['models/db'], function (db) {
+define(['models/db', 'libraries/handlebars'], function (db, Handlebars) {
+   
+    Handlebars.registerHelper("formatDifficulty", function (difficulty) {
+        var i,
+            difficultyAsAsterisk = "";
+        for (i = 0; i < difficulty; i++) {
+            difficultyAsAsterisk += "*";
+        }
+        return new Handlebars.SafeString(difficultyAsAsterisk);
+    });
+    
     var Problem = function (question, answer, difficulty) {
         this.problem = question;
         this.answer = answer;

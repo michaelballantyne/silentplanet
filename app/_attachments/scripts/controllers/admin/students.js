@@ -1,4 +1,5 @@
 define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/students', 'models/problems', 'models/problemreports'], function ($, sammy, login, studentSet, problemSet, problemReports) {
+    
     var ProblemReportRow = function (id, problem, difficulty, correct, incorrect) {
             this.id = id;
             this.problem = problem;
@@ -7,9 +8,10 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
             this.incorrect = incorrect;
         };
 
+        
     sammy('#main', function () {
         this.post("#/students", function (context) {
-            studentSet.saveStudent(new studentSet.createStudent(this.params.username, []), function () {
+            studentSet.saveStudent(new studentSet.createStudent(this.params.username, this.params.difficultySetting, [], [], []), function () {
                 context.redirect('#/students/new');
             });
         });

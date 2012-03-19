@@ -1,4 +1,4 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports'], function ($, sammy, problemSet, problemReports) {
+define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'controllers/login'], function ($, sammy, problemSet, problemReports, login) {
     var currentProblem = null,
         randomObject = function (context) {
             var callback = function (view) {
@@ -8,6 +8,10 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 }
                 var randomNum = Math.floor(Math.random() * view.rows.length),
                     problem = view.rows[randomNum].value;
+                while(problem.difficulty > login.currentStudent.difficultySetting) {
+                    randomNum = Math.floor(Math.random() * view.rows.length);
+                    problem = view.rows[randomNum].value;
+                }
                 if (problem) {
                     this.render('templates/problem.hb', problem).appendTo('#displayBox');
                     currentProblem = problem;
