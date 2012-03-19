@@ -1,9 +1,10 @@
 define(['models/db'], function (db) {
-    var Student = function (username, problemReports, itemFlags, roomFlags) {
+    var Student = function (username, difficultySetting, problemReports, itemFlags, roomFlags) {
         this.username = username;
         this.problemReports = problemReports;
         this.itemFlags = itemFlags;
         this.roomFlags = roomFlags;
+        this.difficultySetting = difficultySetting;
         this.record_type = 'student';
     };
 
@@ -37,8 +38,8 @@ define(['models/db'], function (db) {
             });
         },
 
-        createStudent: function (username, problemReports, itemFlags, roomFlags) {
-            return new Student(username, problemReports, itemFlags, roomFlags);
+        createStudent: function (username, difficultySetting, problemReports, itemFlags, roomFlags) {
+            return new Student(username, difficultySetting, problemReports, itemFlags, roomFlags);
         }
     };
 });

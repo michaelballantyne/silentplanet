@@ -1,6 +1,6 @@
 define(['models/db'], function (db) {
     var Room = function (roomID, roomName, description, exits, items) {
-        this.id = roomID;
+        this._id = roomID;
         this.name = roomName;
         this.description = description;
         this.exits = exits;
