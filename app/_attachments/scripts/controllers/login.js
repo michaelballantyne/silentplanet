@@ -1,6 +1,4 @@
 define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/jquery.cookie'], function ($, sammy, studentSet) {
-    "use strict";
-
     var login = {},
         updateCurrentStudent = function (context, username, callback) {
             var privcallback = function (view) {
@@ -20,7 +18,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/jqu
     sammy('#main', function () {
         this.before({
             except: {
-                path: '#/login'
+                path: ['#/login', '#/admin/login']
             }
         }, function (context) {
             if (login.currentStudent !== null) { //case where the user is already logged in
@@ -48,9 +46,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/jqu
             var context = this,
                 entered_username = this.params.user;
 
-            this.load("/localhost/_design/app/_view/students?key=" + "\"" + escape(entered_username) + "\"", {
-                json: true
-            }).then(function (view) {
+            studentSet.getStudent(entered_username, context, function (view) {
                 if (view.rows.length !== 0) {
                     login.currentStudent = view.rows[0].value;
                     $.cookie('username', entered_username);

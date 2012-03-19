@@ -4,3 +4,4 @@
     <input class="submit" type="submit" value="Log In"/>
 </form>
 <div id="loginInfo" style="display: none">Invalid username</div>
+<a href="#/admin/login">Administrator Login</a>

@@ -1,6 +1,4 @@
 define(['libraries/jquery', 'libraries/sammy', 'libraries/handlebars', 'models/problems'], function ($, sammy, Handlebars, problemSet) {
-    "use strict";
-
     Handlebars.registerHelper("formatDifficulty", function (difficulty) {
         var i,
             difficultyAsAsterisk = "";
