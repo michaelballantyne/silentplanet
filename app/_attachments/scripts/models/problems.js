@@ -1,5 +1,7 @@
 define(['models/db', 'libraries/handlebars'], function (db, Handlebars) {
-   
+    var MAX_DIFFICULTY = 5;
+    var MIN_DIFFICULTY = 1;
+    
     Handlebars.registerHelper("formatDifficulty", function (difficulty) {
         var i,
             difficultyAsAsterisk = "";
