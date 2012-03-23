@@ -1,4 +1,4 @@
-define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/students', 'models/problems', 'models/problemreports'], function ($, sammy, login, studentSet, problemSet, problemReports) {
+define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/students', 'models/problems', 'models/problemreports', 'models/studentreports'], function ($, sammy, login, studentSet, problemSet, problemReports, studentreports) {
     
     var ProblemReportRow = function (id, problem, difficulty, correct, incorrect) {
             this.id = id;
@@ -65,10 +65,19 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
         });
 
         this.get("#/students/delete/:id/:rev", function (context) {
-
             studentSet.deleteStudent(this.params.id, this.params.rev, function () {
                 context.redirect("#/students/new");
             });
         });
+        
+        this.get("#/students/classreport", function(){
+            var context = this;
+            var callback = function(studentReports){
+                context.partial('templates/admin/class-report.hb', {
+                    rows:studentReports
+                });
+            };
+            studentreports.buildStudentReport(this, callback);
+        })
     });
 });

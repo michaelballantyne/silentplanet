@@ -1,5 +1,12 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/problems'], function ($, sammy, problemSet) {
-    "use strict";
+define(['libraries/jquery', 'libraries/sammy', 'libraries/handlebars', 'models/problems'], function ($, sammy, Handlebars, problemSet) {
+    Handlebars.registerHelper("formatDifficulty", function (difficulty) {
+        var i,
+            difficultyAsAsterisk = "";
+        for (i = 0; i < difficulty; i++) {
+            difficultyAsAsterisk += "*";
+        }
+        return new Handlebars.SafeString(difficultyAsAsterisk);
+    });
 
     sammy('#main', function () {
         this.post("#/problems", function (context) {
