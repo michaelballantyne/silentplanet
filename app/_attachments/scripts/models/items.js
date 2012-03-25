@@ -1,14 +1,35 @@
-define(['models/db', 'controllers/login'], function (db, login) {
-    var Item = function (itemID, itemName, dialogs) {
-            this.id = itemID;
+define(['models/db', 'controllers/login', 'models/students'], function (db, login, students) {
+    items.PLAYER_MARKER = "player";
+    
+    var Item = function (itemName, dialogs, sceneryFlag) {
             this.name = itemName;
             this.dialogs = dialogs;
+            this.sceneryFlag = sceneryFlag; //determines whether an item is scenery (ie, can't be picked up)
             this.record_type = 'item';
+        };
+       
+        var ItemDialog = function(interactWord, description) {
+            this.interactWord = interactWord; //is an array 
+            this.description = description;
+        };
+        
+        Item.prototype.getItemDialog = function(word) {
+            for(var i = 0; i < exits.length; i++) {
+                if(this.dialogs[i].interactWord[0] == word)
+                    return this.dialogs[i];
+            }
         };
 
     return {
-        getItem: function (context, callback) {
+        getItems: function (context, callback) {
             context.load('/localhost/_design/app/_view/items', {
+                json: true,
+                cache: false
+            }).then(callback);
+        },
+        
+        getItem: function (itemName, context, callback) {
+            context.load('/localhost/_design/app/_view/items?key=' + '"' + escape(itemName) + '"', {
                 json: true,
                 cache: false
             }).then(callback);
@@ -41,9 +62,8 @@ define(['models/db', 'controllers/login'], function (db, login) {
                     break;
                 }
             }
-
-            login.currentStudent.itemFlags[i].itemID = itemID;
-            login.currentStudent.itemFlags[i].roomID = roomID;
+            
+            login.currentStudent.itemFlags[i] = new students.ItemFlag(itemID, roomID);
         }
     };
 });

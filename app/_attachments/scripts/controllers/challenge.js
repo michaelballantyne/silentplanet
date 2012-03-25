@@ -30,20 +30,26 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
 
         this.post("#/answer", function () {
             var answer = this.params.answer,
+                correct;
+            if(currentProblem) {
                 correct = answer.toUpperCase() === currentProblem.answer.toUpperCase();
-            problemReports.addOrUpdateProblemReport(currentProblem._id, correct, this);
-            if (correct) {
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("Correct!");
-                $('#displayBox').append("<br/>");
+                problemReports.addOrUpdateProblemReport(currentProblem._id, correct, this);
+                if (correct) {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Correct!");
+                    $('#displayBox').append("<br/>");
+                    $('#input').val("");
+                    randomObject(this);
+                } else {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Incorrect, try again!");
+                    $('#displayBox').append("<br/>");
+                    $('#input').val("");
+                    this.render('templates/problem.hb', currentProblem).appendTo('#displayBox');
+                }
+            }
+            else {
                 $('#input').val("");
-                randomObject(this);
-            } else {
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("Incorrect, try again!");
-                $('#displayBox').append("<br/>");
-                $('#input').val("");
-                this.render('templates/problem.hb', currentProblem).appendTo('#displayBox');
             }
         });
     });
