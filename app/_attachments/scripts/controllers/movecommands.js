@@ -4,23 +4,23 @@
  * basically just manage movement from one scene to the next
  */
 
-define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'models/students', 'models/problems', 'controllers/lookcommands'], function($, items, login, roomSet, studentSet, problemSet, look) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'models/students', 'models/problems', 'controllers/lookcommands', 'controllers/problems', 'controllers/items', 'controllers/rooms'], function($, items, login, roomSet, studentSet, problemSet, look, probLogic, itemLogic, roomLogic) {
     
     var moveCommands = {},
     visited = null,
     
     //assumes there is no roomFlag for the current room, adds just the simple one
-    visit = function() {
-        roomSet.addOrUpdateRoomFlag(moveCommands.currentRoom._id,moveCommands.currentRoom._id);
+    visit = function(context) {
+        roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom._id);
         var i;
         for(i = 0; i < login.currentStudent.itemFlags.length; i++) {
             if(login.currentStudent.itemFlags[i].name = items.PLAYER_MARKER) {
                 break;
             }
         }
-        login.currentStudent.itemFlags[i] = new studentSet.ItemFlag(items.PLAYER_MARKER,moveCommands.currentRoom._id);
+        login.currentStudent.itemFlags[i] = new studentSet.ItemFlag(items.PLAYER_MARKER,roomLogic.currentRoom._id);
         login.updateStudentOnServer();
-        look.look(["look"],moveCommands.currentRoom);
+        look.look(["look"],roomLogic.currentRoom, context);
     },
     
     //checks to see if the room is in an updated state and returns the most recent state
@@ -33,18 +33,9 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
         }
         visited = false;
         return roomID;
-    },
-    
-    activateProblem = function(context) {
-        if(!moveCommands.currentRoom.problemDescription)
-            return;
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append(moveCommands.currentRoom.problemDescription);
-        $('#displayBox').append("<br/>");
-        problemSet.pullRandomProblem(context);
     };
     
-        moveCommands.currentRoom = null,
+        roomLogic.currentRoom = null,
         moveCommands.findPlayerRoom = function() {
             if(login.currentStudent.itemFlags.length == 0)
                 return null;
@@ -71,17 +62,23 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 }
                 else {
                     var roomVals = view.rows[0].value;
-                   moveCommands.currentRoom = roomSet.createRoom(roomVals._id, roomVals.name, roomVals.description, roomVals.exits, roomVals.items, roomVals.problemDescription, roomVals.problemWrapUp, roomVals.nextState);
+                   roomLogic.currentRoom = roomSet.createRoom(roomVals._id, roomVals.name, roomVals.description, roomVals.exits, roomVals.items, roomVals.problemDescription, roomVals.problemWrapUp, roomVals.nextState);
                     if(!visited)
-                        visit();
-                    activateProblem(context);
+                        visit(context);
+                    else {
+                        $('#displayBox').append("<br/>");
+                        $('#displayBox').append(roomLogic.currentRoom.name);
+                        $('#displayBox').append("<br/>");
+                        itemLogic.displayItems(context);
+                    }
+                    probLogic.activateProblem(roomLogic.currentRoom.problemDescription, context);
                 }
             });
         },
         
         //basic move command.  Attempts to move in the direction given
         moveCommands.move = function(direction, context){
-            var directionDialog = moveCommands.currentRoom.getDirection(direction);
+            var directionDialog = roomLogic.currentRoom.getDirection(direction);
             if(!directionDialog.roomID) {
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append(directionDialog.description);

@@ -17,10 +17,12 @@ define(['models/db', 'controllers/login', 'models/students'], function (db, logi
                 if(this.dialogs[i].interactWord[0] == word)
                     return this.dialogs[i];
             }
+            return null;
         };
 
     return {
         PLAYER_MARKER:"player",
+        
         getItems: function (context, callback) {
             context.load('/localhost/_design/app/_view/items', {
                 json: true,
@@ -50,7 +52,7 @@ define(['models/db', 'controllers/login', 'models/students'], function (db, logi
             });
         },
 
-        moveItem: function (itemID, roomID) {
+        moveItem: function (itemName, roomID) {
             var i;
 
             if (login.currentStudent.itemFlags === null) {
@@ -58,12 +60,16 @@ define(['models/db', 'controllers/login', 'models/students'], function (db, logi
             }
 
             for (i = 0; i < login.currentStudent.itemFlags.length; i++) {
-                if (login.currentStudent.itemFlags[i].itemID === itemID) {
+                if (login.currentStudent.itemFlags[i].itemName === itemName) {
                     break;
                 }
             }
             
-            login.currentStudent.itemFlags[i] = new students.ItemFlag(itemID, roomID);
+            login.currentStudent.itemFlags[i] = new students.ItemFlag(itemName, roomID);
+        },
+        
+        createItem: function (itemName, dialogs, sceneryFlag) {
+            return new Item(itemName, dialogs, sceneryFlag);
         }
     };
 });

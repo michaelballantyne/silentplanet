@@ -72,7 +72,6 @@ define(['libraries/jquery', 'models/db', 'controllers/login', 'models/students']
                 }
             }
             login.currentStudent.roomFlags[i] = new studentSet.RoomFlag(roomID, stateID);
-            login.updateStudentOnServer();
         }
     };
 });

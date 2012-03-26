@@ -2,7 +2,7 @@
  * look commands
  * these are called by the command parser during story mode
  */
-define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/inventorycommands'], function($, items, login, inventory) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/inventorycommands', 'controllers/items'], function($, items, login, inventory, itemLogic) {
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function() {
         $('#displayBox').append("<br/>");
@@ -20,7 +20,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/in
         
         //basic 'look' command -- just displays the description of the room you're in
         //gets called when the user types "look _____ _____" or "examine _____"
-        look:function(command, room) {
+        look:function(command, room, context) {
             switch(command[1]) {
             case undefined:
             case "around":
@@ -31,6 +31,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/in
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append(room.description);
                 $('#displayBox').append("<br/>");
+                itemLogic.displayItems(context);
                 break;
             case "n":
             case "north":

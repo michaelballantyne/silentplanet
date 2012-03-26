@@ -1,4 +1,4 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands'], function ($, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move) {
+define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems'], function ($, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic) {
     var story = {},
         currentProblemSet = null,
         context = null;
@@ -14,24 +14,31 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
     //the answer command -- basically just checks to see if the current obstacle has been cleared.
     var answer = function(response) {
         //first check to see if there is actually a problem description
-        if(move.currentRoom.problemDescription) {
-            var correct = response.toUpperCase() == login.currentProblem.answer.toUpperCase();
-            problemReports.addOrUpdateProblemReport(login.currentProblem._id, correct, context);
+        if(roomLogic.currentRoom.problemDescription) {
+            var correct = response.toUpperCase() == probLogic.currentProblem.answer.toUpperCase();
+            problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
             
             //decide what to do if correct vs. incorrect
             if (correct) {
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append("Correct!");
                 $('#displayBox').append("<br/>");
-                $('#displayBox').append(move.currentRoom.problemWrapUp);
-                roomSet.addOrUpdateRoomFlag(move.currentRoom._id,move.currentRoom.nextState);
-                move.moveTo(currentRoom.nextState);
+                $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
+                roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
+                move.moveTo(roomLogic.currentRoom.nextState);
+                probLogic.currentProblem = null;
             } else {
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append("Your answer was incorrect!");
                 $('#displayBox').append("<br/>");
             }
         }
+    }
+    
+    var wait = function() {
+        $('#displayBox').append("<br/>");
+        $('#displayBox').append("You pace back and forth for a few minutes.");
+        $('#displayBox').append("<br/>");
     }
     
     // TODO replace this with intro from John eventually
@@ -72,7 +79,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             switch(command[0]) {
             case "look":
             case "examine":
-                look.look(command, move.currentRoom);
+                look.look(command, roomLogic.currentRoom, context);
                 break;
             case "n":
             case "north":
@@ -117,10 +124,10 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 move.move("down", context);
                 break;
             case "use":
-                inventory.use(command);
+                inventory.use(command, context);
                 break;
             case "put":
-                inventory.put(command);
+                inventory.put(command, context);
                 break;
             case "drop":
             case "discard":
@@ -129,7 +136,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             case "pick":
                 //we'll assume here that the user typed "pick up -----"
                 if(command[1] == "up")
-                    inventory.take(command[2]);
+                    inventory.take(command[2], context);
                 else
                     look.errorMessage();
                 break;
@@ -137,13 +144,24 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             case "grab":
             case "take":
             case "yoink":
-                inventory.take(command[1]);
+                inventory.take(command[1], context);
+                break;
+            case "inventory":
+            case "inv":
+            case "i":
+                inventory.inventory();
                 break;
             case "say":
             case "speak":
             case "shout":
             case "yell":
                 answer(command[1]);
+                break;
+            case "zzz":
+            case "z":
+            case "wait":
+                wait();
+                break;
             default:
                 answer(command[0]);
                 break;
