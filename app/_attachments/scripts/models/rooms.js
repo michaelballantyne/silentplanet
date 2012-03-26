@@ -27,8 +27,8 @@ define(['libraries/jquery', 'models/db', 'controllers/login', 'models/students']
     };
 
     return {
-        FIRST_ROOM_ID:"room1",
-        INVENTORY_ID:"room0",
+        FIRST_ROOM_ID:"room01",
+        INVENTORY_ID:"room00",
         getRoom: function (id, context, callback) {
             context.load('/localhost/_design/app/_view/rooms?key=' + '"' + escape(id) + '"', {
                 json: true,
