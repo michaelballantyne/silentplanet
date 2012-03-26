@@ -36,7 +36,10 @@ define(['libraries/jquery', 'controllers/login'], function ($, login) {
                     i--;
                 }
             }
-            login.updateStudentOnServer();
+            
+            if (ids.length > 0) {
+                login.updateStudentOnServer();
+            }
         }
     };
 });

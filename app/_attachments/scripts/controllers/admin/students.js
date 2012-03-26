@@ -35,6 +35,14 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                     rows: view.rows
                 }).then(function () {
                     $('#student').focus();
+                    $('form').validate({rules: {
+                        difficultySetting: {
+                            number: true,
+                            min: 1,
+                            max: 5
+                        }
+                    }
+                        });
                 });
             });
         });
@@ -44,7 +52,6 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                 problemReportRows = [],
                 problemIDsToRemove = [];
 
-            login.updateStudentOnServer();
             for (i = 0; i < login.currentStudent.problemReports.length; i++) {
                 problemReportRows[i] = new ProblemReportRow(login.currentStudent.problemReports[i].id, "", "", login.currentStudent.problemReports[i].correct, login.currentStudent.problemReports[i].incorrect);
             }
@@ -78,9 +85,14 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
         });
 
         this.get("#/admin/students/delete/:id/:rev", function (context) {
-            studentSet.deleteStudent(this.params.id, this.params.rev, function () {
-                context.redirect("#/admin/students/new");
-            });
+            var id = this.params.id;
+            if (id !== login.currentStudent._id) {
+                studentSet.deleteStudent(this.params.id, this.params.rev, function () {
+                    context.redirect("#/admin/students/new");
+                });
+            } else {
+                window.alert("You can't delete your own account!");
+            }
         });
         
         this.get("#/admin/students/classreport", function () {

@@ -21,6 +21,14 @@ define(['libraries/jquery', 'libraries/sammy', 'libraries/handlebars', 'models/p
                     rows: view.rows
                 }).then(function () {
                     $('#question').focus();
+                    $('form').validate({rules: {
+                        difficulty: {
+                            number: true,
+                            min: 1,
+                            max: 5
+                        }
+                    }
+                        });
                 });
             });
         });
