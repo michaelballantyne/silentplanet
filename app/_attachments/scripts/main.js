@@ -9,5 +9,6 @@ require(['libraries/jquery', 'libraries/sammy', 'libraries/sammy.handlebars', 'c
 
     $(function () {
         app.run('#/');
+        app.trigger('onStart');
     });
 });
