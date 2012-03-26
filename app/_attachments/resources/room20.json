@@ -1,0 +1,62 @@
+{	
+	"_id": "room20",
+	"name": "Secret underground passage way.",
+	"description": "You've found a secret underground passage way. This is a three way passage way but is by far the longest you have walked so far.  There is a path up, a path to the west, and a path that heads east.  Which direction will you go?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room19",
+		"description":"You've entered the elephant room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room22",
+		"description":"You've found the secret combining room."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"room12",
+		"description":"You've found your way back into the play room."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}

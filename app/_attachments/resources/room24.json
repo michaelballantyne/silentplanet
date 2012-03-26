@@ -1,0 +1,62 @@
+{	
+	"_id": "room24",
+	"name": "Space dock",
+	"description": "You have entered a space dock.  There are several small space ships but nothing you can reach.  There are two open hatches.  Which one will you chose?  The one to the northwest or the one to the northeast?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"room25",
+		"description":"You've discovered the botany room."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"room26",
+		"description":"You've found the food storage room."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}

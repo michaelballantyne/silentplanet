@@ -1,0 +1,62 @@
+{
+	"_id": "room3-1",
+	"name": "dirt mound",
+	"description": "After a huge struggle you have reached the top of the dirt mound from here you can see several things but only one thing you can get to. The place that you see that you can reach is a masive ant hill but you can not see any ants. Since this is the only place you can see that you can get to you decide to head that direction. South be your course.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"room3",
+		"description":"Your back into the great outdoors."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"southeast"
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room8",
+		"description":"You head towards the ant hill."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the clear blue sky and the sun. You can not head this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see dirt."
+	}
+	],
+	"problemDescription":"Solve this problem to get to the ant hill.", 
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type": "room",
+	"items":[]
+}

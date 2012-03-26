@@ -1,0 +1,62 @@
+{	
+	"_id": "room22",
+	"name": "Secret combining room",
+	"description": "This is a magical room. Everything is floating including you.  Yet you can move around the room just by thinking about going in a direction. If you have the small vile, the small shiny pebble, and magic stuff you can make a gem of enlargement by solving a problem if not you must go back and find the objects.  There is only one path out of here and that is to the east.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room20",
+		"description":"You go into the secret underground hall way."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	}
+	],
+	"problemDescription":"Solve this problem to combine the items to make the gems of enlargement",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}

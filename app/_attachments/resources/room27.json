@@ -1,0 +1,62 @@
+{	
+	"_id": "room27",
+	"name": "holodeck",
+	"description": "You have entered the holodeck.  This is an imaginative room where you can create anything you want.  If you want to see home you can create it.  If you want to materialize food you can.  However everything in this room is just an illusion created by photons and forcefields.  You need to leave this room but in order to do so you must solve a riddle. Please solve the riddle and continue.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"room28",
+		"description":"You've entered the weapons room."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see anything you can imagine."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see anything you can imagine."
+	}
+	],
+	"problemDescription":"You must solve this riddle to materialize the door to escape this room.",
+	"problemWrapUp":"",
+	"nextState":"room28",
+	"record_type":"room",
+	"items":[]
+}

@@ -1,0 +1,62 @@
+{
+	"_id": "room10",
+	"name": "combining room",
+	"description": "You enter what looks like a magical room owned by a wizard. There is a spell book in the room.  The spell book has only one spell in it.  The spell of enlargement.  This spell requires three items: A tiny vile, a tiny shiny pebble, and a hand full of magic powder. If you do not have these items you must exit the building and go searching for them. If you already have them then you must answer the riddle spell and see what happens.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"room5",
+		"description":"You go to the mystery room."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"room8",
+		"description":"You go to the ant hill."
+	},
+	{
+		"direction":"west",
+		"roomID":"room3",
+		"description":"You go to the great outdoors."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"room4",
+		"description":"You go to the tile room."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see the hard wood floor."
+	}
+	],
+	"problemDescription":"A riddle type problem that will enlarge the player.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}

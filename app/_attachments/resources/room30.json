@@ -1,0 +1,62 @@
+{	
+	"_id": "room30",
+	"name": "parts storage room",
+	"description": "This is a room filled with all mater of parts and suplies.  You explore this area for some time when alas you come across something that makes you jump for joy.  It is a shiny pebble.  You run to it and pick it up then hurry and place it in your pocket for safe keeping.  Then you look for a way to escape this room.  There is only one exit and that is to the southeast.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"room31",
+		"description":"You've entered the flight station/combining room."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[stone]
+}

@@ -1,0 +1,62 @@
+{
+	"_id": "room4",
+	"name": "Tile room",
+	"description": "You've entered a strange room where everything feels hard as stone and there are deep crevises in straight lines.  It takes you a minute but your recognize this as tile.  In the center of the room you notice something very small and clear.  You head to it and pick it up.  It is a tiny vile.  You look around the room some more to see if you can find anything else. You notice that the floor is shiny like it has just been mopped.  Be careful because the water droplets are as big as you.  Which direction would you like to head?",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"waterDrop",
+		"description":"Oh no! You've run into a drop of water.  you are trapped.  The only way out is to solve this problem." 
+	},
+	{
+		"direction":"northeast",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room5",
+		"description":"Heads to the mystery room"
+	},
+	{
+		"direction":"southeast",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room6",
+		"description":"This is a wonderful passage way."
+	},
+	{
+		"direction":"southwest",
+		"roomID": "",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room2",
+		"description":"Your back in the shag carpet room"
+	},
+	{
+		"direction":"northwest",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see a fan."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see tile."
+	}
+	],
+	"problemDescription":"You've just feel into a drop of water. Solve this problem to get out.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type": "room",
+	"items":[vile]
+}

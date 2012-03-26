@@ -1,0 +1,62 @@
+{
+	"_id":  "room1",
+	"name":  "Starting room for the game.  School room.",
+	"description":  "You are here at school.  Your chemestry partner comes up to you and asks you to drink this new mixture that they have made.  You don't know what it does but the stuff in the bottle looks an emerald green with slight fizzing bubbles coming up.  Normally you would turn this down because who drinks weird concoctions made in a science lab however this drink looks strangely appealing to ou and you don't know why but you MUST have it.  So you drink it in one gulp.  Mmmm, it has a slimy texture but some how is very satisfying.  You love it!  Your about to ask your chemistry partner to whip up some more when something strange starts to happen.  The room starts to spin and you feel very dizzy.  Strange bubbles apear in front of your face but when you go to grab them your had goes right through them.  They are not really ther.  The room seems to stretch and bend in weird manners and forms and appears to be growing larger.  After several minutes of this everything starts to calm down and you realize that the room wasn't getting larger.  You wer getting smaller... much smaller.  You are the size of normal carpet.  The world around you looks absolutly strange and different. Your scared but manage to keep your witts about you and you decide that you have to find a way to grow larger again... but how?  When you look around you see two ways out of the room.  If you look to the east you see a crack in the wall and if you look to the south you see a mouse hole.  Which way will you chose?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"east",
+		"roomID": "room2",
+		"description":"Heads to shag carpet room"
+	},
+	{
+		"direction": "southeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"Heads outside"
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"up",
+		"roomID": "",
+		"description":"You look up and see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"You run into a mouse and it asks you to solve a problem or get eaten.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}

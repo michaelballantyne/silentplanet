@@ -1,0 +1,63 @@
+{
+	"_id": "room5",
+	"name": "Mystery room",
+	"description": "Wow this room is magnificant.  You know you are in a room but the ceiling has stars and a whole solar system twirling around.  The room is black yet you can see everything because of how bring the solar system is.  There are all manor of immaginative murals on the walls and wonderous items are floating around.  You can not reach anything however because you are too small.  The only thing to do is to find a way out.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"south",
+		"roomID":"room10",
+		"description":"Combining room where you combine all your items."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room4",
+		"description":"Your back in the tile room."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see a solar system with billions of stars."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see that you apear to be floating even though your on solid ground."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",  
+	"record_type": "room",
+	"items":[]
+}
+

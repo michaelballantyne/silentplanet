@@ -1,0 +1,62 @@
+{
+	"_id": "room3",
+	"name": "outside",
+	"description": "You've entered the great outdoors.  You feel the sun shine on your face and a slight breeze in the air.  It is the perfect day except you are tiny and you can't move around very well in this environment.  Despite the challenge however, you press on.  In the middle of this field you come accross a tiny shiny pebble.  It catches your eye and you can't pass it by.  You are compelled by an urge to pick it up, so you do.  To the south you see a dirt mound.  To the west you see tall grass.  Which direction will you go?",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"room2",
+		"description":"Your back to the shag carpet room."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"south",
+		"roomID":"dirtMound",
+		"description":"You see the dirt mound and you head towards it."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"west",
+		"roomID":"room7",
+		"description":"You've reached the grass but it is too tall to pass you are stuck."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the clear blue sky and the sun."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see dirt and grass."
+	}
+	],
+	"problemDescription":"",  
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":  [pebble]
+}

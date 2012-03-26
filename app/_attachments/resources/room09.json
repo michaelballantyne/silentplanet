@@ -1,0 +1,62 @@
+{
+	"_id": "room9",
+	"name": "transition room",
+	"description": "You discover a room that is slowly transitioning from outside to inside... I know this sounds weird but it is happening. The walls appear to be going from clear to opaque. There is nothing in this room it is just transitioning you to the inside.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room10",
+		"description":"You have reached the combining room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see the hard wood floor."
+	},
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}

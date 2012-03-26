@@ -1,0 +1,62 @@
+{	
+	"_id": "room16",
+	"name": "Small passage way",
+	"description": "This is a small passage way that heads off in a new direction it twists and curves but then arrives at a new room.  FOllow it and see where it goes!",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"room17",
+		"description":"You've entered a room full of cats!"
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}

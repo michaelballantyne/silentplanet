@@ -1,0 +1,62 @@
+{
+	"_id": "room6",
+	"name": "Beautiful passage way",
+	"description": "This is a beautiful passage way with wonderful paintings on the walls  but alas it is only a passage way.  Please head west to continue your journey.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"",
+		"description":"You can not go back this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room3",
+		"description":"You have made it outside."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see beautiful paintings even on the ceiling but you can not go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see a wonderful mural but you can not go this direction."
+	}
+	],
+	"problemDescription":"",  
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+}
