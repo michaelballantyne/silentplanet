@@ -11,6 +11,29 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
         return roomSet.FIRST_ROOM_ID;
     };
     
+    //the answer command -- basically just checks to see if the current obstacle has been cleared.
+    var answer = function(response) {
+        //first check to see if there is actually a problem description
+        if(move.currentRoom.problemDescription) {
+            var correct = response.toUpperCase() == login.currentProblem.answer.toUpperCase();
+            problemReports.addOrUpdateProblemReport(login.currentProblem._id, correct, context);
+            
+            //decide what to do if correct vs. incorrect
+            if (correct) {
+                $('#displayBox').append("<br/>");
+                $('#displayBox').append("Correct!");
+                $('#displayBox').append("<br/>");
+                $('#displayBox').append(move.currentRoom.problemWrapUp);
+                roomSet.addOrUpdateRoomFlag(move.currentRoom._id,move.currentRoom.nextState);
+                move.moveTo(currentRoom.nextState);
+            } else {
+                $('#displayBox').append("<br/>");
+                $('#displayBox').append("Your answer was incorrect!");
+                $('#displayBox').append("<br/>");
+            }
+        }
+    }
+    
     // TODO replace this with intro from John eventually
     var displayIntro = function() {
         $('#displayBox').append("Greetings ");
