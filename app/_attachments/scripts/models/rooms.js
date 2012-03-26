@@ -7,7 +7,7 @@ define(['libraries/jquery', 'models/db', 'controllers/login', 'models/students']
         this.items = items; //array of item names
         this.problemDescription = problemDescription;
         this.problemWrapUp = problemWrapUp;
-        this.nextState = nextState
+        this.nextState = nextState;
         this.record_type = 'room';
     };
     
@@ -72,6 +72,7 @@ define(['libraries/jquery', 'models/db', 'controllers/login', 'models/students']
                 }
             }
             login.currentStudent.roomFlags[i] = new studentSet.RoomFlag(roomID, stateID);
+            login.updateStudentOnServer();
         }
     };
 });
