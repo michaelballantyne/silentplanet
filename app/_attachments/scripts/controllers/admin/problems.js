@@ -9,13 +9,13 @@ define(['libraries/jquery', 'libraries/sammy', 'libraries/handlebars', 'models/p
     });
 
     sammy('#main', function () {
-        this.post("#/problems", function (context) {
+        this.post("#/admin/problems", function (context) {
             problemSet.saveProblem(problemSet.createProblem(this.params.question, this.params.answer, this.params.difficulty), function () {
-                context.redirect('#/problems/new');
+                context.redirect('#/admin/problems/new');
             });
         });
 
-        this.get("#/problems/new", function () {
+        this.get("#/admin/problems/new", function () {
             problemSet.getProblems(this, function (view) {
                 this.partial('templates/admin/addproblem.hb', {
                     rows: view.rows
@@ -25,9 +25,9 @@ define(['libraries/jquery', 'libraries/sammy', 'libraries/handlebars', 'models/p
             });
         });
 
-        this.get("#/problems/delete/:id/:rev", function (context) {
+        this.get("#/admin/problems/delete/:id/:rev", function (context) {
             problemSet.deleteProblem(this.params.id, this.params.rev, function () {
-                context.redirect("#/problems/new");
+                context.redirect("#/admin/problems/new");
             });
         });
     });

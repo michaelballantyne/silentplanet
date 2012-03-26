@@ -1,5 +1,4 @@
-define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/students', 'models/problems', 'models/problemreports', 'models/studentreports'], function ($, sammy, login, studentSet, problemSet, problemReports, studentreports) {
-    
+define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/students', 'models/problems', 'models/problemreports', 'models/studentreports', 'libraries/PBKDF2'], function ($, sammy, login, studentSet, problemSet, problemReports, studentreports, PBKDF2) {
     var ProblemReportRow = function (id, problem, difficulty, correct, incorrect) {
             this.id = id;
             this.problem = problem;
@@ -8,15 +7,29 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
             this.incorrect = incorrect;
         };
 
-        
     sammy('#main', function () {
-        this.post("#/students", function (context) {
-            studentSet.saveStudent(new studentSet.createStudent(this.params.username, this.params.difficultySetting, [], [], []), function () {
-                context.redirect('#/students/new');
-            });
+        this.post("#/admin/students", function (context) {
+            var hasher, student = studentSet.createStudent(this.params.username, this.params.difficultySetting, [], [], []),
+                callback = function (hash) {
+                    if (hash) {
+                        student.hash = hash;
+                    }
+                    studentSet.saveStudent(student , function () {
+                        context.redirect('#/admin/students/new');
+                    });
+                };
+            
+            if (this.params.password !== "") {
+                hasher = new PBKDF2(this.params.password, '22b1ffd0-76e3-11e1-b0c4-0800200c9a66', 100, 100);
+                hasher.deriveKey(function () {}, callback);
+            } else {
+                callback();
+            }
+            
+            
         });
 
-        this.get("#/students/new", function () {
+        this.get("#/admin/students/new", function () {
             studentSet.getStudents(this, function (view) {
                 this.partial('templates/admin/addstudent.hb', {
                     rows: view.rows
@@ -64,20 +77,20 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
 
         });
 
-        this.get("#/students/delete/:id/:rev", function (context) {
+        this.get("#/admin/students/delete/:id/:rev", function (context) {
             studentSet.deleteStudent(this.params.id, this.params.rev, function () {
-                context.redirect("#/students/new");
+                context.redirect("#/admin/students/new");
             });
         });
         
-        this.get("#/students/classreport", function(){
-            var context = this;
-            var callback = function(studentReports){
-                context.partial('templates/admin/class-report.hb', {
-                    rows:studentReports
-                });
-            };
+        this.get("#/admin/students/classreport", function () {
+            var context = this,
+                callback = function (studentReports) {
+                    context.partial('templates/admin/class-report.hb', {
+                        rows: studentReports
+                    });
+                };
             studentreports.buildStudentReport(this, callback);
-        })
+        });
     });
 });

@@ -5,4 +5,4 @@
     <input class="submit" type="submit" value="Log In"/>
 </form>
 <div id="loginInfo" style="display: none">Invalid username or password</div>
-<a href="#/">User Login</a>
+<a href="#/login?page={{escape redirectpath}}">User Login</a>
