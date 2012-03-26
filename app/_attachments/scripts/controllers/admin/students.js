@@ -77,9 +77,14 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
         });
 
         this.get("#/admin/students/delete/:id/:rev", function (context) {
-            studentSet.deleteStudent(this.params.id, this.params.rev, function () {
-                context.redirect("#/admin/students/new");
-            });
+            var id = this.params.id;
+            if (id !== login.currentStudent._id) {
+                studentSet.deleteStudent(this.params.id, this.params.rev, function () {
+                    context.redirect("#/admin/students/new");
+                });
+            } else {
+                window.alert("You can't delete your own account!");
+            }
         });
         
         this.get("#/admin/students/classreport", function () {
