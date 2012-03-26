@@ -9,7 +9,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/jqu
         };
 
     login.currentStudent = null;
-
+    login.currentProblem = null;
     login.updateStudentOnServer = function () {
         studentSet.saveStudent(login.currentStudent, function () {});
     };

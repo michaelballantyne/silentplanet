@@ -34,17 +34,17 @@ define(['models/db'], function (db) {
         this.record_type = 'student';
     };
     
-    var ItemFlag = function(itemName, roomID) {
-        this.itemName = itemName;
-        this.roomID = roomID;
-    }
-    
-    var RoomFlag = function(roomID, currentStateID) {
-        this.roomID = roomID;
-        this.currentStateID = currentStateID;
-    }
-
     return {
+        RoomFlag: function(roomID, currentStateID) {
+            this.roomID = roomID;
+            this.currentStateID = currentStateID;
+        },
+        
+        ItemFlag: function(itemName, roomID) {
+            this.itemName = itemName;
+            this.roomID = roomID;
+        },
+        
         getStudents: function (context, callback) {
             context.load('/localhost/_design/app/_view/students', {
                 json: true,

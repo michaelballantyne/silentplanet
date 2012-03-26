@@ -1,4 +1,4 @@
-define(['models/db', 'libraries/handlebars'], function (db, Handlebars) {
+define(['models/db', 'libraries/handlebars', 'controllers/login'], function (db, Handlebars, login) {
     var MAX_DIFFICULTY = 5;
     var MIN_DIFFICULTY = 1;
     
@@ -19,6 +19,7 @@ define(['models/db', 'libraries/handlebars'], function (db, Handlebars) {
     };
 
     return {
+        
         getProblems: function (context, callback) {
             context.load('/localhost/_design/app/_view/problems', {
                 json: true,
@@ -51,6 +52,25 @@ define(['models/db', 'libraries/handlebars'], function (db, Handlebars) {
 
         createProblem: function (question, answer, difficulty) {
             return new Problem(question, answer, difficulty);
+        },
+        pullRandomProblem: function (context) {
+            var callback = function (view) {
+                if (view.rows.length === 0) {
+                    $('displayBox').html('Empty Database');
+                    return;
+                }
+                var randomNum = Math.floor(Math.random() * view.rows.length),
+                    problem = view.rows[randomNum].value;
+                while(problem.difficulty > login.currentStudent.difficultySetting) {
+                    randomNum = Math.floor(Math.random() * view.rows.length);
+                    problem = view.rows[randomNum].value;
+                }
+                if (problem) {
+                    this.render('templates/problem.hb', problem).appendTo('#displayBox');
+                    login.currentProblem = problem;
+                }
+            };
+            this.getProblems(context, callback);
         }
     };
 });
