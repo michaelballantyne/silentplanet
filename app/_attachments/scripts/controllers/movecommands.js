@@ -4,13 +4,13 @@
  * basically just manage movement from one scene to the next
  */
 
-define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'models/students', 'models/problems'], function($, items, login, roomSet, studentSet, problemSet) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'models/students', 'models/problems', 'controllers/lookcommands'], function($, items, login, roomSet, studentSet, problemSet, look) {
     
     var moveCommands = {},
     visited = null,
     
     //assumes there is no roomFlag for the current room, adds just the simple one
-        visit = function() {
+    visit = function() {
         roomSet.addOrUpdateRoomFlag(moveCommands.currentRoom._id,moveCommands.currentRoom._id);
         var i;
         for(i = 0; i < login.currentStudent.itemFlags.length; i++) {
