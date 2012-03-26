@@ -10,5 +10,6 @@
 <form action="#/admin/students" method="post">
     <label>Student: </label><input type="text" name="username"/>
     <label>Difficulty Setting:  </label><input type="number" name="difficultySetting"/>
+    <label>Password (provide a value to make admin): </label><input type="password" name="password"/>
     <input type="submit" value="Submit">
 </form>

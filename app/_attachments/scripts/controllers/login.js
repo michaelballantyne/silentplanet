@@ -2,9 +2,13 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/han
     var login = {},
         updateCurrentStudent = function (context, username, callback) {
             var privcallback = function (view) {
+                if (view.rows.length === 0) {
+                    context.redirect('#/logout');
+                } else {
                     login.currentStudent = view.rows[0].value;
                     callback();
-                };
+                }
+            };
             studentSet.getStudent(username, context, privcallback);
         };
 
@@ -23,7 +27,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/han
     sammy('#main', function () {
         this.before({
             except: {
-                path: ['#/login.*', '#/admin/login.*']
+                path: ['#/logout', '#/login.*', '#/admin/login.*']
             }
         }, function (context) {
             if (login.currentStudent !== null) { //case where the user is already logged in
