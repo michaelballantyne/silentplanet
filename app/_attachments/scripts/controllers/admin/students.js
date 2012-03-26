@@ -35,6 +35,14 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                     rows: view.rows
                 }).then(function () {
                     $('#student').focus();
+                    $('form').validate({rules: {
+                        difficultySetting: {
+                            number: true,
+                            min: 1,
+                            max: 5
+                        }
+                    }
+                        });
                 });
             });
         });
