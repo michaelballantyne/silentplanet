@@ -2,7 +2,7 @@
  * look commands
  * these are called by the command parser during story mode
  */
-define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/inventorycommands', 'controllers/items'], function($, items, login, inventory, itemLogic) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items'], function($, items, login, itemLogic) {
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function() {
         $('#displayBox').append("<br/>");
@@ -83,8 +83,9 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/in
                         if(view.rows.length !== 1)
                             errorMessage();
                         else {
-                            var thisItem = view.rows[0].value;
-                            inventory.checkItemDialogIfInRoom(thisItem, command[1], room);
+                            var itemVals = view.rows[0].value;
+                            var thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
+                            itemLogic.checkItemDialogIfInRoom(thisItem, [command[1]], room);
                         }
                     });
                 }
@@ -95,7 +96,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/in
                             errorMessage();
                         else {
                             var thisItem = view.rows[0].value;
-                            inventory.checkItemDialogIfInRoom(thisItem, "at", room);
+                            itemLogic.checkItemDialogIfInRoom(thisItem, ["at"], room);
                         }
                     });
                 }

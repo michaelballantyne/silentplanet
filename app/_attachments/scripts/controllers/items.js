@@ -3,6 +3,13 @@
  */
 define(['models/items', 'controllers/rooms', 'controllers/login'], function(items, roomLogic, login) {
 
+    //displays the basic error message if a command was not parseable for some reason
+    var errorMessage = function() {
+        $('#displayBox').append("<br/>");
+        $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
+        $('#displayBox').append("<br/>");
+    };
+    
     return {
         //determines if the item with the given name is in your inventory
         isInInventory: function(itemName) {
@@ -21,7 +28,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login'], function(item
         
         //determines if the item with the given name is in the current room
         isInCurrentRoom:function(itemName, room) {
-            var isInRoom = $.inArray(itemName, room.items);
+            var isInRoom = ($.inArray(itemName, room.items) >= 0);
             for(var i = 0; i < login.currentStudent.itemFlags.length; i++) {
                 if(login.currentStudent.itemFlags[i].itemName == itemName) {
                     if(login.currentStudent.itemFlags[i].roomID != room._id) {
@@ -68,7 +75,13 @@ define(['models/items', 'controllers/rooms', 'controllers/login'], function(item
                 for(i = 0; i < view.rows.length; i++) {
                     var itemVals = view.rows[i].value;
                     var thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
-                    itemLogic.checkItemDialogIfInRoom(thisItem, ["at"], roomLogic.currentRoom);
+                    if(itemLogic.isInCurrentRoom(thisItem.name, roomLogic.currentRoom)) {
+                        $('#displayBox').append("<br/>");
+                        $('#displayBox').append("There is a ");
+                        $('#displayBox').append(thisItem.name);
+                        $('#displayBox').append(" here.");
+                        $('#displayBox').append("<br/>");
+                    }
                 }
             });
         }

@@ -13,9 +13,14 @@ define(['models/db', 'controllers/login', 'models/students'], function (db, logi
         };
         
         Item.prototype.getItemDialog = function(word) {
-            for(var i = 0; i < exits.length; i++) {
-                if(this.dialogs[i].interactWord[0] == word)
-                    return this.dialogs[i];
+            for(var i = 0; i < this.dialogs.length; i++) {
+                var j;
+                for(j = 0; j < this.dialogs[i].interactWord.length; j++) {
+                    if(this.dialogs[i].interactWord[j] !== word[j])
+                        break;
+                    if(j == (this.dialogs[i].interactWord.length - 1))
+                        return this.dialogs[i];
+                }
             }
             return null;
         };
