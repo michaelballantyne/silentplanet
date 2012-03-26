@@ -1,7 +1,7 @@
 /**
  * 
  */
-define(['models/items', 'controllers/rooms'], function(items, roomLogic) {
+define(['models/items', 'controllers/rooms', 'controllers/login'], function(items, roomLogic, login) {
 
     return {
         //determines if the item with the given name is in your inventory
