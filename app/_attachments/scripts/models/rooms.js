@@ -1,8 +1,4 @@
 define(['models/db'], function (db) {
-    
-    rooms.FIRST_ROOM_ID = "room1";
-    rooms.INVENTORY_ID = "room0";
-    
     var Room = function (roomID, roomName, description, exits, items, problemDescription) {
         this._id = roomID;
         this.name = roomName;
@@ -27,6 +23,8 @@ define(['models/db'], function (db) {
     };
 
     return {
+        FIRST_ROOM_ID:"room1",
+        INVENTORY_ID:"room0",
         getRoom: function (id, context, callback) {
             context.load('/localhost/_design/app/_view/students?key=' + '"' + escape(id) + '"', {
                 json: true,

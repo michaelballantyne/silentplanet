@@ -1,5 +1,4 @@
 define(['models/db', 'controllers/login', 'models/students'], function (db, login, students) {
-    items.PLAYER_MARKER = "player";
     
     var Item = function (itemName, dialogs, sceneryFlag) {
             this.name = itemName;
@@ -21,6 +20,7 @@ define(['models/db', 'controllers/login', 'models/students'], function (db, logi
         };
 
     return {
+        PLAYER_MARKER:"player",
         getItems: function (context, callback) {
             context.load('/localhost/_design/app/_view/items', {
                 json: true,
