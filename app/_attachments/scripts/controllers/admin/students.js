@@ -44,7 +44,6 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                 problemReportRows = [],
                 problemIDsToRemove = [];
 
-            login.updateStudentOnServer();
             for (i = 0; i < login.currentStudent.problemReports.length; i++) {
                 problemReportRows[i] = new ProblemReportRow(login.currentStudent.problemReports[i].id, "", "", login.currentStudent.problemReports[i].correct, login.currentStudent.problemReports[i].incorrect);
             }
