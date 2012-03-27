@@ -1,0 +1,2236 @@
+{
+"docs": [
+ {
+	"_id":  "room1",
+	"name":  "Starting room for the game.  School room.",
+	"description":  "You are here at school.  Your chemestry partner comes up to you and asks you to drink this new mixture that they have made.  You don't know what it does but the stuff in the bottle looks an emerald green with slight fizzing bubbles coming up.  Normally you would turn this down because who drinks weird concoctions made in a science lab however this drink looks strangely appealing to ou and you don't know why but you MUST have it.  So you drink it in one gulp.  Mmmm, it has a slimy texture but some how is very satisfying.  You love it!  Your about to ask your chemistry partner to whip up some more when something strange starts to happen.  The room starts to spin and you feel very dizzy.  Strange bubbles apear in front of your face but when you go to grab them your had goes right through them.  They are not really ther.  The room seems to stretch and bend in weird manners and forms and appears to be growing larger.  After several minutes of this everything starts to calm down and you realize that the room wasn't getting larger.  You wer getting smaller... much smaller.  You are the size of normal carpet.  The world around you looks absolutly strange and different. Your scared but manage to keep your witts about you and you decide that you have to find a way to grow larger again... but how?  When you look around you see two ways out of the room.  If you look to the east you see a crack in the wall and if you look to the south you see a mouse hole.  Which way will you chose?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"east",
+		"roomID": "room2",
+		"description":"Heads to shag carpet room"
+	},
+	{
+		"direction": "southeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"Heads outside"
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"up",
+		"roomID": "",
+		"description":"You look up and see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"You run into a mouse and it asks you to solve a problem or get eaten.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{
+	"_id":  "room2-1",
+	"name":  "Shag Room after question is solved",
+	"description":  "Oh good, you just solved the question you can now get out of this 70's nightmare.  Look around for a way out.",
+	"exits":  [
+	{ 
+		"direction":"north",
+		"roomID":"deadEnd",
+		"description":"Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came." 
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room4",
+		"description":"Heads to the tile room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"Heads outside."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see the ceiling"
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type": "room",
+	"items":[]
+},
+{
+	"_id":  "room2",
+	"name":  "Shag Room",
+	"description":  "Oh no! The carpet is too tall and it's orange.  You have entered a throw back shag carpet room.  The carpet is twice as tall as you are and you feel trapped! All is not lost however, you just have to solve a problem and you can escape this 70s nightmare.",
+	"exits":  [
+	{ 
+		"direction": north
+		"roomID": deadEnd
+		"description":  Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came. 
+	},
+	{
+		"direction":"northeast",
+		"roomID": "",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room4",
+		"description":"Heads to the tile room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"Heads outside."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"Out pops a spider and askes you to solve the following problem or it will ensnare you and eat you.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{
+	"_id": "room3-1",
+	"name": "dirt mound",
+	"description": "After a huge struggle you have reached the top of the dirt mound from here you can see several things but only one thing you can get to. The place that you see that you can reach is a masive ant hill but you can not see any ants. Since this is the only place you can see that you can get to you decide to head that direction. South be your course.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"room3",
+		"description":"Your back into the great outdoors."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"southeast"
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room8",
+		"description":"You head towards the ant hill."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the clear blue sky and the sun. You can not head this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see dirt."
+	}
+	],
+	"problemDescription":"Solve this problem to get to the ant hill.", 
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type": "room",
+	"items":[]
+},
+{
+	"_id": "room3",
+	"name": "outside",
+	"description": "You've entered the great outdoors.  You feel the sun shine on your face and a slight breeze in the air.  It is the perfect day except you are tiny and you can't move around very well in this environment.  Despite the challenge however, you press on.  In the middle of this field you come accross a tiny shiny pebble.  It catches your eye and you can't pass it by.  You are compelled by an urge to pick it up, so you do.  To the south you see a dirt mound.  To the west you see tall grass.  Which direction will you go?",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"room2",
+		"description":"Your back to the shag carpet room."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"south",
+		"roomID":"dirtMound",
+		"description":"You see the dirt mound and you head towards it."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"west",
+		"roomID":"room7",
+		"description":"You've reached the grass but it is too tall to pass you are stuck."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see never ending grass.  You can't go this way."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the clear blue sky and the sun."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see dirt and grass."
+	}
+	],
+	"problemDescription":"",  
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":  [pebble]
+},
+{
+	"_id": "room4-1",
+	"name": "Tile room",
+	"description": "You've already been here. This is the tile room. You have obtained a tiny vile from this room.  Please proceede.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"waterDrop",
+		"description":"Oh no! You've run into a drop of water.  you are trapped.  The only way out is to solve this problem." 
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room5",
+		"description":"Heads to the mystery room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room6",
+		"description":"This is a wonderful passage way."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room2",
+		"description":"Your back in the shag carpet room."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see a fan."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see tile."
+	}
+	],
+	"problemDescription":"You've just feel into a drop of water. Solve this problem to get out.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{
+	"_id": "room4-1",
+	"name": "Tile room",
+	"description": "You've already been here. This is the tile room. You have obtained a tiny vile from this room.  Please proceede.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"waterDrop",
+		"description":"Oh no! You've run into a drop of water.  you are trapped.  The only way out is to solve this problem." 
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room5",
+		"description":"Heads to the mystery room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room6",
+		"description":"This is a wonderful passage way."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room2",
+		"description":"Your back in the shag carpet room."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see a fan."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see tile."
+	}
+	],
+	"problemDescription":"You've just feel into a drop of water. Solve this problem to get out.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{
+	"_id": "room4",
+	"name": "Tile room",
+	"description": "You've entered a strange room where everything feels hard as stone and there are deep crevises in straight lines.  It takes you a minute but your recognize this as tile.  In the center of the room you notice something very small and clear.  You head to it and pick it up.  It is a tiny vile.  You look around the room some more to see if you can find anything else. You notice that the floor is shiny like it has just been mopped.  Be careful because the water droplets are as big as you.  Which direction would you like to head?",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"waterDrop",
+		"description":"Oh no! You've run into a drop of water.  you are trapped.  The only way out is to solve this problem." 
+	},
+	{
+		"direction":"northeast",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room5",
+		"description":"Heads to the mystery room"
+	},
+	{
+		"direction":"southeast",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room6",
+		"description":"This is a wonderful passage way."
+	},
+	{
+		"direction":"southwest",
+		"roomID": "",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room2",
+		"description":"Your back in the shag carpet room"
+	},
+	{
+		"direction":"northwest",
+		"roomID":"", 
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see a fan."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see tile."
+	}
+	],
+	"problemDescription":"You've just feel into a drop of water. Solve this problem to get out.",
+	"problemWrapUp":"",
+	"nextState":"room4-1",
+	"record_type": "room",
+	"items":[“vile”]
+},
+{
+	"_id": "room5",
+	"name": "Mystery room",
+	"description": "Wow this room is magnificent.  You know you are in a room but the ceiling has stars and a whole solar system twirling around.  The room is black yet you can see everything because of how bring the solar system is.  There are all manor of immaginative murals on the walls and wonderous items are floating around.  You can not reach anything however because you are too small.  The only thing to do is to find a way out.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"south",
+		"roomID":"room10",
+		"description":"Combining room where you combine all your items."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room4",
+		"description":"Your back in the tile room."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"There is an amazing mural and wonderous things but you can not go this direction." 
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see a solar system with billions of stars."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see that you apear to be floating even though your on solid ground."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",  
+	"record_type": "room",
+	"items":[]
+},
+{
+	"_id": "room6",
+	"name": "Beautiful passage way",
+	"description": "This is a beautiful passage way with wonderful paintings on the walls  but alas it is only a passage way.  Please head west to continue your journey.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"",
+		"description":"You can not go back this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room3",
+		"description":"You have made it outside."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see beautiful paintings but you can not go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see beautiful paintings even on the ceiling but you can not go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see a wonderful mural but you can not go this direction."
+	}
+	],
+	"problemDescription":"",  
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{
+	"_id": "room7",
+	"name": "tall grass",
+	"description": "Oh no!  Your stuck in this super tall grass you can not see your way out but maybe if you can solve this question you can be guided back to where you came from.",
+	"exits": [
+	{ 
+		"direction":"north"
+		"roomID":"",
+		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room3",
+		"description":"If you solve the question you can go back."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"All you see is grass above you.  You can not go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see dirt and grass."
+	},
+	],
+	"problemDescription":"", 
+	"problemWrapUp":"",
+	"nextState":"", 
+	"record_type":"room",
+	"items":[]
+},
+{
+	"_id": "room8",
+	"name": "ant hill",
+	"description": "The walk was exhausting but you finally made it.  You are at the deserted ant hill and you decide to go inside ant take a look around. You walk through what feels like a maze of tunnels and finally you reach it. What you assume used to be the queen ants den. There you find a pile of magic powder but in order to take a handful you must answer a question then you can put it into your pocket. You find your way out and continue on your journey.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"",
+		"description":"The hike back to the dirt hill is to much for you. You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room9",
+		"description":"You head to a new room that seems to transition slowly from outside to inside."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the clear blue sky and the sun. You can not head this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see dirt."
+	},
+	],
+	"problemDescription":"Solve this problem to get the magic powder.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[powder]
+},
+{
+	"_id": "room9",
+	"name": "transition room",
+	"description": "You discover a room that is slowly transitioning from outside to inside... I know this sounds weird but it is happening. The walls appear to be going from clear to opaque. There is nothing in this room it is just transitioning you to the inside.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room10",
+		"description":"You have reached the combining room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see the hard wood floor."
+	},
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{
+	"_id": "room10",
+	"name": "combining room",
+	"description": "You enter what looks like a magical room owned by a wizard. There is a spell book in the room.  The spell book has only one spell in it.  The spell of enlargement.  This spell requires three items: A tiny vile, a tiny shiny pebble, and a hand full of magic powder. If you do not have these items you must exit the building and go searching for them. If you already have them then you must answer the riddle spell and see what happens.",
+	"exits": [
+	{ 
+		"direction":"north",
+		"roomID":"room5",
+		"description":"You go to the mystery room."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can not head this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can not go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"room8",
+		"description":"You go to the ant hill."
+	},
+	{
+		"direction":"west",
+		"roomID":"room3",
+		"description":"You go to the great outdoors."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"room4",
+		"description":"You go to the tile room."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see the hard wood floor."
+	}
+	],
+	"problemDescription":"A riddle type problem that will enlarge the player.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room11",
+	"name": "Master room",
+	"description": "You have entered what appears to be a master bedroom.  You are now about 4 inches tall and the world looks completely different then it did a few moments ago when you were smaller. This room is decorated with a beautiful chandelier, wonderful drapes and soft plush carpet. You are cozy in this room but you are still only 4 inches tall.  You might get stepped on at this size or worse eaten by a cat!  So you must get larger and now you know how.  You must continue your search for items to create gems of enlargement.  You notice that this room has three ways out.  There is a door to the north, a staircase leading up to who knows where, and a door to the east.  Which path will you choose?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"room13",
+		"description":"You have reached a large living room"
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"There is a wall with red paint. You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room12",
+		"description":"You have entered the play room"
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You've reached the corner of the room but you can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"There is a wall with a painting here but you can't go this direction"
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"This is the corner of the room with two walls but you can't go this direction"
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see a staircase you must climb. Go up to climb."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see the corner of the room but you can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"stairs",
+		"description":"You see stairs that you climb"
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see beautiful plush carpet. You can't go this direction."
+	}
+	],
+	"problemDescription":"Solve this problem to climb the stairs.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room12",
+	"name": "Play room",
+	"description": "This room appears to be a play room there are toys that are as big or bigger than you.  They are everywhere.  It doesn't look like this room has been cleaned up in some time.  Spread out everywhere you see legos, cars (some that you could fit in to ride if only they had real engines), a doll house, and barbies everywhere.  There are so many toys you think to yourself that this would be a fun place to stay.  But alas you are still the size of some of these toys and you must grow larger.  Just when you think this you notice a shinny small vile.  Just like the one you saw before only larger.  It is just the right size to fit into your very small pocket.  So you pick it up.  You look around for ways out of this room and you notice that there are several ways out but one way you can't quite reach. You can head to the west, to the north or there is a ladder that you can't quite reach but you noticed the legos before.  Maybe you can build something to reach the ladder.  Which direction will you go?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"room13",
+		"description":"You have entered the living room."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see toys in the corner of the room but you can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You see a wall with a painting of a giraffe but you can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"There are more toys in this direction but no way out."
+	},
+	{
+		"direction":"south",
+		"roomID":"room14",
+		"description":"There is a ladder in this direction but you must solve a problem to build something with the legos to reach the ladder."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"There are toys everywhere but no way out."
+	},
+	{
+		"direction":"west",
+		"roomID":"room11",
+		"description":"You are in the master bedroom."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"There are several toys in this direction but no way to get out."
+	},
+	{
+		"direction":"up",
+		"roomID":"room14",
+		"description":"There is a ladder in this direction but you must solve a problem to build something with the legos to reach the ladder."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"There are toys everywhere but you can't go this direction."
+	}
+	],
+	"problemDescription":"You must solve this problem to climb the ladder.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[glass]
+},
+{	
+	"_id": "room13",
+	"name": "Living room",
+	"description": "You have entered the living room.  It is a big room with what appear to be couches and a tv mounted on the north wall.  They look so strange and big from this size but you are sure that is what they are.  The tv is playing news but the tv must be on mute because you can't hear anything. Something catches your eye under the couch and you think to yourself that you must go get it.  You also see a pair of shoes from under the couch and you notice that there is a person watching the tv but they aren't paying close attention because it is muted.  You must be very quiet as you go for the item under the couch.  You don't want anyone to hear you or they might capture you.  So you tip toe under the couch and discover a small shiny pebble.  You pick it up and put it in your pocket and then try to find a way out.  To the south there is a door.  There is also appears to be a small opening in the wall to the north. Which way will you go?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"room16",
+		"description":"You have found a small passege way."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"The room is beautifuly decorated but you can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"There is a wall but nothing else. You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You have found the cornder of the room but you can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room12",
+		"description":"You have reached the play room."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see the corner of the room but you don't see a way out."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see a wall but you don't see anything else. You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see the corner of the room but nothing apealing.  You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"There is nothing in this direction but a ceiling fan.  You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see nice plush carpet but nothing else. You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[“rock”]
+},
+{	
+	"_id": "room14",
+	"name": "Great hall",
+	"description": "You have entered the great hall! Why is it so great... well the size is one reason.  This room is masive but there is nothing in it except 6 ceiling fans that cover the size of the room to keep it cool.  This room is huge. Expecially for a person of your 4 inch size. In this room there is only one way to go and that is up. There is a ladder that heads to what appears to be a loft. You can only go two directions. Up, or down. Which way will you choose.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction"
+	},
+	{
+		"direction":"up",
+		"roomID":"room15",
+		"description":"You've reached the loft."
+	},
+	{
+		"direction":"down",
+		"roomID":"room 12",
+		"description":"You've reached the play room."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room15",
+	"name": "The loft",
+	"description": "You've reached the loft.  From here you can see everything in the great hall.  There is nothing up here or so it seems.  There is a brick wall to the west and you need a rest so you head to the wall and lean up against it.  Oops! The brick that you leaned up against moved slightly when you put your weight against it.  This intrigues you. So you try to push it but it won't budge any more. Perhaps if you solve a problem you might be able to move it. What will you try to do?  Will you try to solve the question or will you go back down the way you came.  There are two ways down.  The stairs or the ladder. What will you do?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room14",
+		"description":"You go down the ladder to the great hall."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room11",
+		"description":"You go down into the master bed room."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room21",
+		"description":"You go down the secret slide."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"You solve a problem that moves the brick to a secret slide. ",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room16",
+	"name": "Small passage way",
+	"description": "This is a small passage way that heads off in a new direction it twists and curves but then arrives at a new room.  FOllow it and see where it goes!",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"room17",
+		"description":"You've entered a room full of cats!"
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room17",
+	"name": "Cat room",
+	"description": "Oh no!  You jump!  There are cats everywhere but something seems to be off about the cats.  They are not moving. There are hundreds of cats but none appear to be alive.  So curiosity gets the best of you and you go up and poke one of them... Ah, they are stuffed animals.  When you look closer that is why none of them are moving.  You are so elated and a little embarrassed that they made you jump so high that you go around and start poking every stuffed animal you meet. You think that the room is empty when the last stuffed animal you poke isn't a stuffed animal at all.  It is the house cat that was sleeping... That is until you poked it.  The cat hisses at you and tries to chase you.  You are running for your life now to try to escape. Solve a problem to get out of this pickle. After you solve the problem you find a hole just big enough to get through.  You jump with all your might and dive head first into the hole which is just big enough for you to get through.  The cat runs into the wall and starts pawing at the hole to get to you but you have escaped, for now.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"The cat is chasing you!  You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"The cat has almost caught you.  You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"The cat runs into the wall but is still chasing you! You must go a different direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"The cat smacks you and you fall down but quickly get back up.  You must chose a different direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room18",
+		"description":"You dive into the this passage way and escape the cat."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"The cat is still chasing you.  You must go a different direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"Watch out!  The cat is chasing you.  You must go a different direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"Ahh!  The cat is there.  Go a different direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and the cat is above you.  Keep running!"
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"There is nothing below you accept the ground."
+	}
+	],
+	"problemDescription":"Solve this problem to escape the cat that is chasing you.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room18",
+	"name": "Small tunnel",
+	"description": "The cat is still pawing at you through the opening so you head down this small tunnel to find out where it might exit.  You can't go back so you must go forward.  This is a dirt tunnel and is very dark.  You can't see anything so you feel your way through the tunnel.  As you travel through the tunnel you start to see a faint light. You head towards the light.  Things get brighter and brighter untill you see that there is an exit up ahead.  You go to the exit of the tunnel and enter another room.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction. There is a cat there pawing at you."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"Keep going.  The tunnel twists and turns but you can't exit here."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"Keep going.  The tunnel twists and turns but you can't exit here."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"room19",
+		"description":"You have reached the exit to what appears to be a room full of decorative elephants."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"YOu feel dirt under you."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room19",
+	"name": "Elephant room",
+	"description": "Everywhere you look you see elephants. Glass elephants decorated in every color, plastic elephants of all shapes and sizes, and in the middle of the room you see a huge elephant statue.  Underneth the back of the elephant there is a pile of something.  You go closer and the pile is sparkling and you realize that this stuff must be magic.  So you grab a handfull of the magic stuff and put it in your pocket. You look around to find a way out of this room but you see nothing.  Perhaps if you solve a problem you will be able to escape this room.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't find an exit this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You go this direction but it runs into a wall. Oops."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You see more elephants but you can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"There is a fat elephant over here but you can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"There are several tiny elephants over here made of glass but nothing else. You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"room20",
+		"description":"You find a secret passage way."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"More elephants but you can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"Even more elephants but you can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"The giant elephant is above you but you can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"The pile of magic stuff is below you."
+	}
+	],
+	"problemDescription":"Solve this problemt to find the secret passage way.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[“dus”t]
+},
+{	
+	"_id": "room20",
+	"name": "Secret underground passage way.",
+	"description": "You've found a secret underground passage way. This is a three way passage way but is by far the longest you have walked so far.  There is a path up, a path to the west, and a path that heads east.  Which direction will you go?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room19",
+		"description":"You've entered the elephant room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room22",
+		"description":"You've found the secret combining room."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"room12",
+		"description":"You've found your way back into the play room."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room21",
+	"name": "The slide",
+	"description": "Your falling down a slide and a very fast rate. It's exhilarating but scary. After a few moments you are at the bottom and have fallen into the secret combining room.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You are sliding uncontrollably.  You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"room22",
+		"description":"You have slid into the secret combining room."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room22",
+	"name": "Secret combining room",
+	"description": "This is a magical room. Everything is floating including you.  Yet you can move around the room just by thinking about going in a direction. If you have the small vile, the small shiny pebble, and magic stuff you can make a gem of enlargement by solving a problem if not you must go back and find the objects.  There is only one path out of here and that is to the east.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room20",
+		"description":"You go into the secret underground hall way."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You move this direction forever but never seem to go anywhere. Choose a different direction."
+	}
+	],
+	"problemDescription":"Solve this problem to combine the items to make the gems of enlargement",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room23",
+	"name": "Portal room",
+	"description": "You are now 12 inches tall and you see a portal in the room this portal requires you to be exactly 12 inches tall to see it which is why you didn't notice it before.  As you look into the portal you can see what appears to be a space ship.  Since there is no way out of the room you decide to go through the portal.  At first you just stick your hand through.  You don't notice any harm comming to your hand so you decide to step all the way through.  Instantly your world turns upside down and sideways.  You are spinning out of control but when you exit through the other way your strangely not dizzy at all.  You can clearly see where you are and where you are is a space station.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"room24",
+		"description":"You step through the portal and are transported through space to the space station."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room24",
+	"name": "Space dock",
+	"description": "You have entered a space dock.  There are several small space ships but nothing you can reach.  There are two open hatches.  Which one will you chose?  The one to the northwest or the one to the northeast?",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"room25",
+		"description":"You've discovered the botany room."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"room26",
+		"description":"You've found the food storage room."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You can't go this direction."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room25",
+	"name": "Botany room",
+	"description": "There are plants everywhere.  Some you recognize and some you do not.  Some plants are still while others look like they want a good meal (meaning you).  Try to avoid getting eaten by a plant.  That would suck.  As you look around at the array of colors you find that something catches your eye.  On one of the plants that would eat you if given the chance there is some sparkling soil.  You need this magic soil but you must be very cautious.  Solve a problem to sneek by the plant and get the magic soil.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"There is a big purple plant this direction but you can't go that way."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"There is some small blue plants this direction but you can't go that way."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"There are some rainbow colored trees this direction but you can't go that way."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"There is an orange flower this direction but it will eat you. Don't go that way."
+	},
+	{
+		"direction":"south",
+		"roomID":"room24",
+		"description":"This leads back to the space dock."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"Nothing in this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"room26",
+		"description":"You've reached the food storage room"
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"There is nothing in this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"There are several large plants above you.  Some look hungry be careful."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You are walking on a metal floor."
+	}
+	],
+	"problemDescription":"You must solve this problem to get the magic soil and not get eaten.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[“soil”]
+},
+{	
+	"_id": "room26",
+	"name": "Food storage room",
+	"description": "You've reached the food storage room.  All this walking around has made you very hungry so you decide to take a few minutes and eat some food.  Yum, the food is delicious!  You need to continue on your way however.  So you put the food down after eating your fill and head out.  There are several directions you can go. You can go north, east, southwest, and west",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"room27",
+		"description":"You've reached the holodeck"
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see food but you are full.  Head a different direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room25",
+		"description":" You've reached the botany room"
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You see food but you are full.  Head a different direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You see food but you are full.  Head a different direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"room31",
+		"description":"You've reached the flight station/combining room"
+	},
+	{
+		"direction":"west",
+		"roomID":"room28",
+		"description":"You've reached the weapons room."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see food but you are full.  Head a different direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the celing but you can't go this direction."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see the food that you left behind on the metal floor."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room27",
+	"name": "holodeck",
+	"description": "You have entered the holodeck.  This is an imaginative room where you can create anything you want.  If you want to see home you can create it.  If you want to materialize food you can.  However everything in this room is just an illusion created by photons and forcefields.  You need to leave this room but in order to do so you must solve a riddle. Please solve the riddle and continue.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"room28",
+		"description":"You've entered the weapons room."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You walk for a long time in this direction yet you never move.  You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see anything you can imagine."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see anything you can imagine."
+	}
+	],
+	"problemDescription":"You must solve this riddle to materialize the door to escape this room.",
+	"problemWrapUp":"",
+	"nextState":"room28",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room28",
+	"name": "weapons room",
+	"description": "You've entered the weapons room but these are not weapons that you would recognize.  They are space weapons of all shapes and sizes.  You want to go see all the unique weapons in this room when something catches your eye.  Sitting up on a shelf is a vile.  You recognize this item and you must have it because you know it will help you get back to full size.  However, it is too hight to reach.  You must climb but in order to climb you must solve a problem.  After you solve the problem and get the vile you try to find a way to escape this room and continue on your journey.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You see some cool space weapons but you can't go this direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see some cool space weapons but you can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room26",
+		"description":"You've entered the food storage room."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"room31",
+		"description":"You've reached the flight station/combining room."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You see some cool space weapons but you can't go this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see some cool space weapons but you can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see some cool space weapons but you can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"room29",
+		"description":"You've entered somebody's quarters."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see some cool space weapons and the vile. You must get to that vile."
+	},
+	{
+		"direction":"down",
+		"roomID":"You see the floor",
+		"description":""
+	}
+	],
+	"problemDescription":"Solve this problem to climb up on the shelf and get the vile.",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[“cup”]
+},
+{	
+	"_id": "room29",
+	"name": "quarters",
+	"description": "You've entered somebody's quarters.  There is a bed, couch, and chair.  The room is decorated in the style that this person enjoys.  You look around for a while but there is nothing in this room.  You must continue on your journey.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You see the bed and explore under it but there is nothing there."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"There is a wall that is strangely decorated but nothing else."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"There is a chair but nothing else."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"There is a wall beautifuly decorated but you can't see anything else."
+	},
+	{
+		"direction":"south",
+		"roomID":"room30",
+		"description":"You've entered the parts storage room."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"There is a wall decorated with paintings but nothing else."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"There is a couch here but nothing else."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"There is a wall which is a huge computer screen with changing scenery but nothing else."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see the floor."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room30",
+	"name": "parts storage room",
+	"description": "This is a room filled with all mater of parts and suplies.  You explore this area for some time when alas you come across something that makes you jump for joy.  It is a shiny pebble.  You run to it and pick it up then hurry and place it in your pocket for safe keeping.  Then you look for a way to escape this room.  There is only one exit and that is to the southeast.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"room31",
+		"description":"You've entered the flight station/combining room."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"There is nothing in this direction except more parts and supplies."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[“stone”]
+},
+{	
+	"_id": "room31-1",
+	"name": "school",
+	"description": "Your back at school and everything is back to normal.  You are your normal size and everything is beautiful.  Your so happy and excited that you just can't wait to go home and tell you family about what happened.  Congratulations Your journey is over!",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"The game is over!"
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"The game is over!"
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type":"room",
+	"items":[]
+},
+{	
+	"_id": "room31",
+	"name": "flight station",
+	"description": "You've entered the flight station/combining room.  You have to be careful there are people in this room. You cautiously move around the room.  You don't want to get stepped on or discovered until your big again.  Everyone appears to be looking at their computer consoles and not paying attention to you.  But if you make too much noise they will find you.  If you have all three items (the vile, shiny pebble, and magic soil) you can solve this problem and make a gem of enlargement.  If you don't have those three items you must find a way to escape this room and find those items.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"room28",
+		"description":"You've escaped into the weapons room."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see people working on their computers but nothing else in this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"",
+		"description":"You see people working on their computers but nothing else in this direction."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You see people working on their computers but nothing else in this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"",
+		"description":"You see people working on their computers but nothing else in this direction."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see people working on their computers but nothing else in this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see people working on their computers but nothing else in this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see people working on their computers but nothing else in this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You see the floor"
+	}
+	],
+	"problemDescription":"Solve this problem to combine all the itmes together and create a gem of enlargement.",
+	"problemWrapUp":"You have appeared full size and scared the entire crew.  You explain everything that has happened and they have many questions.  You answer all of their questions and they believe you.  You need to get home back to the school.  They offer to put yo in their transporter and transport you back to earth right back into your school room.  You accept their offer and are transported back.  THE END!",
+	"nextState":"room31-1",
+	"record_type":"room",
+	"items":[]
+}
+]
+}
