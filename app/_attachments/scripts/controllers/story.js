@@ -16,8 +16,6 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
         //first check to see if there is actually a problem description
         if(roomLogic.currentRoom.problemDescription) {
             var correct = response.toUpperCase() == probLogic.currentProblem.answer.toUpperCase();
-            problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
-            
             //decide what to do if correct vs. incorrect
             if (correct) {
                 $('#displayBox').append("<br/>");
@@ -26,11 +24,13 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
                 roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
                 move.moveTo(roomLogic.currentRoom.nextState);
+                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
                 probLogic.currentProblem = null;
             } else {
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append("Your answer was incorrect!");
                 $('#displayBox').append("<br/>");
+                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
             }
         }
     }

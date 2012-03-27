@@ -33,23 +33,29 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
         }
         visited = false;
         return roomID;
+    },
+    
+    //displays the basic error message if a command was not parseable for some reason
+    errorMessage = function() {
+        $('#displayBox').append("<br/>");
+        $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
+        $('#displayBox').append("<br/>");
     };
     
-        roomLogic.currentRoom = null,
-        moveCommands.findPlayerRoom = function() {
-            if(login.currentStudent.itemFlags.length == 0)
-                return null;
-            var i;
-            for(i = 0; i < login.currentStudent.itemFlags.length; i++) {
-                if(login.currentStudent.itemFlags[i].itemName == items.PLAYER_MARKER) {
-                    return login.currentStudent.itemFlags[i].roomID;
-                }
+    moveCommands.findPlayerRoom = function() {
+        if(login.currentStudent.itemFlags.length == 0)
+            return null;
+        var i;
+        for(i = 0; i < login.currentStudent.itemFlags.length; i++) {
+            if(login.currentStudent.itemFlags[i].itemName == items.PLAYER_MARKER) {
+                return login.currentStudent.itemFlags[i].roomID;
             }
-            //If user gets here there's some kind of error
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append("Error!  The player is in limbo!");
-            $('#displayBox').append("<br/>");
-        },
+        }
+        //If user gets here there's some kind of error
+        $('#displayBox').append("<br/>");
+        $('#displayBox').append("Error!  The player is in limbo!");
+        $('#displayBox').append("<br/>");
+    };
   
         //needed to separate out for initial move
         moveCommands.moveTo = function(roomID, context) {
@@ -58,7 +64,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 roomID = getUpdatedRoomState(roomID);
             roomSet.getRoom(roomID, context, function(view) {
                 if(view.rows.length !== 1) {
-                    look.errorMessage();
+                    errorMessage();
                 }
                 else {
                     var roomVals = view.rows[0].value;
