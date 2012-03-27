@@ -95,7 +95,8 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                         if(view.rows.length !== 1)
                             errorMessage();
                         else {
-                            var thisItem = view.rows[0].value;
+                            var itemVals = view.rows[0].value;
+                            var thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
                             itemLogic.checkItemDialogIfInRoom(thisItem, ["at"], room);
                         }
                     });

@@ -12,13 +12,6 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
     //assumes there is no roomFlag for the current room, adds just the simple one
     visit = function(context) {
         roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom._id);
-        var i;
-        for(i = 0; i < login.currentStudent.itemFlags.length; i++) {
-            if(login.currentStudent.itemFlags[i].name = items.PLAYER_MARKER) {
-                break;
-            }
-        }
-        login.currentStudent.itemFlags[i] = new studentSet.ItemFlag(items.PLAYER_MARKER,roomLogic.currentRoom._id);
         login.updateStudentOnServer();
         look.look(["look"],roomLogic.currentRoom, context);
     },
@@ -68,7 +61,8 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 }
                 else {
                     var roomVals = view.rows[0].value;
-                   roomLogic.currentRoom = roomSet.createRoom(roomVals._id, roomVals.name, roomVals.description, roomVals.exits, roomVals.items, roomVals.problemDescription, roomVals.problemWrapUp, roomVals.nextState);
+                    roomLogic.currentRoom = roomSet.createRoom(roomVals._id, roomVals.name, roomVals.description, roomVals.exits, roomVals.items, roomVals.problemDescription, roomVals.problemWrapUp, roomVals.nextState);
+                    items.moveItem(items.PLAYER_MARKER, roomLogic.currentRoom._id);
                     if(!visited)
                         visit(context);
                     else {
@@ -91,7 +85,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 $('#displayBox').append("<br/>");
             }
             else {
-                moveTo(directionDialog.roomID, context);
+                this.moveTo(directionDialog.roomID, context);
             }
         }
     return moveCommands;

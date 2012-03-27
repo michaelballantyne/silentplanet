@@ -23,7 +23,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
                 roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
-                move.moveTo(roomLogic.currentRoom.nextState);
+                move.moveTo(roomLogic.currentRoom.nextState, context);
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
                 probLogic.currentProblem = null;
             } else {

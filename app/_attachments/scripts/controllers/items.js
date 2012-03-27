@@ -1,7 +1,7 @@
 /**
  * 
  */
-define(['models/items', 'controllers/rooms', 'controllers/login'], function(items, roomLogic, login) {
+define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'], function(items, roomLogic, login, roomSet) {
 
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function() {

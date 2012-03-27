@@ -1,29 +1,29 @@
-define(['models/db', 'controllers/login', 'models/students'], function (db, login, students) {
-    
+define(['models/db', 'controllers/login', 'models/students'], function (db, login, students) {   
+   
     var Item = function (itemName, dialogs, sceneryFlag) {
-            this.name = itemName;
-            this.dialogs = dialogs;
-            this.sceneryFlag = sceneryFlag; //determines whether an item is scenery (ie, can't be picked up)
-            this.record_type = 'item';
-        };
+        this.name = itemName;
+        this.dialogs = dialogs;
+        this.sceneryFlag = sceneryFlag; //determines whether an item is scenery (ie, can't be picked up)
+        this.record_type = 'item';
+    };
        
-        var ItemDialog = function(interactWord, description) {
-            this.interactWord = interactWord; //is an array 
-            this.description = description;
-        };
+    var ItemDialog = function(interactWord, description) {
+        this.interactWord = interactWord; //is an array 
+        this.description = description;
+    };
         
-        Item.prototype.getItemDialog = function(word) {
-            for(var i = 0; i < this.dialogs.length; i++) {
-                var j;
-                for(j = 0; j < this.dialogs[i].interactWord.length; j++) {
-                    if(this.dialogs[i].interactWord[j] !== word[j])
-                        break;
-                    if(j == (this.dialogs[i].interactWord.length - 1))
-                        return this.dialogs[i];
-                }
+    Item.prototype.getItemDialog = function(word) {
+        for(var i = 0; i < this.dialogs.length; i++) {
+            var j;
+            for(j = 0; j < this.dialogs[i].interactWord.length; j++) {
+                if(this.dialogs[i].interactWord[j] !== word[j])
+                    break;
+                if(j == (this.dialogs[i].interactWord.length - 1))
+                    return this.dialogs[i];
             }
-            return null;
-        };
+        }
+        return null;
+    };
 
     return {
         PLAYER_MARKER:"player",
@@ -60,12 +60,12 @@ define(['models/db', 'controllers/login', 'models/students'], function (db, logi
         moveItem: function (itemName, roomID) {
             var i;
 
-            if (login.currentStudent.itemFlags === null) {
+            if (!login.currentStudent.itemFlags) {
                 login.currentStudent.itemFlags = [];
             }
 
             for (i = 0; i < login.currentStudent.itemFlags.length; i++) {
-                if (login.currentStudent.itemFlags[i].itemName === itemName) {
+                if (login.currentStudent.itemFlags[i].itemName == itemName) {
                     break;
                 }
             }
