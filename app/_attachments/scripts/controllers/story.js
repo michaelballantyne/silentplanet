@@ -50,6 +50,21 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
         $('#displayBox').append("<br/>");
         $('#displayBox').append("Prepare thyself!");
         $('#displayBox').append("<br/>");
+        $('#displayBox').append("You are here at school.  " +
+        		"Your chemistry partner comes up to you and asks you to drink this new mixture that he has made.  " +
+        		"You don't know what it does but the stuff in the bottle looks an emerald green with slight fizzing bubbles coming up.  " +
+        		"Normally you would turn this down because who drinks weird concoctions made in a science lab however this drink looks " +
+        		"strangely appealing to you and you don't know why but you MUST have it.  So you drink it in one gulp.  " +
+        		"Mmmm, it has a slimy texture but some how is very satisfying.  You love it!  " +
+        		"You're about to ask your chemistry partner to whip up some more when something strange starts to happen.  " +
+        		"The room starts to spin and you feel very dizzy.  " +
+        		"Strange bubbles appear in front of your face but when you go to grab them your hand goes right through them.  " +
+        		"They are not really there.  The room seems to stretch and bend in weird manners and forms and appears to be growing larger.  " +
+        		"After several minutes of this everything starts to calm down and you realize that the room wasn't getting larger.  " +
+        		"You were getting smaller... much smaller.  You are the size of a strand of normal carpet.  " +
+        		"The world around you looks absolutely strange and different. You're scared but manage to keep your wits about you and " +
+        		"you decide that you have to find a way to grow larger again... but how?  ");
+        $('#displayBox').append("<br/>");
     };
     
     sammy('#main', function () {
