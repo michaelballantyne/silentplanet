@@ -130,9 +130,9 @@
 	"description":  "Oh no! The carpet is too tall and it's orange.  You have entered a throw back shag carpet room.  The carpet is twice as tall as you are and you feel trapped! All is not lost however, you just have to solve a problem and you can escape this 70s nightmare.",
 	"exits":  [
 	{ 
-		"direction": north
-		"roomID": deadEnd
-		"description":  Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came. 
+		"direction": "north",
+		"roomID": "deadEnd",
+		"description":  "Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came."
 	},
 	{
 		"direction":"northeast",
@@ -207,7 +207,7 @@
 		"description":"You can not head this direction."
 	},
 	{
-		"direction":"southeast"
+		"direction":"southeast",
 		"roomID":"",
 		"description":"You can not head this direction."
 	},
@@ -308,7 +308,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":  [pebble]
+	"items":  ["pebble"]
 },
 {
 	"_id": "room4-1",
@@ -494,7 +494,7 @@
 	"problemWrapUp":"",
 	"nextState":"room4-1",
 	"record_type": "room",
-	"items":[“vile”]
+	"items": ["vile"]
 },
 {
 	"_id": "room5",
@@ -626,7 +626,7 @@
 	"description": "Oh no!  Your stuck in this super tall grass you can not see your way out but maybe if you can solve this question you can be guided back to where you came from.",
 	"exits": [
 	{ 
-		"direction":"north"
+		"direction":"north",
 		"roomID":"",
 		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
 	},
@@ -742,7 +742,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[powder]
+	"items":["powder"]
 },
 {
 	"_id": "room9",
@@ -990,7 +990,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[glass]
+	"items":["glass"]
 },
 {	
 	"_id": "room13",
@@ -1052,7 +1052,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“rock”]
+	"items":["rock"]
 },
 {	
 	"_id": "room14",
@@ -1424,7 +1424,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“dus”t]
+	"items":["dust"]
 },
 {	
 	"_id": "room20",
@@ -1796,7 +1796,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“soil”]
+	"items": ["soil"]
 },
 {	
 	"_id": "room26",
@@ -1982,7 +1982,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“cup”]
+	"items":["cup"]
 },
 {	
 	"_id": "room29",
@@ -2106,7 +2106,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“stone”]
+	"items":["stone"]
 },
 {	
 	"_id": "room31-1",
