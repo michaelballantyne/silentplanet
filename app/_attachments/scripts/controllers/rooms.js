@@ -1,8 +1,8 @@
 /**
  * 
  */
-define(['libraries/jquery'], function() {
-   return {
-       currentRoom:null
-   }; 
+define(['libraries/jquery'], function () {
+    return {
+        currentRoom: null
+    };
 });

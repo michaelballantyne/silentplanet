@@ -1,57 +1,56 @@
 define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms'], function ($, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic) {
     var story = {},
         currentProblemSet = null,
-        context = null;
-    
-    var newGame = function() {
-        login.currentStudent.itemFlags = [];
-        login.currentStudent.roomFlags = [];
-        login.updateStudentOnServer();
-        displayIntro();
-        return roomSet.FIRST_ROOM_ID;
-    };
-    
+        context = null,
+        newGame = function() {
+            login.currentStudent.itemFlags = [];
+            login.currentStudent.roomFlags = [];
+            login.updateStudentOnServer();
+            displayIntro();
+            return roomSet.FIRST_ROOM_ID;
+        },
+
     //the answer command -- basically just checks to see if the current obstacle has been cleared.
-    var answer = function(response) {
-        //first check to see if there is actually a problem description
-        if(roomLogic.currentRoom.problemDescription) {
-            var correct = response.toUpperCase() == probLogic.currentProblem.answer.toUpperCase();
-            //decide what to do if correct vs. incorrect
-            if (correct) {
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("Correct!");
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
-                roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
-                move.moveTo(roomLogic.currentRoom.nextState, context);
-                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
-                probLogic.currentProblem = null;
-            } else {
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("Your answer was incorrect!");
-                $('#displayBox').append("<br/>");
-                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+        answer = function (response) {
+            //first check to see if there is actually a problem description
+            if(roomLogic.currentRoom.problemDescription) {
+                var correct = response.toUpperCase() == probLogic.currentProblem.answer.toUpperCase();
+                //decide what to do if correct vs. incorrect
+                if (correct) {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Correct!");
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
+                    roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
+                    move.moveTo(roomLogic.currentRoom.nextState, context);
+                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                    probLogic.currentProblem = null;
+                } else {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Your answer was incorrect!");
+                    $('#displayBox').append("<br/>");
+                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                }
             }
-        }
-    }
-    
-    var wait = function() {
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("You pace back and forth for a few minutes.");
-        $('#displayBox').append("<br/>");
-    }
-    
+        },
+
+        wait = function() {
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("You pace back and forth for a few minutes.");
+            $('#displayBox').append("<br/>");
+        },
+
     // TODO replace this with intro from John eventually
-    var displayIntro = function() {
-        $('#displayBox').append("Greetings ");
-        $('#displayBox').append(login.currentStudent.username);
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("You are about to embark on a journey of epic proportions.");
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("Prepare thyself!");
-        $('#displayBox').append("<br/>");
-    };
-    
+        displayIntro = function() {
+            $('#displayBox').append("Greetings ");
+            $('#displayBox').append(login.currentStudent.username);
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("You are about to embark on a journey of epic proportions.");
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("Prepare thyself!");
+            $('#displayBox').append("<br/>");
+        };
+
     sammy('#main', function () {
         this.get('#/story', function () {
             context = this;

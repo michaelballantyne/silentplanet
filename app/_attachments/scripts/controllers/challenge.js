@@ -1,6 +1,6 @@
 define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'controllers/login', 'controllers/problems'], function ($, sammy, problemSet, problemReports, login, probLogic) {
     var challenge = {};
-        
+
     sammy('#main', function () {
         this.get('#/challenge', function () {
             this.partial('templates/game.hb').then(function () {
@@ -12,7 +12,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
         this.post("#/answer", function () {
             var answer = this.params.answer,
                 correct;
-            if(probLogic.currentProblem) {
+            if (probLogic.currentProblem) {
                 correct = answer.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, this);
                 if (correct) {
@@ -28,12 +28,11 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                     $('#input').val("");
                     this.render('templates/problem.hb', probLogic.currentProblem).appendTo('#displayBox');
                 }
-            }
-            else {
+            } else {
                 $('#input').val("");
             }
         });
     });
-    
+
     return challenge;
 });
