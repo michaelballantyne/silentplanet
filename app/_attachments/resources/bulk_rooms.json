@@ -57,20 +57,20 @@
 	}
 	],
 	"problemDescription":"You run into a mouse and it asks you to solve a problem or get eaten.",
-	"problemWrapUp":"",
-	"nextState":"",
-	"record_type":"room",
-	"items":[]
+	"problemWrapUp": "",
+	"nextState": "",
+	"record_type": "room",
+	"items": []
 },
 {
 	"_id":  "room2-1",
-	"name":  "Shag Room after question is solved",
+	"name":  "Shag Carpet Room",
 	"description":  "Oh good, you just solved the question you can now get out of this 70's nightmare.  Look around for a way out.",
 	"exits":  [
 	{ 
 		"direction":"north",
 		"roomID":"deadEnd",
-		"description":"Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came." 
+		"description": "Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came." 
 	},
 	{
 		"direction":"northeast",
@@ -126,7 +126,7 @@
 },
 {
 	"_id":  "room2",
-	"name":  "Shag Room",
+	"name":  "Shag Carpet Room",
 	"description":  "Oh no! The carpet is too tall and it's orange.  You have entered a throw back shag carpet room.  The carpet is twice as tall as you are and you feel trapped! All is not lost however, you just have to solve a problem and you can escape this 70s nightmare.",
 	"exits":  [
 	{ 
@@ -182,19 +182,19 @@
 	],
 	"problemDescription":"Out pops a spider and askes you to solve the following problem or it will ensnare you and eat you.",
 	"problemWrapUp":"",
-	"nextState":"",
+	"nextState":"room2-1",
 	"record_type":"room",
 	"items":[]
 },
 {
-	"_id": "room3-1",
-	"name": "dirt mound",
-	"description": "After a huge struggle you have reached the top of the dirt mound from here you can see several things but only one thing you can get to. The place that you see that you can reach is a masive ant hill but you can not see any ants. Since this is the only place you can see that you can get to you decide to head that direction. South be your course.",
+	"_id": "dirtMound",
+	"name": "Dirt Mound",
+	"description": "After a huge struggle you have reached the top of the dirt mound. From here you can see several things but only one you can reach - a masive ant hill. You can not see any ants. Since this is the only place you can see that you can get to you decide to head that direction. South be your course.",
 	"exits": [
 	{ 
 		"direction":"north",
 		"roomID":"room3",
-		"description":"Your back into the great outdoors."
+		"description":"You're back into the great outdoors."
 	},
 	{
 		"direction":"northeast",
