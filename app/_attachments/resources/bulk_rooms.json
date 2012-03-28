@@ -2,8 +2,8 @@
 "docs": [
  {
 	"_id":  "room1",
-	"name":  "Starting room for the game.  School room.",
-	"description":  "The chemistry room expands around you.  To the east you can make out a crack in the wall;  To the south is a mousehole.",
+	"name":  "School room.",
+	"description":  "The chemistry room expands around you.  There is a forlorn looking room through the doorway off to your East;  To the south is a mousehole.",
 	"exits":  [
 	{
 		"direction":"north",
@@ -18,7 +18,7 @@
 	{
 		"direction":"east",
 		"roomID": "room2",
-		"description":"Trying to peer through the crack momentarily blinds you with sunlight.  It must lead outside."
+		"description":"To the east is a doorway leading to one of the less used science rooms."
 	},
 	{
 		"direction": "southeast",
@@ -27,8 +27,8 @@
 	},
 	{
 		"direction":"south",
-		"roomID":"room3",
-		"description":"Heads outside"
+		"roomID":"",
+		"description":"The mouse blocks your path."
 	},
 	{
 		"direction":"southwest",
@@ -57,15 +57,141 @@
 	}
 	],
 	"problemDescription":"Guarding the mouse-hole to the south is a perfectly normal mouse.",
+	"problemWrapUp": "His question answered, the mouse sidesteps to his left, allowing you passage.",
+	"nextState": "room1-1",
+	"record_type": "room",
+	"items": ["mouse"]
+},
+{
+	"_id":  "room1-1",
+	"name":  "School room.",
+	"description":  "The chemistry room expands around you.  There is a forlorn looking room through the doorway off to your East;  To the south is a mousehole.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"east",
+		"roomID": "room2",
+		"description":""
+	},
+	{
+		"direction": "southeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"Trying to peer through the hole momentarily blinds you with sunlight.  It must lead outside."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"up",
+		"roomID": "",
+		"description":"You look up and see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"",
 	"problemWrapUp": "",
 	"nextState": "",
 	"record_type": "room",
 	"items": ["mouse"]
 },
+
 {
 	"_id":  "room2-1",
 	"name":  "Shag Carpet Room",
 	"description":  "Oh good, you just solved the question you can now get out of this 70's nightmare.  Look around for a way out.",
+	
+"exits":  [
+	{ 
+		"direction": "north",
+		"roomID": "",
+		"description":  "To the north you see the door to yet another science room, which you naturally can't open in your current state."
+	},
+	{
+		"direction":"northeast",
+		"roomID": "",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room4",
+		"description":"You see a room with a tiled floor past the doorway to the east."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"You see the campus, dotted here and there with grass amidst the concrete walkways."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp":"",
+	"nextState":"",
+	"record_type": "room",
+	"items":[]
+},
+{
+	"_id":  "room2",
+	"name":  "Shag Carpet Room",
+	"description":  "The carpet here is tall and orange, and smells like it hasn't been cleaned since it was first put in (and judging by the style, it was probably put in back when the Beatles were still popular).",
 	"exits":  [
 	{ 
 		"direction":"north",
@@ -118,73 +244,11 @@
 		"description":"You look down and see carpet."
 	}
 	],
-	"problemDescription":"",
-	"problemWrapUp":"",
-	"nextState":"",
-	"record_type": "room",
-	"items":[]
-},
-{
-	"_id":  "room2",
-	"name":  "Shag Carpet Room",
-	"description":  "Oh no! The carpet is too tall and it's orange.  You have entered a throw back shag carpet room.  The carpet is twice as tall as you are and you feel trapped! All is not lost however, you just have to solve a problem and you can escape this 70s nightmare.",
-	"exits":  [
-	{ 
-		"direction": "north",
-		"roomID": "deadEnd",
-		"description":  "Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came."
-	},
-	{
-		"direction":"northeast",
-		"roomID": "",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"east",
-		"roomID":"room4",
-		"description":"Heads to the tile room."
-	},
-	{
-		"direction":"southeast",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"south",
-		"roomID":"room3",
-		"description":"Heads outside."
-	},
-	{
-		"direction":"southwest",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"west",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"northwest",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"up",
-		"roomID":"",
-		"description":"You look up and see the ceiling."
-	},
-	{
-		"direction":"down",
-		"roomID":"",
-		"description":"You look down and see carpet."
-	}
-	],
-	"problemDescription":"Out pops a spider and askes you to solve the following problem or it will ensnare you and eat you.",
-	"problemWrapUp":"",
+	"problemDescription":"Apparently a spider has laid itself a nest amidst this ugly shag carpet, and you've walked right into its web.  Your guess as to the origins of the web prove terrifyingly accurate as a large black specimen slowly drops down from above.  Surprisingly it offers to pull you out of its web without eating you, but it requires you to solve a problem for it.",
+	"problemWrapUp":"The spider whips a non-sticky web around you and yanks you out of the web, up to the top of the shag carpet, which seems to have fused together enough to form paths in and out of the room.",
 	"nextState":"room2-1",
 	"record_type":"room",
-	"items":[]
+	"items":["spider"]
 },
 {
 	"_id": "dirtMound",
