@@ -2,26 +2,26 @@
  * look commands
  * these are called by the command parser during story mode
  */
-define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items'], function($, items, login, itemLogic) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items'], function ($, items, login, itemLogic) {
     //displays the basic error message if a command was not parseable for some reason
-    var errorMessage = function() {
+    var errorMessage = function () {
         $('#displayBox').append("<br/>");
         $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
         $('#displayBox').append("<br/>");
     };
-    
+
     return {
         //helper function for looking in a particular direction
-        lookDirection: function(direction, room) {
+        lookDirection: function (direction, room) {
             $('#displayBox').append("<br/>");
             $('#displayBox').append(room.getDirection(direction).description);
             $('#displayBox').append("<br/>");
         },
-        
+
         //basic 'look' command -- just displays the description of the room you're in
         //gets called when the user types "look _____ _____" or "examine _____"
-        look:function(command, room, context) {
-            switch(command[1]) {
+        look: function (command, room, context) {
+            switch (command[1]) {
             case undefined:
             case "around":
             case "":
@@ -76,27 +76,27 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                 this.lookDirection("down", room);
                 break;
             default:
-                
                 //look at/in/on item
-                if(command.length == 3) {
-                    items.getItem(command[2], context, function(view) {
-                        if(view.rows.length !== 1)
+                if (command.length === 3) {
+                    items.getItem(command[2], context, function (view) {
+                        var itemVals, thisItem;
+                        if (view.rows.length !== 1) {
                             errorMessage();
-                        else {
-                            var itemVals = view.rows[0].value;
-                            var thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
+                        } else {
+                            itemVals = view.rows[0].value;
+                            thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
                             itemLogic.checkItemDialogIfInRoom(thisItem, [command[1]], room);
                         }
                     });
-                }
-                else if(command.length == 2) {
+                } else if (command.length === 2) {
                     //this is the case where the user typed "examine ______"
-                    items.getItem(command[1], context, function(view) {
-                        if(view.rows.length !== 1)
+                    items.getItem(command[1], context, function (view) {
+                        var itemVals, thisItem;
+                        if (view.rows.length !== 1) {
                             errorMessage();
-                        else {
-                            var itemVals = view.rows[0].value;
-                            var thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
+                        } else {
+                            itemVals = view.rows[0].value;
+                            thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
                             itemLogic.checkItemDialogIfInRoom(thisItem, ["at"], room);
                         }
                     });
