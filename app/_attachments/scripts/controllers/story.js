@@ -13,8 +13,8 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
     //the answer command -- basically just checks to see if the current obstacle has been cleared.
         answer = function (response) {
             //first check to see if there is actually a problem description
-            if(roomLogic.currentRoom.problemDescription) {
-                var correct = response.toUpperCase() == probLogic.currentProblem.answer.toUpperCase();
+            if (roomLogic.currentRoom.problemDescription) {
+                var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
                 //decide what to do if correct vs. incorrect
                 if (correct) {
                     $('#displayBox').append("<br/>");
@@ -34,14 +34,14 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             }
         },
 
-        wait = function() {
+        wait = function () {
             $('#displayBox').append("<br/>");
             $('#displayBox').append("You pace back and forth for a few minutes.");
             $('#displayBox').append("<br/>");
         },
 
-    // TODO replace this with intro from John eventually
-        displayIntro = function() {
+        // TODO replace this with intro from John eventually
+        displayIntro = function () {
             $('#displayBox').append("Greetings ");
             $('#displayBox').append(login.currentStudent.username);
             $('#displayBox').append("<br/>");
@@ -57,24 +57,26 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             this.partial('templates/storygame.hb').then(function () {
                 //find initial room, and place character there
                 var returningRoomID = move.findPlayerRoom();
-                if(!returningRoomID)
+                if (!returningRoomID) {
                     returningRoomID = newGame();
+                }
                 move.moveTo(returningRoomID, context);
                 $('#input').focus();
             });
         });
-        
+
         this.post('#/story/command', function() {
             context = this;
             var command = this.params.command;
             command = command.toLowerCase();
             command = command.split(' ');
             $('#input').val("");
-            
+
             //to simplify move command case
-            if(command[0] == "move")
+            if (command[0] === "move") {
                 command[0] = command[1];
-            
+            }
+
             switch(command[0]) {
             case "look":
             case "examine":
@@ -167,6 +169,6 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             }
         });
     });
-    
+
     return story;
 });
