@@ -1,81 +1,97 @@
 define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms'], function ($, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic) {
     var story = {},
         currentProblemSet = null,
-        context = null;
-    
-    var newGame = function() {
-        login.currentStudent.itemFlags = [];
-        login.currentStudent.roomFlags = [];
-        login.updateStudentOnServer();
-        displayIntro();
-        return roomSet.FIRST_ROOM_ID;
-    };
-    
+        context = null,
+        newGame = function() {
+            login.currentStudent.itemFlags = [];
+            login.currentStudent.roomFlags = [];
+            login.updateStudentOnServer();
+            displayIntro();
+            return roomSet.FIRST_ROOM_ID;
+        },
+
     //the answer command -- basically just checks to see if the current obstacle has been cleared.
-    var answer = function(response) {
-        //first check to see if there is actually a problem description
-        if(roomLogic.currentRoom.problemDescription) {
-            var correct = response.toUpperCase() == probLogic.currentProblem.answer.toUpperCase();
-            //decide what to do if correct vs. incorrect
-            if (correct) {
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("Correct!");
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
-                roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
-                move.moveTo(roomLogic.currentRoom.nextState, context);
-                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
-                probLogic.currentProblem = null;
-            } else {
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("Your answer was incorrect!");
-                $('#displayBox').append("<br/>");
-                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+        answer = function (response) {
+            //first check to see if there is actually a problem description
+            if (roomLogic.currentRoom.problemDescription) {
+                var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
+                //decide what to do if correct vs. incorrect
+                if (correct) {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Correct!");
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
+                    roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
+                    move.moveTo(roomLogic.currentRoom.nextState, context);
+                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                    probLogic.currentProblem = null;
+                } else {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Your answer was incorrect!");
+                    $('#displayBox').append("<br/>");
+                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                }
             }
-        }
-    }
-    
-    var wait = function() {
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("You pace back and forth for a few minutes.");
-        $('#displayBox').append("<br/>");
-    }
-    
-    // TODO replace this with intro from John eventually
-    var displayIntro = function() {
-        $('#displayBox').append("Greetings ");
-        $('#displayBox').append(login.currentStudent.username);
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("You are about to embark on a journey of epic proportions.");
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("Prepare thyself!");
-        $('#displayBox').append("<br/>");
-    };
-    
+        },
+
+        wait = function () {
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("You pace back and forth for a few minutes.");
+            $('#displayBox').append("<br/>");
+        },
+
+        // TODO replace this with intro from John eventually
+        displayIntro = function () {
+            $('#displayBox').append("Greetings ");
+            $('#displayBox').append(login.currentStudent.username);
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("You are about to embark on a journey of epic proportions.");
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("Prepare thyself!");
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("You are here at school.  " +
+                "Your chemistry partner comes up to you and asks you to drink this new mixture that he has made.  " +
+                "You don't know what it does but the stuff in the bottle looks an emerald green with slight fizzing bubbles coming up.  " +
+                "Normally you would turn this down because who drinks weird concoctions made in a science lab however this drink looks " +
+                "strangely appealing to you and you don't know why but you MUST have it.  So you drink it in one gulp.  " +
+                "Mmmm, it has a slimy texture but some how is very satisfying.  You love it!  " +
+                "You're about to ask your chemistry partner to whip up some more when something strange starts to happen.  " +
+                "The room starts to spin and you feel very dizzy.  " +
+                "Strange bubbles appear in front of your face but when you go to grab them your hand goes right through them.  " +
+                "They are not really there.  The room seems to stretch and bend in weird manners and forms and appears to be growing larger.  " +
+                "After several minutes of this everything starts to calm down and you realize that the room wasn't getting larger.  " +
+                "You were getting smaller... much smaller.  You are the size of a strand of normal carpet.  " +
+                "The world around you looks absolutely strange and different. You're scared but manage to keep your wits about you and " +
+                "you decide that you have to find a way to grow larger again... but how?  ");
+            $('#displayBox').append("<br/>");
+        };
+
     sammy('#main', function () {
         this.get('#/story', function () {
             context = this;
             this.partial('templates/storygame.hb').then(function () {
                 //find initial room, and place character there
                 var returningRoomID = move.findPlayerRoom();
-                if(!returningRoomID)
+                if (!returningRoomID) {
                     returningRoomID = newGame();
+                }
                 move.moveTo(returningRoomID, context);
                 $('#input').focus();
             });
         });
-        
+
         this.post('#/story/command', function() {
             context = this;
             var command = this.params.command;
             command = command.toLowerCase();
             command = command.split(' ');
             $('#input').val("");
-            
+
             //to simplify move command case
-            if(command[0] == "move")
+            if (command[0] === "move") {
                 command[0] = command[1];
-            
+            }
+
             switch(command[0]) {
             case "look":
             case "examine":
@@ -168,6 +184,6 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             }
         });
     });
-    
+
     return story;
 });

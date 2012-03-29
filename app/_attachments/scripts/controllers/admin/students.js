@@ -14,19 +14,17 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                     if (hash) {
                         student.hash = hash;
                     }
-                    studentSet.saveStudent(student , function () {
+                    studentSet.saveStudent(student, function () {
                         context.redirect('#/admin/students/new');
                     });
                 };
-            
+
             if (this.params.password !== "") {
                 hasher = new PBKDF2(this.params.password, '22b1ffd0-76e3-11e1-b0c4-0800200c9a66', 100, 100);
                 hasher.deriveKey(function () {}, callback);
             } else {
                 callback();
             }
-            
-            
         });
 
         this.get("#/admin/students/new", function () {
@@ -94,7 +92,7 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                 window.alert("You can't delete your own account!");
             }
         });
-        
+
         this.get("#/admin/students/classreport", function () {
             var context = this,
                 callback = function (studentReports) {

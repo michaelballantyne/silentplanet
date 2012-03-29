@@ -2,8 +2,8 @@
 "docs": [
  {
 	"_id":  "room1",
-	"name":  "Starting room for the game.  School room.",
-	"description":  "You are here at school.  Your chemestry partner comes up to you and asks you to drink this new mixture that they have made.  You don't know what it does but the stuff in the bottle looks an emerald green with slight fizzing bubbles coming up.  Normally you would turn this down because who drinks weird concoctions made in a science lab however this drink looks strangely appealing to ou and you don't know why but you MUST have it.  So you drink it in one gulp.  Mmmm, it has a slimy texture but some how is very satisfying.  You love it!  Your about to ask your chemistry partner to whip up some more when something strange starts to happen.  The room starts to spin and you feel very dizzy.  Strange bubbles apear in front of your face but when you go to grab them your had goes right through them.  They are not really ther.  The room seems to stretch and bend in weird manners and forms and appears to be growing larger.  After several minutes of this everything starts to calm down and you realize that the room wasn't getting larger.  You wer getting smaller... much smaller.  You are the size of normal carpet.  The world around you looks absolutly strange and different. Your scared but manage to keep your witts about you and you decide that you have to find a way to grow larger again... but how?  When you look around you see two ways out of the room.  If you look to the east you see a crack in the wall and if you look to the south you see a mouse hole.  Which way will you chose?",
+	"name":  "School room.",
+	"description":  "The chemistry room expands around you.  There is a forlorn looking room through the doorway off to your East;  To the south is a mousehole.",
 	"exits":  [
 	{
 		"direction":"north",
@@ -18,7 +18,7 @@
 	{
 		"direction":"east",
 		"roomID": "room2",
-		"description":"Heads to shag carpet room"
+		"description":"To the east is a doorway leading to one of the less used science rooms."
 	},
 	{
 		"direction": "southeast",
@@ -27,8 +27,8 @@
 	},
 	{
 		"direction":"south",
-		"roomID":"room3",
-		"description":"Heads outside"
+		"roomID":"",
+		"description":"The mouse blocks your path."
 	},
 	{
 		"direction":"southwest",
@@ -56,21 +56,147 @@
 		"description":"You look down and see carpet."
 	}
 	],
-	"problemDescription":"You run into a mouse and it asks you to solve a problem or get eaten.",
+	"problemDescription":"Guarding the mouse-hole to the south is a perfectly normal mouse.",
+	"problemWrapUp": "His question answered, the mouse sidesteps to his left, allowing you passage.",
+	"nextState": "room1-1",
+	"record_type": "room",
+	"items": ["mouse"]
+},
+{
+	"_id":  "room1-1",
+	"name":  "School room.",
+	"description":  "The chemistry room expands around you.  There is a forlorn looking room through the doorway off to your East;  To the south is a mousehole.",
+	"exits":  [
+	{
+		"direction":"north",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"east",
+		"roomID": "room2",
+		"description":""
+	},
+	{
+		"direction": "southeast",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"Trying to peer through the hole momentarily blinds you with sunlight.  It must lead outside."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You see a wall. You can't go that direction."
+	},
+	{
+		"direction":"up",
+		"roomID": "",
+		"description":"You look up and see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"",
+	"problemWrapUp": "",
+	"nextState": "",
+	"record_type": "room",
+	"items": ["mouse"]
+},
+
+{
+	"_id":  "room2-1",
+	"name":  "Shag Carpet Room",
+	"description":  "Oh good, you just solved the question you can now get out of this 70's nightmare.  Look around for a way out.",
+	
+"exits":  [
+	{ 
+		"direction": "north",
+		"roomID": "",
+		"description":  "To the north you see the door to yet another science room, which you naturally can't open in your current state."
+	},
+	{
+		"direction":"northeast",
+		"roomID": "",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"east",
+		"roomID":"room4",
+		"description":"You see a room with a tiled floor past the doorway to the east."
+	},
+	{
+		"direction":"southeast",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"south",
+		"roomID":"room3",
+		"description":"You see the campus, dotted here and there with grass amidst the concrete walkways."
+	},
+	{
+		"direction":"southwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"west",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"northwest",
+		"roomID":"",
+		"description":"You can't go this direction."
+	},
+	{
+		"direction":"up",
+		"roomID":"",
+		"description":"You look up and see the ceiling."
+	},
+	{
+		"direction":"down",
+		"roomID":"",
+		"description":"You look down and see carpet."
+	}
+	],
+	"problemDescription":"",
 	"problemWrapUp":"",
 	"nextState":"",
-	"record_type":"room",
+	"record_type": "room",
 	"items":[]
 },
 {
-	"_id":  "room2-1",
-	"name":  "Shag Room after question is solved",
-	"description":  "Oh good, you just solved the question you can now get out of this 70's nightmare.  Look around for a way out.",
+	"_id":  "room2",
+	"name":  "Shag Carpet Room",
+	"description":  "The carpet here is tall and orange, and smells like it hasn't been cleaned since it was first put in (and judging by the style, it was probably put in back when the Beatles were still popular).",
 	"exits":  [
 	{ 
 		"direction":"north",
 		"roomID":"deadEnd",
-		"description":"Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came." 
+		"description": "Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came." 
 	},
 	{
 		"direction":"northeast",
@@ -118,83 +244,21 @@
 		"description":"You look down and see carpet."
 	}
 	],
-	"problemDescription":"",
-	"problemWrapUp":"",
-	"nextState":"",
-	"record_type": "room",
-	"items":[]
-},
-{
-	"_id":  "room2",
-	"name":  "Shag Room",
-	"description":  "Oh no! The carpet is too tall and it's orange.  You have entered a throw back shag carpet room.  The carpet is twice as tall as you are and you feel trapped! All is not lost however, you just have to solve a problem and you can escape this 70s nightmare.",
-	"exits":  [
-	{ 
-		"direction": north
-		"roomID": deadEnd
-		"description":  Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came. 
-	},
-	{
-		"direction":"northeast",
-		"roomID": "",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"east",
-		"roomID":"room4",
-		"description":"Heads to the tile room."
-	},
-	{
-		"direction":"southeast",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"south",
-		"roomID":"room3",
-		"description":"Heads outside."
-	},
-	{
-		"direction":"southwest",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"west",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"northwest",
-		"roomID":"",
-		"description":"You can't go this direction."
-	},
-	{
-		"direction":"up",
-		"roomID":"",
-		"description":"You look up and see the ceiling."
-	},
-	{
-		"direction":"down",
-		"roomID":"",
-		"description":"You look down and see carpet."
-	}
-	],
-	"problemDescription":"Out pops a spider and askes you to solve the following problem or it will ensnare you and eat you.",
-	"problemWrapUp":"",
-	"nextState":"",
+	"problemDescription":"Apparently a spider has laid itself a nest amidst this ugly shag carpet, and you've walked right into its web.  Your guess as to the origins of the web prove terrifyingly accurate as a large black specimen slowly drops down from above.  Surprisingly it offers to pull you out of its web without eating you, but it requires you to solve a problem for it.",
+	"problemWrapUp":"The spider whips a non-sticky web around you and yanks you out of the web, up to the top of the shag carpet, which seems to have fused together enough to form paths in and out of the room.",
+	"nextState":"room2-1",
 	"record_type":"room",
-	"items":[]
+	"items":["spider"]
 },
 {
-	"_id": "room3-1",
-	"name": "dirt mound",
-	"description": "After a huge struggle you have reached the top of the dirt mound from here you can see several things but only one thing you can get to. The place that you see that you can reach is a masive ant hill but you can not see any ants. Since this is the only place you can see that you can get to you decide to head that direction. South be your course.",
+	"_id": "dirtMound",
+	"name": "Dirt Mound",
+	"description": "After a huge struggle you have reached the top of the dirt mound. From here you can see several things but only one you can reach - a masive ant hill. You can not see any ants. Since this is the only place you can see that you can get to you decide to head that direction. South be your course.",
 	"exits": [
 	{ 
 		"direction":"north",
 		"roomID":"room3",
-		"description":"Your back into the great outdoors."
+		"description":"You're back into the great outdoors."
 	},
 	{
 		"direction":"northeast",
@@ -207,7 +271,7 @@
 		"description":"You can not head this direction."
 	},
 	{
-		"direction":"southeast"
+		"direction":"southeast",
 		"roomID":"",
 		"description":"You can not head this direction."
 	},
@@ -256,7 +320,7 @@
 	{ 
 		"direction":"north",
 		"roomID":"room2",
-		"description":"Your back to the shag carpet room."
+		"description":"You're back to the shag carpet room."
 	},
 	{
 		"direction":"northeast",
@@ -308,17 +372,17 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":  [pebble]
+	"items":  ["pebble"]
 },
 {
 	"_id": "room4-1",
 	"name": "Tile room",
-	"description": "You've already been here. This is the tile room. You have obtained a tiny vile from this room.  Please proceede.",
+	"description": "You've already been here. This is the tile room. You have obtained a tiny vial from this room.  Please proceed.",
 	"exits": [
 	{ 
 		"direction":"north",
 		"roomID":"waterDrop",
-		"description":"Oh no! You've run into a drop of water.  you are trapped.  The only way out is to solve this problem." 
+		"description":"Oh no! You've run into a drop of water.  You are trapped.  The only way out is to solve this problem." 
 	},
 	{
 		"direction":"northeast",
@@ -338,7 +402,7 @@
 	{
 		"direction":"south",
 		"roomID":"room6",
-		"description":"This is a wonderful passage way."
+		"description":"This is a wonderful passageway."
 	},
 	{
 		"direction":"southwest",
@@ -348,7 +412,7 @@
 	{
 		"direction":"west",
 		"roomID":"room2",
-		"description":"Your back in the shag carpet room."
+		"description":"You're back in the shag carpet room."
 	},
 	{
 		"direction":"northwest",
@@ -366,7 +430,7 @@
 		"description":"You look down and see tile."
 	}
 	],
-	"problemDescription":"You've just feel into a drop of water. Solve this problem to get out.",
+	"problemDescription":"You've fallen into a drop of water. Solve this problem to get out.",
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
@@ -375,12 +439,12 @@
 {
 	"_id": "room4-1",
 	"name": "Tile room",
-	"description": "You've already been here. This is the tile room. You have obtained a tiny vile from this room.  Please proceede.",
+	"description": "You've already been here. This is the tile room. You obtained a tiny vial from this room.  Please proceed.",
 	"exits": [
 	{ 
 		"direction":"north",
 		"roomID":"waterDrop",
-		"description":"Oh no! You've run into a drop of water.  you are trapped.  The only way out is to solve this problem." 
+		"description":"Oh no! You've run into a drop of water.  You are trapped.  The only way out is to solve this problem." 
 	},
 	{
 		"direction":"northeast",
@@ -400,7 +464,7 @@
 	{
 		"direction":"south",
 		"roomID":"room6",
-		"description":"This is a wonderful passage way."
+		"description":"This is a wonderful passageway."
 	},
 	{
 		"direction":"southwest",
@@ -410,7 +474,7 @@
 	{
 		"direction":"west",
 		"roomID":"room2",
-		"description":"Your back in the shag carpet room."
+		"description":"You're back in the shag carpet room."
 	},
 	{
 		"direction":"northwest",
@@ -428,7 +492,7 @@
 		"description":"You look down and see tile."
 	}
 	],
-	"problemDescription":"You've just feel into a drop of water. Solve this problem to get out.",
+	"problemDescription":"You've fallen into a drop of water. Solve this problem to get out.",
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
@@ -437,12 +501,12 @@
 {
 	"_id": "room4",
 	"name": "Tile room",
-	"description": "You've entered a strange room where everything feels hard as stone and there are deep crevises in straight lines.  It takes you a minute but your recognize this as tile.  In the center of the room you notice something very small and clear.  You head to it and pick it up.  It is a tiny vile.  You look around the room some more to see if you can find anything else. You notice that the floor is shiny like it has just been mopped.  Be careful because the water droplets are as big as you.  Which direction would you like to head?",
+	"description": "You've entered a strange room where everything feels hard as stone and there are deep crevises in straight lines.  It takes you a minute but you recognize this as tile.  In the center of the room you notice something very small and clear.  You head to it and pick it up.  It is a tiny vial.  You look around the room some more to see if you can find anything else. You notice that the floor is shiny like it has just been mopped.  Be careful because the water droplets are as big as you!  Which direction would you like to head?",
 	"exits": [
 	{ 
 		"direction":"north",
 		"roomID":"waterDrop",
-		"description":"Oh no! You've run into a drop of water.  you are trapped.  The only way out is to solve this problem." 
+		"description":"Oh no! You've run into a drop of water.  You are trapped.  The only way out is to solve this problem." 
 	},
 	{
 		"direction":"northeast",
@@ -462,7 +526,7 @@
 	{
 		"direction":"south",
 		"roomID":"room6",
-		"description":"This is a wonderful passage way."
+		"description":"This is a wonderful passageway."
 	},
 	{
 		"direction":"southwest",
@@ -472,7 +536,7 @@
 	{
 		"direction":"west",
 		"roomID":"room2",
-		"description":"Your back in the shag carpet room"
+		"description":"You're back in the shag carpet room"
 	},
 	{
 		"direction":"northwest",
@@ -490,16 +554,16 @@
 		"description":"You look down and see tile."
 	}
 	],
-	"problemDescription":"You've just feel into a drop of water. Solve this problem to get out.",
+	"problemDescription":"You've fallen into a drop of water. Solve this problem to get out.",
 	"problemWrapUp":"",
 	"nextState":"room4-1",
 	"record_type": "room",
-	"items":[“vile”]
+	"items": ["vial"]
 },
 {
 	"_id": "room5",
 	"name": "Mystery room",
-	"description": "Wow this room is magnificent.  You know you are in a room but the ceiling has stars and a whole solar system twirling around.  The room is black yet you can see everything because of how bring the solar system is.  There are all manor of immaginative murals on the walls and wonderous items are floating around.  You can not reach anything however because you are too small.  The only thing to do is to find a way out.",
+	"description": "Wow this room is magnificent.  You know you are in a room but the ceiling has stars and a whole solar system twirling around.  The room is black yet you can see everything because of how bright the solar system is.  There are all manner of imaginative murals on the walls and wonderous items are floating around.  You can not reach anything however because you are too small.  The only thing to do is to find a way out.",
 	"exits": [
 	{ 
 		"direction":"north",
@@ -534,7 +598,7 @@
 	{
 		"direction":"west",
 		"roomID":"room4",
-		"description":"Your back in the tile room."
+		"description":"You're back in the tile room."
 	},
 	{
 		"direction":"northwest",
@@ -549,7 +613,7 @@
 	{
 		"direction":"down",
 		"roomID":"",
-		"description":"You look down and see that you apear to be floating even though your on solid ground."
+		"description":"You look down and see that you appear to be floating even though you're on solid ground."
 	}
 	],
 	"problemDescription":"",
@@ -560,8 +624,8 @@
 },
 {
 	"_id": "room6",
-	"name": "Beautiful passage way",
-	"description": "This is a beautiful passage way with wonderful paintings on the walls  but alas it is only a passage way.  Please head west to continue your journey.",
+	"name": "Beautiful passageway",
+	"description": "This is a beautiful passageway with wonderful paintings on the walls  but alas it is only a passage way.  Please head west to continue your journey.",
 	"exits": [
 	{ 
 		"direction":"north",
@@ -623,10 +687,10 @@
 {
 	"_id": "room7",
 	"name": "tall grass",
-	"description": "Oh no!  Your stuck in this super tall grass you can not see your way out but maybe if you can solve this question you can be guided back to where you came from.",
+	"description": "Oh no!  You're stuck in this super tall grass you can not see your way out but maybe if you can solve this question you can be guided back to where you came from.",
 	"exits": [
 	{ 
-		"direction":"north"
+		"direction":"north",
 		"roomID":"",
 		"description":"Super tall grass as far as the eye can see.  You can not go this direction."
 	},
@@ -742,7 +806,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[powder]
+	"items":["powder"]
 },
 {
 	"_id": "room9",
@@ -809,7 +873,7 @@
 {
 	"_id": "room10",
 	"name": "combining room",
-	"description": "You enter what looks like a magical room owned by a wizard. There is a spell book in the room.  The spell book has only one spell in it.  The spell of enlargement.  This spell requires three items: A tiny vile, a tiny shiny pebble, and a hand full of magic powder. If you do not have these items you must exit the building and go searching for them. If you already have them then you must answer the riddle spell and see what happens.",
+	"description": "You enter what looks like a magical room owned by a wizard. There is a spell book in the room.  The spell book has only one spell in it.  The spell of enlargement.  This spell requires three items: A tiny vial, a tiny shiny pebble, and a hand full of magic powder. If you do not have these items you must exit the building and go searching for them. If you already have them then you must answer the riddle spell and see what happens.",
 	"exits": [
 	{ 
 		"direction":"north",
@@ -933,7 +997,7 @@
 {	
 	"_id": "room12",
 	"name": "Play room",
-	"description": "This room appears to be a play room there are toys that are as big or bigger than you.  They are everywhere.  It doesn't look like this room has been cleaned up in some time.  Spread out everywhere you see legos, cars (some that you could fit in to ride if only they had real engines), a doll house, and barbies everywhere.  There are so many toys you think to yourself that this would be a fun place to stay.  But alas you are still the size of some of these toys and you must grow larger.  Just when you think this you notice a shinny small vile.  Just like the one you saw before only larger.  It is just the right size to fit into your very small pocket.  So you pick it up.  You look around for ways out of this room and you notice that there are several ways out but one way you can't quite reach. You can head to the west, to the north or there is a ladder that you can't quite reach but you noticed the legos before.  Maybe you can build something to reach the ladder.  Which direction will you go?",
+	"description": "This room appears to be a play room there are toys that are as big or bigger than you.  They are everywhere.  It doesn't look like this room has been cleaned up in some time.  Spread out everywhere you see legos, cars (some that you could fit in to ride if only they had real engines), a doll house, and barbies everywhere.  There are so many toys you think to yourself that this would be a fun place to stay.  But alas you are still the size of some of these toys and you must grow larger.  Just when you think this you notice a shinny small vial.  Just like the one you saw before only larger.  It is just the right size to fit into your very small pocket.  So you pick it up.  You look around for ways out of this room and you notice that there are several ways out but one way you can't quite reach. You can head to the west, to the north or there is a ladder that you can't quite reach but you noticed the legos before.  Maybe you can build something to reach the ladder.  Which direction will you go?",
 	"exits":  [
 	{
 		"direction":"north",
@@ -990,7 +1054,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[glass]
+	"items":["glass"]
 },
 {	
 	"_id": "room13",
@@ -1052,7 +1116,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“rock”]
+	"items":["rock"]
 },
 {	
 	"_id": "room14",
@@ -1180,8 +1244,8 @@
 },
 {	
 	"_id": "room16",
-	"name": "Small passage way",
-	"description": "This is a small passage way that heads off in a new direction it twists and curves but then arrives at a new room.  FOllow it and see where it goes!",
+	"name": "Small passageway",
+	"description": "This is a small passageway that heads off in a new direction it twists and curves but then arrives at a new room.  FOllow it and see where it goes!",
 	"exits":  [
 	{
 		"direction":"north",
@@ -1268,7 +1332,7 @@
 	{
 		"direction":"south",
 		"roomID":"room18",
-		"description":"You dive into the this passage way and escape the cat."
+		"description":"You dive into the this passageway and escape the cat."
 	},
 	{
 		"direction":"southwest",
@@ -1397,7 +1461,7 @@
 	{
 		"direction":"southwest",
 		"roomID":"room20",
-		"description":"You find a secret passage way."
+		"description":"You find a secret passageway."
 	},
 	{
 		"direction":"west",
@@ -1420,16 +1484,16 @@
 		"description":"The pile of magic stuff is below you."
 	}
 	],
-	"problemDescription":"Solve this problemt to find the secret passage way.",
+	"problemDescription":"Solve this problemt to find the secret passageway.",
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“dus”t]
+	"items":["dust"]
 },
 {	
 	"_id": "room20",
-	"name": "Secret underground passage way.",
-	"description": "You've found a secret underground passage way. This is a three way passage way but is by far the longest you have walked so far.  There is a path up, a path to the west, and a path that heads east.  Which direction will you go?",
+	"name": "Secret underground passageway.",
+	"description": "You've found a secret underground passageway. This is a three way passage way but is by far the longest you have walked so far.  There is a path up, a path to the west, and a path that heads east.  Which direction will you go?",
 	"exits":  [
 	{
 		"direction":"north",
@@ -1491,7 +1555,7 @@
 {	
 	"_id": "room21",
 	"name": "The slide",
-	"description": "Your falling down a slide and a very fast rate. It's exhilarating but scary. After a few moments you are at the bottom and have fallen into the secret combining room.",
+	"description": "You're falling down a slide and a very fast rate. It's exhilarating but scary. After a few moments you are at the bottom and have fallen into the secret combining room.",
 	"exits":  [
 	{
 		"direction":"north",
@@ -1553,7 +1617,7 @@
 {	
 	"_id": "room22",
 	"name": "Secret combining room",
-	"description": "This is a magical room. Everything is floating including you.  Yet you can move around the room just by thinking about going in a direction. If you have the small vile, the small shiny pebble, and magic stuff you can make a gem of enlargement by solving a problem if not you must go back and find the objects.  There is only one path out of here and that is to the east.",
+	"description": "This is a magical room. Everything is floating including you.  Yet you can move around the room just by thinking about going in a direction. If you have the small vial, the small shiny pebble, and magic stuff you can make a gem of enlargement by solving a problem if not you must go back and find the objects.  There is only one path out of here and that is to the east.",
 	"exits":  [
 	{
 		"direction":"north",
@@ -1796,7 +1860,7 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“soil”]
+	"items": ["soil"]
 },
 {	
 	"_id": "room26",
@@ -1925,7 +1989,7 @@
 {	
 	"_id": "room28",
 	"name": "weapons room",
-	"description": "You've entered the weapons room but these are not weapons that you would recognize.  They are space weapons of all shapes and sizes.  You want to go see all the unique weapons in this room when something catches your eye.  Sitting up on a shelf is a vile.  You recognize this item and you must have it because you know it will help you get back to full size.  However, it is too hight to reach.  You must climb but in order to climb you must solve a problem.  After you solve the problem and get the vile you try to find a way to escape this room and continue on your journey.",
+	"description": "You've entered the weapons room but these are not weapons that you would recognize.  They are space weapons of all shapes and sizes.  You want to go see all the unique weapons in this room when something catches your eye.  Sitting up on a shelf is a vial.  You recognize this item and you must have it because you know it will help you get back to full size.  However, it is too hight to reach.  You must climb but in order to climb you must solve a problem.  After you solve the problem and get the vile you try to find a way to escape this room and continue on your journey.",
 	"exits":  [
 	{
 		"direction":"north",
@@ -1970,7 +2034,7 @@
 	{
 		"direction":"up",
 		"roomID":"",
-		"description":"You see some cool space weapons and the vile. You must get to that vile."
+		"description":"You see some cool space weapons and the vial. You must get to that vile."
 	},
 	{
 		"direction":"down",
@@ -1978,11 +2042,11 @@
 		"description":""
 	}
 	],
-	"problemDescription":"Solve this problem to climb up on the shelf and get the vile.",
+	"problemDescription":"Solve this problem to climb up on the shelf and get the vial.",
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“cup”]
+	"items":["cup"]
 },
 {	
 	"_id": "room29",
@@ -2106,12 +2170,12 @@
 	"problemWrapUp":"",
 	"nextState":"",
 	"record_type":"room",
-	"items":[“stone”]
+	"items":["stone"]
 },
 {	
 	"_id": "room31-1",
 	"name": "school",
-	"description": "Your back at school and everything is back to normal.  You are your normal size and everything is beautiful.  Your so happy and excited that you just can't wait to go home and tell you family about what happened.  Congratulations Your journey is over!",
+	"description": "You're back at school and everything is back to normal.  You are your normal size and everything is beautiful.  You're so happy and excited that you just can't wait to go home and tell you family about what happened.  Congratulations Your journey is over!",
 	"exits":  [
 	{
 		"direction":"north",
@@ -2173,7 +2237,7 @@
 {	
 	"_id": "room31",
 	"name": "flight station",
-	"description": "You've entered the flight station/combining room.  You have to be careful there are people in this room. You cautiously move around the room.  You don't want to get stepped on or discovered until your big again.  Everyone appears to be looking at their computer consoles and not paying attention to you.  But if you make too much noise they will find you.  If you have all three items (the vile, shiny pebble, and magic soil) you can solve this problem and make a gem of enlargement.  If you don't have those three items you must find a way to escape this room and find those items.",
+	"description": "You've entered the flight station/combining room.  You have to be careful there are people in this room. You cautiously move around the room.  You don't want to get stepped on or discovered until you're big again.  Everyone appears to be looking at their computer consoles and not paying attention to you.  But if you make too much noise they will find you.  If you have all three items (the vial, shiny pebble, and magic soil) you can solve this problem and make a gem of enlargement.  If you don't have those three items you must find a way to escape this room and find those items.",
 	"exits":  [
 	{
 		"direction":"north",
@@ -2227,7 +2291,7 @@
 	}
 	],
 	"problemDescription":"Solve this problem to combine all the itmes together and create a gem of enlargement.",
-	"problemWrapUp":"You have appeared full size and scared the entire crew.  You explain everything that has happened and they have many questions.  You answer all of their questions and they believe you.  You need to get home back to the school.  They offer to put yo in their transporter and transport you back to earth right back into your school room.  You accept their offer and are transported back.  THE END!",
+	"problemWrapUp":"You have appeared full size and scared the entire crew.  You explain everything that has happened and they have many questions.  You answer all of their questions and they believe you.  You need to get home back to the school.  They offer to put yo in their transporter and transport you back to earth right back into you're school room.  You accept their offer and are transported back.  THE END!",
 	"nextState":"room31-1",
 	"record_type":"room",
 	"items":[]

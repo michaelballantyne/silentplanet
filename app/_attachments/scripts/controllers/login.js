@@ -1,5 +1,4 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/handlebars', 'libraries/PBKDF2', 'libraries/jquery.cookie'], function ($, sammy, studentSet, Handlebars, PBKDF2) {    
-    
+define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/handlebars', 'libraries/PBKDF2', 'libraries/jquery.cookie'], function ($, sammy, studentSet, Handlebars, PBKDF2) {
     var login = {},
         updateCurrentStudent = function (context, username, callback) {
             var privcallback = function (view) {
@@ -35,7 +34,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/han
                         return;
                     }
                 }
-                
+
                 hasher = new PBKDF2('admin', '22b1ffd0-76e3-11e1-b0c4-0800200c9a66', 100, 100);
                 hasher.deriveKey(function () {}, function (hash) {
                     student.hash = hash;
@@ -43,7 +42,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/han
                 });
             });
         });
-        
+
         this.before({
             except: {
                 path: ['#/logout', '#/login.*', '#/admin/login.*']
@@ -92,8 +91,8 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/han
             var context = this,
                 entered_username = this.params.user,
                 password = this.params.password;
-           
-            
+
+
             studentSet.getStudent(entered_username, context, function (view) {
                 var hasher, user, callback = function (hash) {
                     window.console.log(hash);
@@ -119,7 +118,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/students', 'libraries/han
                 } else {
                     callback();
                 }
-                
+
             });
         });
 
