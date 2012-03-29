@@ -2,45 +2,6 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
     var story = {},
         currentProblemSet = null,
         context = null,
-        newGame = function() {
-            login.currentStudent.itemFlags = [];
-            login.currentStudent.roomFlags = [];
-            login.updateStudentOnServer();
-            displayIntro();
-            return roomSet.FIRST_ROOM_ID;
-        },
-
-    //the answer command -- basically just checks to see if the current obstacle has been cleared.
-        answer = function (response) {
-            //first check to see if there is actually a problem description
-            if (roomLogic.currentRoom.problemDescription) {
-                var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
-                //decide what to do if correct vs. incorrect
-                if (correct) {
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Correct!");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
-                    roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id,roomLogic.currentRoom.nextState);
-                    move.moveTo(roomLogic.currentRoom.nextState, context);
-                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
-                    probLogic.currentProblem = null;
-                } else {
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Your answer was incorrect!");
-                    $('#displayBox').append("<br/>");
-                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
-                }
-            }
-        },
-
-        wait = function () {
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append("You pace back and forth for a few minutes.");
-            $('#displayBox').append("<br/>");
-        },
-
-        // TODO replace this with intro from John eventually
         displayIntro = function () {
             $('#displayBox').append("Greetings ");
             $('#displayBox').append(login.currentStudent.username);
@@ -64,7 +25,46 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 "The world around you looks absolutely strange and different. You're scared but manage to keep your wits about you and " +
                 "you decide that you have to find a way to grow larger again... but how?  ");
             $('#displayBox').append("<br/>");
+        },
+        newGame = function () {
+            login.currentStudent.itemFlags = [];
+            login.currentStudent.roomFlags = [];
+            login.updateStudentOnServer();
+            displayIntro();
+            return roomSet.FIRST_ROOM_ID;
+        },
+
+        //the answer command -- basically just checks to see if the current obstacle has been cleared.
+        answer = function (response) {
+            //first check to see if there is actually a problem description
+            if (roomLogic.currentRoom.problemDescription) {
+                var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
+                //decide what to do if correct vs. incorrect
+                if (correct) {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Correct!");
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
+                    roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id, roomLogic.currentRoom.nextState);
+                    move.moveTo(roomLogic.currentRoom.nextState, context);
+                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                    probLogic.currentProblem = null;
+                } else {
+                    $('#displayBox').append("<br/>");
+                    $('#displayBox').append("Your answer was incorrect!");
+                    $('#displayBox').append("<br/>");
+                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                }
+            }
+        },
+
+        wait = function () {
+            $('#displayBox').append("<br/>");
+            $('#displayBox').append("You pace back and forth for a few minutes.");
+            $('#displayBox').append("<br/>");
         };
+
+
 
     sammy('#main', function () {
         this.get('#/story', function () {
@@ -80,7 +80,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             });
         });
 
-        this.post('#/story/command', function() {
+        this.post('#/story/command', function () {
             context = this;
             var command = this.params.command;
             command = command.toLowerCase();
@@ -92,7 +92,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 command[0] = command[1];
             }
 
-            switch(command[0]) {
+            switch (command[0]) {
             case "look":
             case "examine":
                 look.look(command, roomLogic.currentRoom, context);
@@ -151,10 +151,11 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 break;
             case "pick":
                 //we'll assume here that the user typed "pick up -----"
-                if(command[1] == "up")
+                if (command[1] === "up") {
                     inventory.take(command[2], context);
-                else
+                } else {
                     look.errorMessage();
+                }
                 break;
             case "get":
             case "grab":

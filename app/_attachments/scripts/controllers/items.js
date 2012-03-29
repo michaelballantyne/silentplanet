@@ -1,15 +1,15 @@
 /**
  * 
  */
-define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms', 'libraries/jquery'], function(items, roomLogic, login, roomSet, $) {
+define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms', 'libraries/jquery'], function (items, roomLogic, login, roomSet, $) {
 
     //displays the basic error message if a command was not parseable for some reason
-    var errorMessage = function() {
+    var errorMessage = function () {
         $('#displayBox').append("<br/>");
         $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
         $('#displayBox').append("<br/>");
     };
-    
+
     return {
         //determines if the item with the given name is in your inventory
         isInInventory: function (itemName) {
@@ -25,9 +25,9 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
             }
             return false;
         },
-        
+
         //determines if the item with the given name is in the current room
-        isInCurrentRoom:function(itemName, room) {
+        isInCurrentRoom: function (itemName, room) {
             var i,
                 isInRoom = ($.inArray(itemName, room.items) >= 0);
             for (i = 0; i < login.currentStudent.itemFlags.length; i++) {

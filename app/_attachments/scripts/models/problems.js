@@ -1,7 +1,13 @@
 define(['models/db', 'libraries/handlebars', 'controllers/login'], function (db, Handlebars, login) {
-    var MAX_DIFFICULTY = 5;
-    var MIN_DIFFICULTY = 1;
-    
+    var MAX_DIFFICULTY = 5,
+        MIN_DIFFICULTY = 1,
+        Problem = function (question, answer, difficulty) {
+            this.problem = question;
+            this.answer = answer;
+            this.difficulty = difficulty;
+            this.record_type = 'problem';
+        };
+
     Handlebars.registerHelper("formatDifficulty", function (difficulty) {
         var i,
             difficultyAsAsterisk = "";
@@ -10,16 +16,8 @@ define(['models/db', 'libraries/handlebars', 'controllers/login'], function (db,
         }
         return new Handlebars.SafeString(difficultyAsAsterisk);
     });
-    
-    var Problem = function (question, answer, difficulty) {
-        this.problem = question;
-        this.answer = answer;
-        this.difficulty = difficulty;
-        this.record_type = 'problem';
-    };
 
     return {
-        
         getProblems: function (context, callback) {
             context.load('/localhost/_design/app/_view/problems', {
                 json: true,

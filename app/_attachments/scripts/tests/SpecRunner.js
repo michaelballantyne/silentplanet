@@ -1,16 +1,17 @@
-define(['tests/ChallengeSpec'], function() {
-    return Runner = function () {
-      var jasmineEnv = jasmine.getEnv();
-      jasmineEnv.updateInterval = 1000;
+define(['tests/ChallengeSpec'], function () {
+    var Runner = function () {
+        var jasmineEnv = jasmine.getEnv(),
+            trivialReporter = new jasmine.TrivialReporter();
+        jasmineEnv.updateInterval = 1000;
 
-      var trivialReporter = new jasmine.TrivialReporter();
+        jasmineEnv.addReporter(trivialReporter);
 
-      jasmineEnv.addReporter(trivialReporter);
+        jasmineEnv.specFilter = function (spec) {
+            return trivialReporter.specFilter(spec);
+        };
 
-      jasmineEnv.specFilter = function(spec) {
-        return trivialReporter.specFilter(spec);
-      };
-
-      jasmineEnv.execute();
+        jasmineEnv.execute();
     };
-  });
+
+    return Runner;
+});
