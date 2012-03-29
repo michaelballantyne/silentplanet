@@ -11,8 +11,8 @@
  *   http://www.gnu.org/licenses/gpl.html
  */
 
-require(['libraries/jquery'], function ($) {
-
+require(['libraries/jquery'], function (jQuery) {
+(function () {
 $.extend($.fn, {
 	// http://docs.jquery.com/Plugins/Validation/validate
 	validate: function( options ) {
@@ -1186,3 +1186,4 @@ $.format = $.validator.format;
 		}
 	});
 })(jQuery);
+});
