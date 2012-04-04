@@ -3,6 +3,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
         currentProblemSet = null,
         context = null,
         displayIntro = function () {
+            $('#displayBox').val("");
             $('#displayBox').append("Greetings ");
             $('#displayBox').append(login.currentStudent.username);
             $('#displayBox').append("<br/>");
@@ -41,6 +42,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
                 //decide what to do if correct vs. incorrect
                 if (correct) {
+                    $('#displayBox').val("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("Correct!");
                     $('#displayBox').append("<br/>");
@@ -50,6 +52,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                     problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
                     probLogic.currentProblem = null;
                 } else {
+                    $('#displayBox').val("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("Your answer was incorrect!");
                     $('#displayBox').append("<br/>");
@@ -59,6 +62,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
         },
 
         wait = function () {
+            $('#displayBox').val("");
             $('#displayBox').append("<br/>");
             $('#displayBox').append("You pace back and forth for a few minutes.");
             $('#displayBox').append("<br/>");

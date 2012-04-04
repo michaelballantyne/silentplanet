@@ -5,6 +5,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
 
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function () {
+        $('#displayBox').val("");
         $('#displayBox').append("<br/>");
         $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
         $('#displayBox').append("<br/>");
@@ -45,6 +46,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
         //checks the given item dialog of a particular item if the item is in the vicinity
         checkItemDialogIfInRoom: function (item, dialog, room) {
             if (!this.isInCurrentRoom(item.name, room) && !this.isInInventory(item.name)) {
+                $('#displayBox').val("");
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append("I'm sorry but I don't see a ");
                 $('#displayBox').append(item.name);
@@ -54,6 +56,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
             } else {
                 var itemDialog = item.getItemDialog(dialog);
                 if (itemDialog) {
+                    $('#displayBox').val("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append(itemDialog.description);
                     $('#displayBox').append("<br/>");

@@ -16,12 +16,14 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 correct = answer.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, this);
                 if (correct) {
+                    $('#displayBox').val("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("Correct!");
                     $('#displayBox').append("<br/>");
                     $('#input').val("");
                     probLogic.chooseRandomProblem(this);
                 } else {
+                    $('#displayBox').val("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("Incorrect, try again!");
                     $('#displayBox').append("<br/>");
