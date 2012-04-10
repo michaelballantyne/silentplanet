@@ -1,0 +1,64 @@
+{
+    "problemWrapUp": "", 
+    "name": "Play room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "room13", 
+            "description": "You have entered the living room."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You see toys in the corner of the room but you can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "You see a wall with a painting of a giraffe but you can't go this direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "There are more toys in this direction but no way out."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room14", 
+            "description": "There is a ladder in this direction but you must solve a problem to build something with the legos to reach the ladder."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "There are toys everywhere but no way out."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "room11", 
+            "description": "You are in the master bedroom."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "There are several toys in this direction but no way to get out."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "room14", 
+            "description": "There is a ladder in this direction but you must solve a problem to build something with the legos to reach the ladder."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "There are toys everywhere but you can't go this direction."
+        }
+    ], 
+    "items": [
+        "glass"
+    ], 
+    "problemDescription": "You must solve this problem to climb the ladder.", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room12", 
+    "description": "This room appears to be a play room there are toys that are as big or bigger than you.  They are everywhere.  It doesn't look like this room has been cleaned up in some time.  Spread out everywhere you see legos, cars (some that you could fit in to ride if only they had real engines), a doll house, and barbies everywhere.  There are so many toys you think to yourself that this would be a fun place to stay.  But alas you are still the size of some of these toys and you must grow larger.  Just when you think this you notice a shinny small vial.  Just like the one you saw before only larger.  It is just the right size to fit into your very small pocket.  So you pick it up.  You look around for ways out of this room and you notice that there are several ways out but one way you can't quite reach. You can head to the west, to the north or there is a ladder that you can't quite reach but you noticed the legos before.  Maybe you can build something to reach the ladder.  Which direction will you go?"
+}

@@ -1,0 +1,21 @@
+{
+    "record_type": "item", 
+    "dialogs": [
+        {
+            "interactWord": [
+                "at"
+            ], 
+            "description": "it is a large stone"
+        }, 
+        {
+            "interactWord": [
+                "use", 
+                "with", 
+                "pebble"
+            ], 
+            "description": "banging the pebble on the rock resounds in a barely audible *thump*"
+        }
+    ], 
+    "name": "stone", 
+    "sceneryFlag": false
+}

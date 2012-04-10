@@ -1,0 +1,13 @@
+{
+    "record_type": "item", 
+    "dialogs": [
+        {
+            "interactWord": [
+                "at"
+            ], 
+            "description": "When you look at the player, the player looks back at you."
+        }
+    ], 
+    "name": "player", 
+    "sceneryFlag": true
+}

@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Shag Carpet Room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "To the north you see the door to yet another science room, which you naturally can't open in your current state."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "room4", 
+            "description": "You see a room with a tiled floor past the doorway to the east."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room3", 
+            "description": "You see the campus, dotted here and there with grass amidst the concrete walkways."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You look up and see the ceiling."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You look down and see carpet."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room2-1", 
+    "description": "Oh good, you just solved the question you can now get out of this 70's nightmare.  Look around for a way out."
+}

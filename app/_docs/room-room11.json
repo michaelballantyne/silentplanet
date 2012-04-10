@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Master room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "room13", 
+            "description": "You have reached a large living room"
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "There is a wall with red paint. You can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "room12", 
+            "description": "You have entered the play room"
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You've reached the corner of the room but you can't go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "There is a wall with a painting here but you can't go this direction"
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "This is the corner of the room with two walls but you can't go this direction"
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You see a staircase you must climb. Go up to climb."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You see the corner of the room but you can't go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "stairs", 
+            "description": "You see stairs that you climb"
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You see beautiful plush carpet. You can't go this direction."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "Solve this problem to climb the stairs.", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room11", 
+    "description": "You have entered what appears to be a master bedroom.  You are now about 4 inches tall and the world looks completely different then it did a few moments ago when you were smaller. This room is decorated with a beautiful chandelier, wonderful drapes and soft plush carpet. You are cozy in this room but you are still only 4 inches tall.  You might get stepped on at this size or worse eaten by a cat!  So you must get larger and now you know how.  You must continue your search for items to create gems of enlargement.  You notice that this room has three ways out.  There is a door to the north, a staircase leading up to who knows where, and a door to the east.  Which path will you choose?"
+}

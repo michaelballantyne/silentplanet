@@ -1,0 +1,64 @@
+{
+    "problemWrapUp": "", 
+    "name": "Elephant room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "You can't find an exit this direction."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You go this direction but it runs into a wall. Oops."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "You see more elephants but you can't go this direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "There is a fat elephant over here but you can't go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "There are several tiny elephants over here made of glass but nothing else. You can't go this direction."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "room20", 
+            "description": "You find a secret passageway."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "More elephants but you can't go this direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "Even more elephants but you can't go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "The giant elephant is above you but you can't go this direction."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "The pile of magic stuff is below you."
+        }
+    ], 
+    "items": [
+        "dust"
+    ], 
+    "problemDescription": "Solve this problemt to find the secret passageway.", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room19", 
+    "description": "Everywhere you look you see elephants. Glass elephants decorated in every color, plastic elephants of all shapes and sizes, and in the middle of the room you see a huge elephant statue.  Underneth the back of the elephant there is a pile of something.  You go closer and the pile is sparkling and you realize that this stuff must be magic.  So you grab a handfull of the magic stuff and put it in your pocket. You look around to find a way out of this room but you see nothing.  Perhaps if you solve a problem you will be able to escape this room."
+}
