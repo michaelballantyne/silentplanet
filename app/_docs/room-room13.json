@@ -1,0 +1,64 @@
+{
+    "problemWrapUp": "", 
+    "name": "Living room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "room16", 
+            "description": "You have found a small passege way."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "The room is beautifuly decorated but you can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "There is a wall but nothing else. You can't go this direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You have found the cornder of the room but you can't go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room12", 
+            "description": "You have reached the play room."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You see the corner of the room but you don't see a way out."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You see a wall but you don't see anything else. You can't go this direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You see the corner of the room but nothing apealing.  You can't go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "There is nothing in this direction but a ceiling fan.  You can't go this direction."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You see nice plush carpet but nothing else. You can't go this direction."
+        }
+    ], 
+    "items": [
+        "rock"
+    ], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room13", 
+    "description": "You have entered the living room.  It is a big room with what appear to be couches and a tv mounted on the north wall.  They look so strange and big from this size but you are sure that is what they are.  The tv is playing news but the tv must be on mute because you can't hear anything. Something catches your eye under the couch and you think to yourself that you must go get it.  You also see a pair of shoes from under the couch and you notice that there is a person watching the tv but they aren't paying close attention because it is muted.  You must be very quiet as you go for the item under the couch.  You don't want anyone to hear you or they might capture you.  So you tip toe under the couch and discover a small shiny pebble.  You pick it up and put it in your pocket and then try to find a way out.  To the south there is a door.  There is also appears to be a small opening in the wall to the north. Which way will you go?"
+}

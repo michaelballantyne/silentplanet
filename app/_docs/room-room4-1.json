@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Tile room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "waterDrop", 
+            "description": "Oh no! You've run into a drop of water.  You are trapped.  The only way out is to solve this problem."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "room5", 
+            "description": "Heads to the mystery room."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room6", 
+            "description": "This is a wonderful passageway."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "room2", 
+            "description": "You're back in the shag carpet room."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You look up and see a fan."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You look down and see tile."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "You've fallen into a drop of water. Solve this problem to get out.", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room4-1", 
+    "description": "You've already been here. This is the tile room. You obtained a tiny vial from this room.  Please proceed."
+}

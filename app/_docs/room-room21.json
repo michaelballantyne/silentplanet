@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "The slide", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You are sliding uncontrollably.  You can't go this direction."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "room22", 
+            "description": "You have slid into the secret combining room."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room21", 
+    "description": "You're falling down a slide and a very fast rate. It's exhilarating but scary. After a few moments you are at the bottom and have fallen into the secret combining room."
+}

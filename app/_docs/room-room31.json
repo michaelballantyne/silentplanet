@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "You have appeared full size and scared the entire crew.  You explain everything that has happened and they have many questions.  You answer all of their questions and they believe you.  You need to get home back to the school.  They offer to put yo in their transporter and transport you back to earth right back into you're school room.  You accept their offer and are transported back.  THE END!", 
+    "name": "flight station", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "room28", 
+            "description": "You've escaped into the weapons room."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You see people working on their computers but nothing else in this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "You see people working on their computers but nothing else in this direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You see people working on their computers but nothing else in this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "You see people working on their computers but nothing else in this direction."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You see people working on their computers but nothing else in this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You see people working on their computers but nothing else in this direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You see people working on their computers but nothing else in this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You see the ceiling."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You see the floor"
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "Solve this problem to combine all the itmes together and create a gem of enlargement.", 
+    "nextState": "room31-1", 
+    "record_type": "room", 
+    "_id": "room31", 
+    "description": "You've entered the flight station/combining room.  You have to be careful there are people in this room. You cautiously move around the room.  You don't want to get stepped on or discovered until you're big again.  Everyone appears to be looking at their computer consoles and not paying attention to you.  But if you make too much noise they will find you.  If you have all three items (the vial, shiny pebble, and magic soil) you can solve this problem and make a gem of enlargement.  If you don't have those three items you must find a way to escape this room and find those items."
+}

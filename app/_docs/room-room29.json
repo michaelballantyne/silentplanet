@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "quarters", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "You see the bed and explore under it but there is nothing there."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "There is a wall that is strangely decorated but nothing else."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "There is a chair but nothing else."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "There is a wall beautifuly decorated but you can't see anything else."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room30", 
+            "description": "You've entered the parts storage room."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "There is a wall decorated with paintings but nothing else."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "There is a couch here but nothing else."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "There is a wall which is a huge computer screen with changing scenery but nothing else."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You see the ceiling."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You see the floor."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room29", 
+    "description": "You've entered somebody's quarters.  There is a bed, couch, and chair.  The room is decorated in the style that this person enjoys.  You look around for a while but there is nothing in this room.  You must continue on your journey."
+}
