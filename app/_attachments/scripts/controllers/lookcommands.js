@@ -5,7 +5,7 @@
 define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items'], function ($, items, login, itemLogic) {
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function () {
-        $('#displayBox').val("");
+        $('#displayBox').html("");
         $('#displayBox').append("<br/>");
         $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
         $('#displayBox').append("<br/>");
@@ -14,7 +14,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
     return {
         //helper function for looking in a particular direction
         lookDirection: function (direction, room) {
-            $('#displayBox').val("");
+            $('#displayBox').html("");
             $('#displayBox').append("<br/>");
             $('#displayBox').append(room.getDirection(direction).description);
             $('#displayBox').append("<br/>");
@@ -28,7 +28,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
             case "around":
             case "":
                 //basic look / look around / examine
-                $('#displayBox').val("");
+                $('#displayBox').html("");
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append(room.name);
                 $('#displayBox').append("<br/>");
@@ -105,6 +105,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                     });
                 }
             }
+            
         }
     };
 });

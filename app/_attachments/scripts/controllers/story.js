@@ -1,9 +1,9 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms'], function ($, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic) {
+define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms'], function ($, jticker, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic) {
     var story = {},
         currentProblemSet = null,
         context = null,
         displayIntro = function () {
-            $('#displayBox').val("");
+            $('#displayBox').html("");
             $('#displayBox').append("Greetings ");
             $('#displayBox').append(login.currentStudent.username);
             $('#displayBox').append("<br/>");
@@ -42,7 +42,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
                 //decide what to do if correct vs. incorrect
                 if (correct) {
-                    $('#displayBox').val("");
+                    $('#displayBox').html("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("Correct!");
                     $('#displayBox').append("<br/>");
@@ -52,7 +52,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                     problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
                     probLogic.currentProblem = null;
                 } else {
-                    $('#displayBox').val("");
+                    $('#displayBox').html("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("Your answer was incorrect!");
                     $('#displayBox').append("<br/>");
@@ -62,7 +62,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
         },
 
         wait = function () {
-            $('#displayBox').val("");
+            $('#displayBox').html("");
             $('#displayBox').append("<br/>");
             $('#displayBox').append("You pace back and forth for a few minutes.");
             $('#displayBox').append("<br/>");
@@ -187,6 +187,13 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 answer(command[0]);
                 break;
             }
+          //setup ticker for animated text
+            $("#displayBox").ticker({
+                cursorList: " ",
+                rate: 90,
+                delay: 4000
+            }).trigger("play").trigger("stop");
+            $('#displayBox').trigger("play");
         });
     });
 

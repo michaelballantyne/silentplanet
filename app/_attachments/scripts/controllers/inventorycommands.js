@@ -6,7 +6,7 @@
 define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'controllers/movecommands', 'controllers/rooms', 'controllers/items'], function ($, items, login, roomSet, move, roomLogic, itemLogic) {
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function () {
-        $('#displayBox').val("");
+        $('#displayBox').html("");
         $('#displayBox').append("<br/>");
         $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
         $('#displayBox').append("<br/>");
@@ -15,7 +15,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
     return {
         take: function (itemName, context) {
             if (!itemLogic.isInCurrentRoom(itemName, roomLogic.currentRoom) && !itemLogic.isInInventory(itemName)) {
-                $('#displayBox').val("");
+                $('#displayBox').html("");
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append("I'm sorry but I don't see a ");
                 $('#displayBox').append(itemName);
@@ -23,7 +23,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 $('#displayBox').append("<br/>");
             } else {
                 if (itemLogic.isInInventory(itemName)) {
-                    $('#displayBox').val("");
+                    $('#displayBox').html("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append("You're already carrying ");
                     $('#displayBox').append(itemName);
@@ -38,14 +38,14 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                         var itemVals = view.rows[0].value,
                             thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
                         if (thisItem.sceneryFlag) {
-                            $('#displayBox').val("");
+                            $('#displayBox').html("");
                             $('#displayBox').append("<br/>");
                             $('#displayBox').append("You can't lift ");
                             $('#displayBox').append(thisItem.name);
                             $('#displayBox').append("<br/>");
                         } else {
                             items.moveItem(thisItem.name, roomSet.INVENTORY_ID);
-                            $('#displayBox').val("");
+                            $('#displayBox').html("");
                             $('#displayBox').append("<br/>");
                             $('#displayBox').append(thisItem.name);
                             $('#displayBox').append(": taken.");
@@ -58,14 +58,14 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
 
         drop: function (itemName) {
             if (!itemLogic.isInInventory(itemName)) {
-                $('#displayBox').val("");
+                $('#displayBox').html("");
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append("You are not carrying ");
                 $('#displayBox').append(itemName);
                 $('#displayBox').append(".");
                 $('#displayBox').append("<br/>");
             } else {
-                $('#displayBox').val("");
+                $('#displayBox').html("");
                 $('#displayBox').append("<br/>");
                 $('#displayBox').append(itemName);
                 $('#displayBox').append(": dropped");
@@ -75,7 +75,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
         },
 
         inventory: function () {
-            $('#displayBox').val("");
+            $('#displayBox').html("");
             $('#displayBox').append("<br/>");
             $('#displayBox').append("Searching through your bag reveals that it contains the following:");
             $('#displayBox').append("<br/>");

@@ -29,7 +29,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
 
         //displays the basic error message if a command was not parseable for some reason
         errorMessage = function () {
-            $('#displayBox').val("");
+            $('#displayBox').html("");
             $('#displayBox').append("<br/>");
             $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
             $('#displayBox').append("<br/>");
@@ -46,7 +46,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
             }
         }
         //If user gets here there's some kind of error
-        $('#displayBox').val("");
+        $('#displayBox').html("");
         $('#displayBox').append("<br/>");
         $('#displayBox').append("Error!  The player is in limbo!");
         $('#displayBox').append("<br/>");
@@ -68,7 +68,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 if (!visited) {
                     visit(context);
                 } else {
-                    $('#displayBox').val("");
+                    $('#displayBox').html("");
                     $('#displayBox').append("<br/>");
                     $('#displayBox').append(roomLogic.currentRoom.name);
                     $('#displayBox').append("<br/>");
@@ -83,7 +83,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
     moveCommands.move = function (direction, context) {
         var directionDialog = roomLogic.currentRoom.getDirection(direction);
         if (!directionDialog.roomID) {
-            $('#displayBox').val("");
+            $('#displayBox').html("");
             $('#displayBox').append("<br/>");
             $('#displayBox').append(directionDialog.description);
             $('#displayBox').append("<br/>");
