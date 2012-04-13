@@ -1,72 +1,65 @@
-define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms'], function ($, jticker, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic) {
+define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms', 'controllers/tickerLogic'], function ($, jticker, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic, tickerLogic) {
     var story = {},
-        currentProblemSet = null,
-        context = null,
-        displayIntro = function () {
-            $('#displayBox').html("");
-            $('#displayBox').append("Greetings ");
-            $('#displayBox').append(login.currentStudent.username);
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append("You are about to embark on a journey of epic proportions.");
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append("Prepare thyself!");
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append("You are here at school.  " +
-                "Your chemistry partner comes up to you and asks you to drink this new mixture that he has made.  " +
-                "You don't know what it does but the stuff in the bottle looks an emerald green with slight fizzing bubbles coming up.  " +
-                "Normally you would turn this down because who drinks weird concoctions made in a science lab however this drink looks " +
-                "strangely appealing to you and you don't know why but you MUST have it.  So you drink it in one gulp.  " +
-                "Mmmm, it has a slimy texture but some how is very satisfying.  You love it!  " +
-                "You're about to ask your chemistry partner to whip up some more when something strange starts to happen.  " +
-                "The room starts to spin and you feel very dizzy.  " +
-                "Strange bubbles appear in front of your face but when you go to grab them your hand goes right through them.  " +
-                "They are not really there.  The room seems to stretch and bend in weird manners and forms and appears to be growing larger.  " +
-                "After several minutes of this everything starts to calm down and you realize that the room wasn't getting larger.  " +
-                "You were getting smaller... much smaller.  You are the size of a strand of normal carpet.  " +
-                "The world around you looks absolutely strange and different. You're scared but manage to keep your wits about you and " +
-                "you decide that you have to find a way to grow larger again... but how?  ");
-            $('#displayBox').append("<br/>");
-        },
-        newGame = function () {
-            login.currentStudent.itemFlags = [];
-            login.currentStudent.roomFlags = [];
-            login.updateStudentOnServer();
-            displayIntro();
-            return roomSet.FIRST_ROOM_ID;
-        },
+    currentProblemSet = null,
+    context = null,
+    displayIntro = function () {
+        $('#tickerBox').html("");
+        $('#tickerBox').append("<p>Greetings " + login.currentStudent.username + ".</p>" +
+                "<p>You are about to embark on a journey of epic proportions.</p>" +
+                "<p>Prepare thyself!</p>" +
+                "<p>One day at the lab, one of your colleagues approaches you and politely asks you to imbibe a " +
+                "new concoction of his own design.  His previous experiments with flavor additives have been quite" +
+                " successful, so you eagerly accept.  As you peer into the depths of the flask, your eyes are " +
+                "greeted by an emerald green syrup, broken up here and there with a bubble or two.  The smell the" +
+                " brew gives off is somewhat vile, but with your colleague looking on expectantly, you feel compelled" +
+                " to drink it in one gulp.  While the mixture oozes down your throat, you get a thorough taste.  Your" +
+                " first impression is that your colleague has struck gold again.  That is...until the room to starts" +
+                " to spin, and you begin to feel somewhat dizzy.  There is a strange popping noise sounding in your ears" +
+                " as a mysterious veneer starts to cover your vision.  The room seems to stretch and bend in a strange" +
+                " manner, appearing to grow larger and wider...  </p>" +
+                "<p>You awake in a cold sweat.  The effects of whatever your colleague gave you must have worn off, as" +
+                " the room is no longer spinning, though you still feel quite tipsy.  After several moments of pondering" +
+                " your immediate surroundings you realize the effects of that terrible brew were far more than expected." +
+                "  You have shrunkend down to the size of a beetle, and the carpet in the lab seems like a thick grass " +
+                "around you.  While you were out, the culprit of your bodily changes must have left, for you are quite alone.</p>");
+        tickerLogic.animateText($('#displayBox'));
+    },
+    newGame = function () {
+        login.currentStudent.itemFlags = [];
+        login.currentStudent.roomFlags = [];
+        login.updateStudentOnServer();
+        displayIntro();
+        return roomSet.FIRST_ROOM_ID;
+    },
 
-        //the answer command -- basically just checks to see if the current obstacle has been cleared.
-        answer = function (response) {
-            //first check to see if there is actually a problem description
-            if (roomLogic.currentRoom.problemDescription) {
-                var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
-                //decide what to do if correct vs. incorrect
-                if (correct) {
-                    $('#displayBox').html("");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Correct!");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append(roomLogic.currentRoom.problemWrapUp);
-                    roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id, roomLogic.currentRoom.nextState);
-                    move.moveTo(roomLogic.currentRoom.nextState, context);
-                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
-                    probLogic.currentProblem = null;
-                } else {
-                    $('#displayBox').html("");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Your answer was incorrect!");
-                    $('#displayBox').append("<br/>");
-                    problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
-                }
+    //the answer command -- basically just checks to see if the current obstacle has been cleared.
+    answer = function (response) {
+        //first check to see if there is actually a problem description
+        if (roomLogic.currentRoom.problemDescription) {
+            var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
+            //decide what to do if correct vs. incorrect
+            if (correct) {
+                $('#tickerBox').html("");
+                $('#tickerBox').append("<p>Correct!</p>");
+                $('#tickerBox').append(roomLogic.currentRoom.problemWrapUp);
+                roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id, roomLogic.currentRoom.nextState);
+                move.moveTo(roomLogic.currentRoom.nextState, context);
+                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                probLogic.currentProblem = null;
+            } else {
+                $('#tickerBox').html("");
+                $('#tickerBox').append("<p>Your answer was incorrect!</p>");
+                problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
+                tickerLogic.animateText($('#displayBox'));
             }
-        },
+        }
+    },
 
-        wait = function () {
-            $('#displayBox').html("");
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append("You pace back and forth for a few minutes.");
-            $('#displayBox').append("<br/>");
-        };
+    wait = function () {
+        $('#tickerBox').html("");
+        $('#tickerBox').append("<p>You pace back and forth for a few minutes.</p>");
+        tickerLogic.animateText($('#displayBox'));
+    };
 
 
 
@@ -185,15 +178,8 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                 break;
             default:
                 answer(command[0]);
-                break;
+            break;
             }
-          //setup ticker for animated text
-            $("#displayBox").ticker({
-                cursorList: " ",
-                rate: 90,
-                delay: 4000
-            }).trigger("play").trigger("stop");
-            $('#displayBox').trigger("play");
         });
     });
 

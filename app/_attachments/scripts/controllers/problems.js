@@ -2,7 +2,7 @@
  * manages some of the business logic involving problems
  */
 
-define(['libraries/jquery', 'models/problems', 'controllers/login'], function ($, problemSet, login) {
+define(['libraries/jquery', 'models/problems', 'controllers/login', 'controllers/tickerLogic'], function ($, problemSet, login, tickerLogic) {
     var probLogic = {};
 
     probLogic.getProblemInRange = function (problems, student) {
@@ -17,24 +17,27 @@ define(['libraries/jquery', 'models/problems', 'controllers/login'], function ($
     probLogic.currentProblem = null;
 
     probLogic.activateProblem = function (problemDescription, context) {
-        if (!problemDescription) {
-            return;
+        if (problemDescription) {
+            $('#tickerBox').append("<p>" + problemDescription + "</p>");
+            probLogic.chooseRandomProblem(context);
         }
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append(problemDescription);
-        $('#displayBox').append("<br/>");
-        probLogic.chooseRandomProblem(context);
+        else
+            tickerLogic.animateText($('#displayBox'));
     };
 
     probLogic.chooseRandomProblem = function (context) {
         var callback = function (view) {
             if (view.rows.length === 0) {
-                $('displayBox').html('Empty Database');
+                $('tickerBox').html('Empty Database');
+                TypingText.runAll();
                 return;
             }
             var problem = probLogic.getProblemInRange(view.rows, login.currentStudent);
             if (problem) {
-                this.render('templates/problem.hb', problem).appendTo('#displayBox');
+                this.render('templates/problem.hb', problem).appendTo('#tickerBox')
+                .then(function() {
+                    tickerLogic.animateText($('#displayBox'));
+                });
                 probLogic.currentProblem = problem;
             }
         };

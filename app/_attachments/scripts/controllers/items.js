@@ -1,14 +1,13 @@
 /**
  * 
  */
-define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms', 'libraries/jquery'], function (items, roomLogic, login, roomSet, $) {
+define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms', 'libraries/jquery', 'controllers/tickerLogic'], function (items, roomLogic, login, roomSet, $, tickerLogic) {
 
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function () {
-        $('#displayBox').html("");
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
-        $('#displayBox').append("<br/>");
+        $('#tickerBox').html("");
+        $('#tickerBox').append("<p>I'm sorry, I didn't understand that.  Can you try saying it a different way?</p>");
+        tickerLogic.animateText($('#displayBox'));
     };
 
     return {
@@ -46,20 +45,14 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
         //checks the given item dialog of a particular item if the item is in the vicinity
         checkItemDialogIfInRoom: function (item, dialog, room) {
             if (!this.isInCurrentRoom(item.name, room) && !this.isInInventory(item.name)) {
-                $('#displayBox').html("");
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("I'm sorry but I don't see a ");
-                $('#displayBox').append(item.name);
-                $('#displayBox').append(" in the vicinity.");
-                $('#displayBox').append("<br/>");
+                $('#tickerBox').html("");
+                $('#tickerBox').append("<p>I'm sorry but I don't see a " + item.name + " in the vicinity.</p>");
                 return false;
             } else {
                 var itemDialog = item.getItemDialog(dialog);
                 if (itemDialog) {
-                    $('#displayBox').html("");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append(itemDialog.description);
-                    $('#displayBox').append("<br/>");
+                    $('#tickerBox').html("");
+                    $('#tickerBox').append("<p>" + itemDialog.description + "</p>");
                     return true;
                 } else {
                     errorMessage();
@@ -78,11 +71,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
                     thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
 
                     if (itemLogic.isInCurrentRoom(thisItem.name, roomLogic.currentRoom)) {
-                        $('#displayBox').append("<br/>");
-                        $('#displayBox').append("There is a ");
-                        $('#displayBox').append(thisItem.name);
-                        $('#displayBox').append(" here.");
-                        $('#displayBox').append("<br/>");
+                        $('#tickerBox').append("<p>There is a " + thisItem.name + " here.</p>");
                     }
                 }
             });

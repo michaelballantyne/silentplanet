@@ -1,4 +1,4 @@
-define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'controllers/login', 'controllers/problems'], function ($, sammy, problemSet, problemReports, login, probLogic) {
+define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'controllers/login', 'controllers/problems', 'controllers/tickerLogic'], function ($, sammy, problemSet, problemReports, login, probLogic, tickerLogic) {
     var challenge = {};
 
     sammy('#main', function () {
@@ -11,24 +11,23 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
 
         this.post("#/answer", function () {
             var answer = this.params.answer,
-                correct;
+            correct;
             if (probLogic.currentProblem) {
                 correct = answer.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, this);
                 if (correct) {
-                    $('#displayBox').val("");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Correct!");
-                    $('#displayBox').append("<br/>");
+                    $('#tickerBox').html("");
+                    $('#tickerBox').append("<p>Correct!</p>");
                     $('#input').val("");
                     probLogic.chooseRandomProblem(this);
                 } else {
-                    $('#displayBox').val("");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("Incorrect, try again!");
-                    $('#displayBox').append("<br/>");
+                    $('#tickerBox').html("");
+                    $('#tickerBox').append("<p>Incorrect, try again!</p>");
                     $('#input').val("");
-                    this.render('templates/problem.hb', probLogic.currentProblem).appendTo('#displayBox');
+                    this.render('templates/problem.hb', probLogic.currentProblem).appendTo('#tickerBox')
+                    .then(function() {
+                        tickerLogic.animateText($('#displayBox'));
+                    });
                 }
             } else {
                 $('#input').val("");

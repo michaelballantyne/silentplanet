@@ -2,22 +2,20 @@
  * look commands
  * these are called by the command parser during story mode
  */
-define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items'], function ($, items, login, itemLogic) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items', 'controllers/tickerLogic'], function ($, items, login, itemLogic, tickerLogic) {
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function () {
-        $('#displayBox').html("");
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
-        $('#displayBox').append("<br/>");
+        $('#tickerBox').html("");
+        $('#tickerBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
+        tickerLogic.animateText($('#displayBox'));
     };
 
     return {
         //helper function for looking in a particular direction
         lookDirection: function (direction, room) {
-            $('#displayBox').html("");
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append(room.getDirection(direction).description);
-            $('#displayBox').append("<br/>");
+            $('#tickerBox').html("");
+            $('#tickerBox').append(room.getDirection(direction).description);
+            tickerLogic.animateText($('#displayBox'));
         },
 
         //basic 'look' command -- just displays the description of the room you're in
@@ -28,12 +26,8 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
             case "around":
             case "":
                 //basic look / look around / examine
-                $('#displayBox').html("");
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append(room.name);
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append(room.description);
-                $('#displayBox').append("<br/>");
+                $('#tickerBox').append("<p>" + room.name + "</p>" +
+                        "<p>" + room.description + "</p>");
                 itemLogic.displayItems(context);
                 break;
             case "n":
@@ -104,8 +98,9 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                         }
                     });
                 }
+            tickerLogic.animateText($('#displayBox'));
             }
-            
+
         }
     };
 });

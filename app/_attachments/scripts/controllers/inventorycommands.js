@@ -3,31 +3,25 @@
  * This file stores all the logic for carrying out inventory manipulations
  * it gets called from the command parser during story mode.
  */
-define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'controllers/movecommands', 'controllers/rooms', 'controllers/items'], function ($, items, login, roomSet, move, roomLogic, itemLogic) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'controllers/movecommands', 'controllers/rooms', 'controllers/items', 'controllers/tickerLogic'], function ($, items, login, roomSet, move, roomLogic, itemLogic, tickerLogic) {
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function () {
-        $('#displayBox').html("");
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
-        $('#displayBox').append("<br/>");
+        $('#tickerBox').html("");
+        $('#tickerBox').append("<p>I'm sorry, I didn't understand that.  Can you try saying it a different way?</p>");
+        tickerLogic.animateText($('#displayBox'));
     };
 
     return {
         take: function (itemName, context) {
             if (!itemLogic.isInCurrentRoom(itemName, roomLogic.currentRoom) && !itemLogic.isInInventory(itemName)) {
-                $('#displayBox').html("");
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("I'm sorry but I don't see a ");
-                $('#displayBox').append(itemName);
-                $('#displayBox').append(" in the vicinity.");
-                $('#displayBox').append("<br/>");
+                $('#tickerBox').html("");
+                $('#tickerBox').append("<p>I'm sorry but I don't see a "+ itemName + " in the vicinity.</p>");
+                tickerLogic.animateText($('#displayBox'));
             } else {
                 if (itemLogic.isInInventory(itemName)) {
-                    $('#displayBox').html("");
-                    $('#displayBox').append("<br/>");
-                    $('#displayBox').append("You're already carrying ");
-                    $('#displayBox').append(itemName);
-                    $('#displayBox').append("<br/>");
+                    $('#tickerBox').html("");
+                    $('#tickerBox').append("<p>You're already carrying " + itemName + "</p>");
+                    tickerLogic.animateText($('#displayBox'));
                 } else {
                     items.getItem(itemName, context, function (view) {
                         if (view.rows.length !== 1) {
@@ -38,18 +32,14 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                         var itemVals = view.rows[0].value,
                             thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
                         if (thisItem.sceneryFlag) {
-                            $('#displayBox').html("");
-                            $('#displayBox').append("<br/>");
-                            $('#displayBox').append("You can't lift ");
-                            $('#displayBox').append(thisItem.name);
-                            $('#displayBox').append("<br/>");
+                            $('#tickerBox').html("");
+                            $('#tickerBox').append("<p>You can't lift " + thisItem.name + "</p>");
+                            tickerLogic.animateText($('#displayBox'));
                         } else {
                             items.moveItem(thisItem.name, roomSet.INVENTORY_ID);
-                            $('#displayBox').html("");
-                            $('#displayBox').append("<br/>");
-                            $('#displayBox').append(thisItem.name);
-                            $('#displayBox').append(": taken.");
-                            $('#displayBox').append("<br/>");
+                            $('#tickerBox').html("");
+                            $('#tickerBox').append("<p>" + thisItem.name + ": taken.</p>");
+                            tickerLogic.animateText($('#displayBox'));
                         }
                     });
                 }
@@ -58,35 +48,28 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
 
         drop: function (itemName) {
             if (!itemLogic.isInInventory(itemName)) {
-                $('#displayBox').html("");
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append("You are not carrying ");
-                $('#displayBox').append(itemName);
-                $('#displayBox').append(".");
-                $('#displayBox').append("<br/>");
+                $('#tickerBox').html("");
+                $('#tickerBox').append("<p>You are not carrying " + itemName + ".</p>");
+                tickerLogic.animateText($('#displayBox'));
             } else {
-                $('#displayBox').html("");
-                $('#displayBox').append("<br/>");
-                $('#displayBox').append(itemName);
-                $('#displayBox').append(": dropped");
-                $('#displayBox').append("<br/>");
+                $('#tickerBox').html("");
+                $('#tickerBox').append("<p>" + itemName + ": dropped</p>");
                 items.moveItem(itemName, roomLogic.currentRoom._id);
+                tickerLogic.animateText($('#displayBox'));
             }
         },
 
         inventory: function () {
-            $('#displayBox').html("");
-            $('#displayBox').append("<br/>");
-            $('#displayBox').append("Searching through your bag reveals that it contains the following:");
-            $('#displayBox').append("<br/>");
+            $('#tickerBox').html("");
+            $('#tickerBox').append("<p>Searching through your bag reveals that it contains the following:</p>");
 
             var i;
             for (i = 0; i < login.currentStudent.itemFlags.length; i++) {
                 if (login.currentStudent.itemFlags[i].roomID === roomSet.INVENTORY_ID) {
-                    $('#displayBox').append(login.currentStudent.itemFlags[i].itemName);
-                    $('#displayBox').append("<br/>");
+                    $('#tickerBox').append("<p>" + login.currentStudent.itemFlags[i].itemName + "</p>");
                 }
             }
+            tickerLogic.animateText($('#displayBox'));
         },
 
         use: function (command, context) {
