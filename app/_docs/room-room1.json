@@ -1,6 +1,6 @@
 {
     "problemWrapUp": "His question answered, the mouse sidesteps to his left, allowing you passage.", 
-    "name": "School room.", 
+    "name": "Your Lab", 
     "exits": [
         {
             "direction": "north", 
@@ -56,7 +56,7 @@
     "items": [
         "mouse"
     ], 
-    "problemDescription": "Guarding the mouse-hole to the south is a perfectly normal mouse.", 
+    "problemDescription": "Guarding the mousehole to the south is a perfectly normal mouse.  He speaks:  \'before you pass, you must solve the following problem for me:\'", 
     "nextState": "room1-1", 
     "record_type": "room", 
     "_id": "room1", 

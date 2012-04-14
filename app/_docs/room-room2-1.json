@@ -4,48 +4,48 @@
     "exits": [
         {
             "direction": "north", 
-            "roomID": "", 
-            "description": "To the north you see the door to yet another science room, which you naturally can't open in your current state."
+            "roomID": "deadEnd", 
+            "description": "Directly north is another room with an open door.  The lights are off, and there doesn't seem to be any sunlight filtered in from windows."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the northeast the path atop the carpet cuts off, apparently ending in a cliff."
         }, 
         {
             "direction": "east", 
             "roomID": "room4", 
-            "description": "You see a room with a tiled floor past the doorway to the east."
+            "description": "The path atop the carpet has an Eastward twist that seems to go all the way to a tiled hallway in the distance."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "The path cuts off to the Southeast, allowing no further ventures in that direction."
         }, 
         {
             "direction": "south", 
             "roomID": "room3", 
-            "description": "You see the campus, dotted here and there with grass amidst the concrete walkways."
+            "description": "To the South is a tiny crack in the wall you think you might just be able to squeeze through."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the Southwest is a steep cliff."
         }, 
         {
             "direction": "west", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "The spider glares at you as you look West, as if to say it is not going to give you a ride back past its web."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the Northwest you see an off-white wall."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You look up and see the ceiling."
+            "description": "You look up and see the ceiling"
         }, 
         {
             "direction": "down", 
@@ -58,5 +58,6 @@
     "nextState": "", 
     "record_type": "room", 
     "_id": "room2-1", 
-    "description": "Oh good, you just solved the question you can now get out of this 70's nightmare.  Look around for a way out."
+    "description": ""You are standing atop the carpet, which years of dirt and spilled soda has stuck together into a narrow pathway with many forks and bends.
+      In the North and East directions you see the path curve off to more rooms, while to the South you see a tiny crack in the wall you could just barely squeeze through.""
 }

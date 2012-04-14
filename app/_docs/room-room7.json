@@ -1,6 +1,6 @@
 {
     "problemWrapUp": "", 
-    "name": "tall grass", 
+    "name": "Tall Grass", 
     "exits": [
         {
             "direction": "north", 
@@ -58,5 +58,6 @@
     "nextState": "", 
     "record_type": "room", 
     "_id": "room7", 
-    "description": "Oh no!  You're stuck in this super tall grass you can not see your way out but maybe if you can solve this question you can be guided back to where you came from."
+    "description": "You have slipped through the tall grass into a small clearing.  To the East lies a path you can just squeeze through.
+    No other routes through the vegetation are discernible."
 }

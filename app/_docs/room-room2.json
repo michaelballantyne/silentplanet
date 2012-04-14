@@ -4,43 +4,43 @@
     "exits": [
         {
             "direction": "north", 
-            "roomID": "deadEnd", 
-            "description": "Oh no! You've run into dead end.  To the left, right and front of you you see nothing.  The only direction you can head is back the way you came."
+            "roomID": "", 
+            "description": "To the Nouth you see innumerably thick strands of shag carpet which seem to have fused together through years of dirt and spilled drinks."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the Northeast you see innumerably thick strands of shag carpet which seem to have fused together through years of dirt and spilled drinks.."
         }, 
         {
             "direction": "east", 
-            "roomID": "room4", 
-            "description": "Heads to the tile room."
+            "roomID": "", 
+            "description": "To the East you see innumerably thick strands of shag carpet which seem to have fused together through years of dirt and spilled drinks.."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the Southeast you see innumerably thick strands of shag carpet which seem to have fused together through years of dirt and spilled drinks.."
         }, 
         {
             "direction": "south", 
-            "roomID": "room3", 
-            "description": "Heads outside."
+            "roomID": "", 
+            "description": "To the South you see innumerably thick strands of shag carpet which seem to have fused together through years of dirt and spilled drinks."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the Southwest is a steep cliff."
         }, 
         {
             "direction": "west", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the west is the door to your lab, but the spider's web prevents you from moving."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "To the Northwest you see an off-white wall."
         }, 
         {
             "direction": "up", 
@@ -60,5 +60,6 @@
     "nextState": "room2-1", 
     "record_type": "room", 
     "_id": "room2", 
-    "description": "The carpet here is tall and orange, and smells like it hasn't been cleaned since it was first put in (and judging by the style, it was probably put in back when the Beatles were still popular)."
+    "description": "You are standing atop the carpet, which years of dirt and spilled soda has stuck together into a narrow pathway with many forks and bends.
+      In the North and East directions you see the path curve off to more rooms, while to the South you see a tiny crack in the wall you could just barely squeeze through."
 }

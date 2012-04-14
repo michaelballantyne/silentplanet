@@ -5,27 +5,27 @@
         {
             "direction": "north", 
             "roomID": "room2", 
-            "description": "You're back to the shag carpet room."
+            "description": "To the North is a room with a shag carpet."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You see never ending grass.  You can't go this way."
+            "description": "The lab walls rise imposingly to your Northeast, preventing any progress in that direction."
         }, 
         {
             "direction": "east", 
             "roomID": "", 
-            "description": "You see never ending grass.  You can't go this way."
+            "description": "To the East the grass grows too tall to the meander through.  You can't go this way."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You see never ending grass.  You can't go this way."
+            "description": "To the Southeast the grass grows too tall to the meander through.  You can't go this way."
         }, 
         {
             "direction": "south", 
-            "roomID": "dirtMound", 
-            "description": "You see the dirt mound and you head towards it."
+            "roomID": "room32", 
+            "description": "You see a dirt mound rising in the distance to the South."
         }, 
         {
             "direction": "southwest", 
@@ -35,22 +35,22 @@
         {
             "direction": "west", 
             "roomID": "room7", 
-            "description": "You've reached the grass but it is too tall to pass you are stuck."
+            "description": "To the West the grass grows quite tall, but you think you see a passage through ."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You see never ending grass.  You can't go this way."
+            "description": "The lab walls rise imposingly to your Northwest, preventing any progress in that direction.."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You see the clear blue sky and the sun."
+            "description": "The clear blue sky seems to go on infinitely above you."
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You see dirt and grass."
+            "description": "The grass rustling in the wind comes up to your knees."
         }
     ], 
     "items": [
@@ -60,5 +60,6 @@
     "nextState": "", 
     "record_type": "room", 
     "_id": "room3", 
-    "description": "You've entered the great outdoors.  You feel the sun shine on your face and a slight breeze in the air.  It is the perfect day except you are tiny and you can't move around very well in this environment.  Despite the challenge however, you press on.  In the middle of this field you come accross a tiny shiny pebble.  It catches your eye and you can't pass it by.  You are compelled by an urge to pick it up, so you do.  To the south you see a dirt mound.  To the west you see tall grass.  Which direction will you go?"
+    "description": "You've entered the great outdoors.  The sun shines lightly down on your face as a cool breeze rustles your hair.  Your condition makes the once-familiar into the strange.
+    What had been a nice garden to lunch now seems like a fantastic forest with giant trees and flowers.  To the South you see a dirt mound.  To the West you see tall grass."
 }

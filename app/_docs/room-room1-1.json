@@ -1,6 +1,6 @@
 {
     "problemWrapUp": "", 
-    "name": "School room.", 
+    "name": "Your Lab", 
     "exits": [
         {
             "direction": "north", 
@@ -15,7 +15,7 @@
         {
             "direction": "east", 
             "roomID": "room2", 
-            "description": ""
+            "description": "To the east is a doorway leading to one of the less used science rooms."
         }, 
         {
             "direction": "southeast", 
@@ -60,5 +60,5 @@
     "nextState": "", 
     "record_type": "room", 
     "_id": "room1-1", 
-    "description": "The chemistry room expands around you.  There is a forlorn looking room through the doorway off to your East;  To the south is a mousehole."
+    "description": "The chemistry room expands around you.  There is a forlorn looking room through the doorway off to your East;  To the South is a mousehole."
 }

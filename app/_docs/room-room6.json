@@ -5,7 +5,7 @@
         {
             "direction": "north", 
             "roomID": "", 
-            "description": "You can not go back this direction."
+            "description": "There is nothing but paintings in this direction."
         }, 
         {
             "direction": "northeast", 
@@ -35,7 +35,7 @@
         {
             "direction": "west", 
             "roomID": "room3", 
-            "description": "You have made it outside."
+            "description": "sunlight filters through the hallway to your west."
         }, 
         {
             "direction": "northwest", 
@@ -45,18 +45,21 @@
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You see beautiful paintings even on the ceiling but you can not go this direction."
+            "description": "Even the ceiling has paintings suspended from it."
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You see a wonderful mural but you can not go this direction."
+            "description": "The tile here is so squeaky clean you can see your reflection."
         }
     ], 
-    "items": [], 
+    "items": [
+    "red painting",
+    "blue painting",
+    "green painting"], 
     "problemDescription": "", 
     "nextState": "", 
     "record_type": "room", 
     "_id": "room6", 
-    "description": "This is a beautiful passageway with wonderful paintings on the walls  but alas it is only a passage way.  Please head west to continue your journey."
+    "description": "Beautiful paintings reflect the meager light trickling through this East-West passageway."
 }
