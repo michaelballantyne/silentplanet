@@ -1,20 +1,20 @@
 define(['models/db'], function (db) {
     var Student = function (username, difficultySetting, problemReports, itemFlags, roomFlags) {
         this.username = username;
-        
+
         /**
          * Problem Reports
          * 
          */
         this.problemReports = problemReports;
-        
+
         /**
          * Item Flags
          * These basically keep track of where items have been moved.  They are basically mapping items to their
          * current location, with room0 being the inventory and item0 being the PC placemarker
          */
         this.itemFlags = itemFlags;
-        
+
         /**
          * Room Flags
          * these keep track of (a) whether a room has been entered or not and (b) if the state of the room has changed
@@ -22,7 +22,7 @@ define(['models/db'], function (db) {
          * or passing some obstacle
          */
         this.roomFlags = roomFlags;
-        
+
         /**
          * Difficulty setting
          * This is basically the student's grade.  It is used to determine the level of problems the student is assigned.
@@ -33,18 +33,18 @@ define(['models/db'], function (db) {
         this.difficultySetting = difficultySetting;
         this.record_type = 'student';
     };
-    
+
     return {
-        RoomFlag: function(roomID, currentStateID) {
+        RoomFlag: function (roomID, currentStateID) {
             this.roomID = roomID;
             this.currentStateID = currentStateID;
         },
-        
-        ItemFlag: function(itemName, roomID) {
+
+        ItemFlag: function (itemName, roomID) {
             this.itemName = itemName;
             this.roomID = roomID;
         },
-        
+
         getStudents: function (context, callback) {
             context.load('/localhost/_design/app/_view/students', {
                 json: true,

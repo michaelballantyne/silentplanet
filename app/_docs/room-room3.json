@@ -1,0 +1,64 @@
+{
+    "problemWrapUp": "", 
+    "name": "outside", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "room2", 
+            "description": "To the North is a room with a shag carpet."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "The lab walls rise imposingly to your Northeast, preventing any progress in that direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "To the East the grass grows too tall to the meander through.  You can't go this way."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "To the Southeast the grass grows too tall to the meander through.  You can't go this way."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room32", 
+            "description": "You see a dirt mound rising in the distance to the South."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You see never ending grass.  You can't go this way."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "room7", 
+            "description": "To the West the grass grows quite tall, but you think you see a passage through ."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "The lab walls rise imposingly to your Northwest, preventing any progress in that direction.."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "The clear blue sky seems to go on infinitely above you."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "The grass rustling in the wind comes up to your knees."
+        }
+    ], 
+    "items": [
+        "pebble"
+    ], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room3", 
+    "description": "You've entered the great outdoors.  The sun shines lightly down on your face as a cool breeze rustles your hair.  Your condition makes the once-familiar into the strange. What had been a nice garden to lunch now seems like a fantastic forest with giant trees and flowers.  To the South you see a dirt mound.  To the West you see tall grass."
+}

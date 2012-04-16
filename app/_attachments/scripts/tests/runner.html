@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+  <link rel="shortcut icon" type="image/png" href="../libraries/jasmine/jasmine_favicon.png">
+
+  <link rel="stylesheet" type="text/css" href="../libraries/jasmine/jasmine.css">
+  <script type="text/javascript" src="../libraries/jasmine/jasmine.js"></script>
+  <script type="text/javascript" src="../libraries/jasmine/jasmine-html.js"></script>
+
+  <script type="text/javascript" src="../libraries/require.js"></script>
+  
+  <script type="text/javascript">
+  require.config({
+    baseUrl: '../'
+  });
+  
+  require(['libraries/jquery', 'tests/SpecRunner'], function($, SpecRunner) {
+      $(function() {
+          SpecRunner();
+      });
+  });
+  </script>
+</head>
+
+<body>
+</body>
+</html>

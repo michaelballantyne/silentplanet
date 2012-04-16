@@ -1,0 +1,13 @@
+{
+    "record_type": "item", 
+    "dialogs": [
+        {
+            "interactWord": [
+                "at"
+            ], 
+            "description": "it is a rock"
+        }
+    ], 
+    "name": "rock", 
+    "sceneryFlag": false
+}

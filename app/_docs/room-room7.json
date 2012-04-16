@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Tall Grass", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "room3", 
+            "description": "If you solve the question you can go back."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "All you see is grass above you.  You can not go this direction."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You see dirt and grass."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room7", 
+    "description": "You have slipped through the tall grass into a small clearing.  To the East lies a path you can just squeeze through. No other routes through the vegetation are discernible."
+}

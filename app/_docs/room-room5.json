@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Mystery room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "There is an amazing mural and wonderous things but you can not go this direction."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "There is an amazing mural and wonderous things but you can not go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "There is an amazing mural and wonderous things but you can not go this direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "There is an amazing mural and wonderous things but you can not go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room10", 
+            "description": "Combining room where you combine all your items."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "There is an amazing mural and wonderous things but you can not go this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "room4", 
+            "description": "You're back in the tile room."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "There is an amazing mural and wonderous things but you can not go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You look up and see a solar system with billions of stars."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You look down and see that you appear to be floating even though you're on solid ground."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room5", 
+    "description": "Wow this room is magnificent.  You know you are in a room but the ceiling has stars and a whole solar system twirling around.  The room is black yet you can see everything because of how bright the solar system is.  There are all manner of imaginative murals on the walls and wonderous items are floating around.  You can not reach anything however because you are too small.  The only thing to do is to find a way out."
+}

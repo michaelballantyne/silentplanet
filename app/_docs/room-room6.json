@@ -1,0 +1,65 @@
+{
+    "problemWrapUp": "", 
+    "name": "Beautiful passageway", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "There is nothing but paintings in this direction."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You see beautiful paintings but you can not go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "You see beautiful paintings but you can not go this direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You see beautiful paintings but you can not go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "You see beautiful paintings but you can not go this direction."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You see beautiful paintings but you can not go this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "room3", 
+            "description": "sunlight filters through the hallway to your west."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You see beautiful paintings but you can not go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "Even the ceiling has paintings suspended from it."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "The tile here is so squeaky clean you can see your reflection."
+        }
+    ], 
+    "items": [
+    "red painting",
+    "blue painting",
+    "green painting"], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room6", 
+    "description": "Beautiful paintings reflect the meager light trickling through this East-West passageway."
+}

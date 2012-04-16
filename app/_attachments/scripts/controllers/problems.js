@@ -2,44 +2,45 @@
  * manages some of the business logic involving problems
  */
 
-define(['libraries/jquery', 'models/problems', 'controllers/login'], function($, problemSet, login) {
-    var probLogic = {},
-    
-    getProblemInRange = function (problems, student) {
+define(['libraries/jquery', 'models/problems', 'controllers/login', 'controllers/display'], function ($, problemSet, login, display) {
+    var probLogic = {};
+
+    probLogic.getProblemInRange = function (problems, student) {
         var randomNum, problem;
         do {
             randomNum = Math.floor(Math.random() * problems.length);
             problem = problems[randomNum].value;
-        }
-        while(problem.difficulty > student.difficultySetting);
+        } while (problem.difficulty > student.difficultySetting);
         return problem;
     };
-    
+
     probLogic.currentProblem = null;
-    
-    probLogic.activateProblem = function(problemDescription, context) {
-        if(!problemDescription)
-            return;
-        $('#displayBox').append("<br/>");
-        $('#displayBox').append(problemDescription);
-        $('#displayBox').append("<br/>");
-        probLogic.chooseRandomProblem(context);
+
+    probLogic.activateProblem = function (problemDescription, context, cont) {
+        if (problemDescription) {
+            display.append(problemDescription);
+            probLogic.chooseRandomProblem(context, cont);
+        }
+        else {
+            cont();
+        }
     };
-    
-    probLogic.chooseRandomProblem = function (context) {
+
+    probLogic.chooseRandomProblem = function (context, cont) {
         var callback = function (view) {
             if (view.rows.length === 0) {
-                $('displayBox').html('Empty Database');
-                return;
+                display.append('Empty Database');
+                cont();
             }
-            var problem = getProblemInRange(view.rows, login.currentStudent);
+            var problem = probLogic.getProblemInRange(view.rows, login.currentStudent);
             if (problem) {
-                this.render('templates/problem.hb', problem).appendTo('#displayBox');
+                display.append(problem.problem);
                 probLogic.currentProblem = problem;
+                cont();
             }
         };
         problemSet.getProblems(context, callback);
     };
-    
+
     return probLogic;
 });

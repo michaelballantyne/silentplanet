@@ -1,0 +1,64 @@
+{
+    "problemWrapUp": "", 
+    "name": "Your Lab", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "You see a wall. You can't go that direction."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You see a wall. You can't go that direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "room2", 
+            "description": "To the east is a doorway leading to one of the less used science rooms."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You see a wall. You can't go that direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room3", 
+            "description": "Trying to peer through the hole momentarily blinds you with sunlight.  It must lead outside."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You see a wall. You can't go that direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You see a wall. You can't go that direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You see a wall. You can't go that direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You look up and see the ceiling."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You look down and see carpet."
+        }
+    ], 
+    "items": [
+        "mouse"
+    ], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room1-1", 
+    "description": "The chemistry room expands around you.  There is a forlorn looking room through the doorway off to your East;  To the South is a mousehole."
+}

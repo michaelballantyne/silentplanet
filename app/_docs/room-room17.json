@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Cat room", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "The cat is chasing you!  You can't go this direction."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "The cat has almost caught you.  You can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "The cat runs into the wall but is still chasing you! You must go a different direction."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "The cat smacks you and you fall down but quickly get back up.  You must chose a different direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room18", 
+            "description": "You dive into the this passageway and escape the cat."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "The cat is still chasing you.  You must go a different direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "Watch out!  The cat is chasing you.  You must go a different direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "Ahh!  The cat is there.  Go a different direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You look up and the cat is above you.  Keep running!"
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "There is nothing below you accept the ground."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "Solve this problem to escape the cat that is chasing you.", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room17", 
+    "description": "Oh no!  You jump!  There are cats everywhere but something seems to be off about the cats.  They are not moving. There are hundreds of cats but none appear to be alive.  So curiosity gets the best of you and you go up and poke one of them... Ah, they are stuffed animals.  When you look closer that is why none of them are moving.  You are so elated and a little embarrassed that they made you jump so high that you go around and start poking every stuffed animal you meet. You think that the room is empty when the last stuffed animal you poke isn't a stuffed animal at all.  It is the house cat that was sleeping... That is until you poked it.  The cat hisses at you and tries to chase you.  You are running for your life now to try to escape. Solve a problem to get out of this pickle. After you solve the problem you find a hole just big enough to get through.  You jump with all your might and dive head first into the hole which is just big enough for you to get through.  The cat runs into the wall and starts pawing at the hole to get to you but you have escaped, for now."
+}

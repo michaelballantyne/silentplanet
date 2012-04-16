@@ -15,7 +15,7 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                         if (hash) {
                             student.hash = hash;
                         }
-                        studentSet.saveStudent(student , function () {
+                    studentSet.saveStudent(student , function () {
                             context.redirect('#/admin/students/new');
                         });
                     };
@@ -105,7 +105,7 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
                 window.alert("You can't delete your own account!");
             }
         });
-        
+
         this.get("#/admin/students/classreport", function () {
             var context = this,
                 callback = function (studentReports) {

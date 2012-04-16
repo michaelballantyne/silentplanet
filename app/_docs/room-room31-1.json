@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "school", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "The game is over!"
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room31-1", 
+    "description": "You're back at school and everything is back to normal.  You are your normal size and everything is beautiful.  You're so happy and excited that you just can't wait to go home and tell you family about what happened.  Congratulations Your journey is over!"
+}
