@@ -176,6 +176,16 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
             case "wait":
                 wait();
                 break;
+            case "help":
+            case "h":
+                 $('#tickerBox').append("<p>Commands</p>");
+                 $('#tickerBox').append("<p>Type look, or examine followed by what you want to look at.</p>");
+                 $('#tickerBox').append("<p>Type up, down, north, south, east, west, northwest, northeast, southeast, southwest to move in that direction</p>");
+                 $('#tickerBox').append("<p>Type drop, or discard to remove something from you inventory</p>");
+                 $('#tickerBox').append("<p>Type inventory, inv, or i to look in you inventory</p>");
+                 $('#tickerBox').append("<p>Type get, pick up, grab, or take followed by the item you want to take</p>");
+                 $('#tickerBox').append("<p>Type speak, shout, or say followed by what you want to say</p>");
+                break;
             default:
                 answer(command[0]);
             break;
