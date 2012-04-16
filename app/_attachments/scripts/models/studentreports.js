@@ -1,7 +1,7 @@
 define(['libraries/jquery', 'controllers/login', 'models/problems', 'models/students', 'models/problemreports', 'libraries/handlebars'], function ($, login, problems, students, problemreports, Handlebars) {
     Handlebars.registerHelper("each_with_index", function (array, fn) {
         var i, j, item, buffer = "";
-        for (i = 0, j = array.length; i < j; i++) {
+        for (i = 1, j = array.length; i < j; i++) {
             item = array[i];
 
             // stick an index property onto the item, starting with 1, may make configurable later
