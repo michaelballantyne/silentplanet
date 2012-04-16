@@ -5,52 +5,52 @@
         {
             "direction": "north", 
             "roomID": "", 
-            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+            "description": "Thick tall grass prevents motion in this direction."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+            "description": "Thick tall grass prevents motion in this direction."
         }, 
         {
             "direction": "east", 
             "roomID": "room3", 
-            "description": "If you solve the question you can go back."
+            "description": "To the East is a small pathway through the tall grass."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+            "description": "Thick tall grass prevents motion in this direction."
         }, 
         {
             "direction": "south", 
             "roomID": "", 
-            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+            "description": "Thick tall grass prevents motion in this direction."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+            "description": "Thick tall grass prevents motion in this direction."
         }, 
         {
             "direction": "west", 
             "roomID": "", 
-            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+            "description": "Thick tall grass prevents motion in this direction."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "Super tall grass as far as the eye can see.  You can not go this direction."
+            "description": "Thick tall grass prevents motion in this direction."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "All you see is grass above you.  You can not go this direction."
+            "description": "The wind rustles the top of the grass above you, occassionally obscuring the endless blue sky above."
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You see dirt and grass."
+            "description": "There is nothing special about the ground here."
         }
     ], 
     "items": [], 

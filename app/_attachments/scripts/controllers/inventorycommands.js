@@ -30,8 +30,9 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                             display.append("You can't lift " + thisItem.name);
                         } else {
                             items.moveItem(thisItem.name, roomSet.INVENTORY_ID);
-                            display.append(thisItem.name + ": taken.");
+                            display.append("You took the " + isItem.name);
                         }
+                        cont();
                     });
                 }
             }
@@ -41,9 +42,10 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
             if (!itemLogic.isInInventory(itemName)) {
                 display.append("You are not carrying " + itemName + ".");
             } else {
-                display.append(itemName + ": dropped");
+                display.append("You dropped the " + itemName);
                 items.moveItem(itemName, roomLogic.currentRoom._id);
             }
+            cont();
         },
 
         inventory: function (cont) {
