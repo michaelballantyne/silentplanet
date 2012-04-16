@@ -8,7 +8,7 @@ define(['libraries/jquery', 'libraries/jquery.jticker'], function ($) {
         return $('#tickerBox');
     };
     
-    display.animateText = function(element) {
+    var animateText = function(element) {
         //setup ticker for animated text
         element.ticker({
             cursorList: " ",
@@ -30,7 +30,7 @@ define(['libraries/jquery', 'libraries/jquery.jticker'], function ($) {
     
     display.animate = function() {
         $('#tickerBox').html(display.text);
-        display.animateText($('#displayBox'));
+        animateText($('#displayBox'));
     }
     
     return display;
