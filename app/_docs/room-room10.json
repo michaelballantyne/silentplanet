@@ -1,6 +1,6 @@
 {
     "problemWrapUp": "", 
-    "name": "combining room", 
+    "name": "Combining Room", 
     "exits": [
         {
             "direction": "north", 
