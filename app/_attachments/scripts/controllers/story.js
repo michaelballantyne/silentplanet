@@ -47,11 +47,17 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                 cont();
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
             }
+        } else {
+            errorMessage(cont);
         }
     },
 
     wait = function (cont) {
         display.append("You pace back and forth for a few minutes.");
+        cont();
+    },
+     errorMessage = function (cont) {
+        display.append("I'm sorry, I didn't understand that.  Can you try saying it a different way? Type help for a list of words I understand.");
         cont();
     };
 
