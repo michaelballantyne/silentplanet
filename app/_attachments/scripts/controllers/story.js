@@ -44,6 +44,7 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                 move.moveTo(roomLogic.currentRoom.nextState, context, cont);
             } else {
                 display.append("Your answer was incorrect!");
+                display.append(probLogic.currentProblem.problem);
                 cont();
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
             }
@@ -68,6 +69,7 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
             var context = this;
             this.partial('templates/storygame.hb').then(function () {
                 //find initial room, and place character there
+                display.clear();
                 var returningRoomID = move.findPlayerRoom();
                 if (!returningRoomID) {
                     returningRoomID = newGame();
@@ -196,7 +198,7 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                  cont();
                 break;
             default:
-                answer(command[0], context, cont);
+                answer(this.params.command, context, cont);
             break;
             }
         });

@@ -8,7 +8,7 @@
 </table>
 
 <form action="#/admin/students" method="post">
-    <label>Student: </label><input class="required" type="text" name="username"/>
+    <label>Student: </label><input class="required username" type="text" name="username"/>
     <label>Difficulty Setting:  </label><input class="required" type="number" name="difficultySetting" min="1" max="5"/>
     <label>Password (provide a value to make admin): </label><input type="password" name="password"/>
     <input type="submit" value="Submit">

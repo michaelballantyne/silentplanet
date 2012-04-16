@@ -2,7 +2,7 @@
  * look commands
  * these are called by the command parser during story mode
  */
-define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items', 'controllers/display'], function ($, items, login, itemLogic, display) {
+define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items', 'controllers/display', 'controllers/problems', 'controllers/rooms'], function ($, items, login, itemLogic, display, probLogic, rooms) {
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function (cont) {
         display.append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
@@ -26,7 +26,13 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                 //basic look / look around / examine
                 display.append(room.name);
                 display.append(room.description);
-                itemLogic.displayItems(context, cont);
+                
+                var callback = function () {
+                    probLogic.activateProblem(rooms.currentRoom.problemDescription, context, cont)
+                }
+                
+                itemLogic.displayItems(context, callback);
+                
                 break;
             case "n":
             case "north":

@@ -6,11 +6,18 @@ define(['libraries/jquery', 'models/problems', 'controllers/login', 'controllers
     var probLogic = {};
 
     probLogic.getProblemInRange = function (problems, student) {
-        var randomNum, problem;
-        do {
-            randomNum = Math.floor(Math.random() * problems.length);
-            problem = problems[randomNum].value;
-        } while (problem.difficulty > student.difficultySetting);
+        var inrange = problems.filter(function (problem) {
+           return problem.value.difficulty <= student.difficultySetting;
+        });
+        
+        var randomNum = Math.floor(Math.random() * inrange.length);
+        var problemrow = inrange[randomNum];
+        
+        var problem = null;
+        if (problemrow) {
+            problem = problemrow.value;
+        }
+        
         return problem;
     };
 
@@ -37,7 +44,11 @@ define(['libraries/jquery', 'models/problems', 'controllers/login', 'controllers
                 display.append(problem.problem);
                 probLogic.currentProblem = problem;
                 cont();
+            } else {
+                display.append('Error: No problems of appropriate difficulty found.')
+                cont();
             }
+            
         };
         problemSet.getProblems(context, callback);
     };
