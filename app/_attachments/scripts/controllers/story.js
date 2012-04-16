@@ -102,45 +102,33 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
             case "examine":
                 look.look(command, roomLogic.currentRoom, context, cont);
                 break;
-            case "n":
             case "north":
-            case "no":
                 move.move("north", context, cont);
                 break;
-            case "s":
             case "south":
-            case "so":
                 move.move("south", context, cont);
                 break;
-            case "e":
             case "east":
                 move.move("east", context, cont);
                 break;
-            case "w":
             case "west":
                 move.move("west", context, cont);
                 break;
-            case "nw":
             case "northwest":
                 move.move("northwest", context, cont);
                 break;
-            case "ne":
             case "northeast":
                 move.move("northeast", context, cont);
                 break;
-            case "sw":
             case "southwest":
                 move.move("southwest", context, cont);
                 break;
-            case "se":
             case "southeast":
                 move.move("southeast", context, cont);
                 break;
-            case "u":
             case "up":
                 move.move("up", context, cont);
                 break;
-            case "d":
             case "down":
                 move.move("down", context, cont);
                 break;
@@ -169,8 +157,6 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                 inventory.take(command[1], context, cont);
                 break;
             case "inventory":
-            case "inv":
-            case "i":
                 inventory.inventory(cont);
                 break;
             case "say":
@@ -180,12 +166,10 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                 answer(command[1], context, cont);
                 break;
             case "zzz":
-            case "z":
             case "wait":
                 wait(cont);
                 break;
             case "help":
-            case "h":
                  display.append("<p>Commands</p>");
                  display.append("<p>Type look, or examine followed by what you want to look at.</p>");
                  display.append("<p>Type up, down, north, south, east, west, northwest, northeast, southeast, southwest to move in that direction</p>");
