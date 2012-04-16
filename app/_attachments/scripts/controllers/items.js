@@ -1,13 +1,11 @@
 /**
  * 
  */
-define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms', 'libraries/jquery', 'controllers/tickerLogic'], function (items, roomLogic, login, roomSet, $, tickerLogic) {
+define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms', 'libraries/jquery', 'controllers/display'], function (items, roomLogic, login, roomSet, $, display) {
 
     //displays the basic error message if a command was not parseable for some reason
     var errorMessage = function () {
-        $('#tickerBox').html("");
-        $('#tickerBox').append("<p>I'm sorry, I didn't understand that.  Can you try saying it a different way?</p>");
-        tickerLogic.animateText($('#displayBox'));
+        display.append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
     };
 
     return {
@@ -45,14 +43,12 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
         //checks the given item dialog of a particular item if the item is in the vicinity
         checkItemDialogIfInRoom: function (item, dialog, room) {
             if (!this.isInCurrentRoom(item.name, room) && !this.isInInventory(item.name)) {
-                $('#tickerBox').html("");
-                $('#tickerBox').append("<p>I'm sorry but I don't see a " + item.name + " in the vicinity.</p>");
+                display.clear().append("I'm sorry but I don't see a " + item.name + " in the vicinity.");
                 return false;
             } else {
                 var itemDialog = item.getItemDialog(dialog);
                 if (itemDialog) {
-                    $('#tickerBox').html("");
-                    $('#tickerBox').append("<p>" + itemDialog.description + "</p>");
+                    display.append(itemDialog.description);
                     return true;
                 } else {
                     errorMessage();
@@ -62,7 +58,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
         },
 
         //display each of the items
-        displayItems: function (context) {
+        displayItems: function (context, cont) {
             var itemLogic = this;
             items.getItems(context, function (view) {
                 var i, itemVals, thisItem;
@@ -71,9 +67,10 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
                     thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
 
                     if (itemLogic.isInCurrentRoom(thisItem.name, roomLogic.currentRoom)) {
-                        $('#tickerBox').append("<p>There is a " + thisItem.name + " here.</p>");
+                        display.append("There is a " + thisItem.name + " here.");
                     }
                 }
+                cont();
             });
         }
     };
