@@ -42,6 +42,10 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
 
         this.get("#/admin/students/new", function () {
             studentSet.getStudents(this, function (view) {
+                $.validator.addMethod("username", function (value, element) {
+                    return this.optional(element) || /^[a-zA-Z0-9-]{3,16}$/i.test(value); 
+                }, "Usernames must be 3-15 characters in length, and may only contain letters, numbers, and dashes.");
+
                 this.partial('templates/admin/addstudent.hb', {
                     rows: view.rows
                 }).then(function () {

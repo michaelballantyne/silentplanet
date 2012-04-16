@@ -9,10 +9,10 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
     visited = null,
 
     //assumes there is no roomFlag for the current room, adds just the simple one
-    visit = function (context) {
+    visit = function (context, cont) {
         roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id, roomLogic.currentRoom._id);
         login.updateStudentOnServer();
-        look.look(["look"], roomLogic.currentRoom, context);
+        look.look(["look"], roomLogic.currentRoom, context, cont);
     },
 
     //checks to see if the room is in an updated state and returns the most recent state
@@ -66,8 +66,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 }
                 
                 if (!visited) {
-                    visit(context);
-                    activateCallback();
+                    visit(context, cont);
                 } else {
                     display.append(roomLogic.currentRoom.name);
                     itemLogic.displayItems(context, activateCallback);
