@@ -4,6 +4,14 @@
 "to": "index.html"
 },
 {
+"from": "/localhost/*",
+"to": "../../*"
+},
+{
+"from": "/localhost",
+"to": "../../"
+},
+{
 "from": "*",
 "to": "*"
 }
