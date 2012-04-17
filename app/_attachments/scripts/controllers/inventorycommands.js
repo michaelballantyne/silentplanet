@@ -29,7 +29,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                             display.append("You can't lift " + thisItem.name);
                         } else {
                             items.moveItem(thisItem.name, roomSet.INVENTORY_ID);
-                            display.append("You took the " + isItem.name);
+                            display.append("You took the " + thisItem.name);
                         }
                     });
                 }
