@@ -19,14 +19,14 @@ define(['models/db', 'libraries/handlebars', 'controllers/login'], function (db,
 
     return {
         getProblems: function (context, callback) {
-            context.load('/localhost/_design/app/_view/problems', {
+            context.load('_view/problems', {
                 json: true,
                 cache: false
             }).then(callback);
         },
 
         getProblem: function (id, context, callback) {
-            context.load('/localhost/_design/app/_view/problems?key=' + '"' + escape(id) + '"', {
+            context.load('_view/problems?key=' + '"' + escape(id) + '"', {
                 _id: id,
                 json: true,
                 cachse: false

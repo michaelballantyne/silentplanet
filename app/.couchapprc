@@ -1,1 +1,10 @@
-{}
+{
+    "env": {
+        "demo": {
+            "db": "https://admin:pass@silentplanet.iriscouch.com/demo"
+        },
+        "qa": {
+            "db": "https://admin:pass@silentplanet.iriscouch.com/qa"
+        }
+    }
+}
