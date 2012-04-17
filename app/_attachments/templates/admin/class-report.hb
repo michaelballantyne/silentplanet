@@ -1,10 +1,9 @@
 <table>
-    <tr><th>Student</th></tr>
-    <tr><th></th><th>Difficulty</th><th>Correct</th><th>Incorrect</th></tr>
+    <tr><th>Student Name</th><th>Difficulty Level</th><th>Answered Correctly</th><th>Answered Incorrectly</th></tr>
     {{#each rows}}
     <tr><td class="subheader">{{studentID}}</td></tr>
     {{#each_with_index scoresByDifficulty}}
-    <tr><td class="emptycell"></td><td>{{formatDifficulty index}}</td><td>{{correct}}</td><td>{{incorrect}}</td></tr>
+    <tr><td class="emptycell"></td><td>{{index}}</td><td>{{correct}}</td><td>{{incorrect}}</td></tr>
     {{/each_with_index}}
       {{/each}}
 </table>
