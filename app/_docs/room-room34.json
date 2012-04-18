@@ -1,0 +1,64 @@
+{
+    "problemWrapUp": "A click sounds behind the board as you finish writing what you hope is the correct answer.  A large cloud of smoke explodes from the crystal cage, which temporarily blinds you.  As the smoke dissipates into wisps, you notice the cage has disappeared, leaving a glowing technicolor powder in its wake.", 
+    "name": "Ant Hell", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "room8", 
+            "description": "Through the gap at the top of the cavern light filters through.  There are some handholds along the wall that you might consider ascending."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "The bottom of the cave is the bottom indeed."
+        }
+    ], 
+    "items": [
+        "crystalCage"
+    ], 
+    "problemDescription": "On the wall is written a problem, and there seems to be something like a chalkboard hanging next to it, with chalk-like material to boot!  Answer the following problem and maybe something will happen:", 
+    "nextState": "room34-1", 
+    "record_type": "room", 
+    "_id": "room34", 
+    "description": "The walls seem to glow dully, casting the inside of the ant hill in an eerie ambient chartreuse.  While there appear to have been tunnels dug out in each direction at one time, they have since collapsed.  What draws attention, however, is the large pink crystal cage in the middle of the cave"
+}

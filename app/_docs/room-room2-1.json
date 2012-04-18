@@ -4,7 +4,7 @@
     "exits": [
         {
             "direction": "north", 
-            "roomID": "deadEnd", 
+            "roomID": "room33", 
             "description": "Directly north is another room with an open door.  The lights are off, and there doesn't seem to be any sunlight filtered in from windows."
         }, 
         {

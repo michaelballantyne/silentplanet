@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Storage Closet", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "Hey, there's a wall here."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "Hey, there's a wall here."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "Hey, there's a wall here."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "Hey, there's a wall here."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "room2", 
+            "description": "The door is ajar, and while the shag carpeting in the room beyond is as ugly as anything you have ever seen, it seems very inviting when you look at it from this room..."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "Hey, there's a wall here."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "Hey, there's a wall here."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "Hey, there's a wall here."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "The fan above you seems to whirl on.  It may well whirl on for eternity."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "When you stare at the rotted hardwood floor, it doesn't stare back at you."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "", 
+    "nextState": "", 
+    "record_type": "room", 
+    "_id": "room33-1", 
+    "description": "There's nothing special about this storage closet.  There are chemicals of various hues sitting on the shelves high above you.  The doorway behind you remains ajar."
+}

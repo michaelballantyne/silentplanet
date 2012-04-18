@@ -1,62 +1,62 @@
 {
-    "problemWrapUp": "", 
-    "name": "Waterdrop", 
+    "problemWrapUp": "The creature considers your answer for a moment and sounds like it's pacing back and forth in front of you.  You feel a soft, wet, spongy something move across over your scalp for a moment, before you hear the creature hiss.  'A shame, but you have yet to mature enough for my tastes, and I sadly have no room in my refrigerator at the moment.  Perhaps you shall come back and dine with me some other time, when your journey has wearied you.  Bonjour.'  You are relieved to hear the door lock click, and the door slowly slide ajar.  The opening floods the room with light again.  Aside from the saliva trickling down your forehead, there is no sign of your former captor.", 
+    "name": "Storage Closet", 
     "exits": [
         {
             "direction": "north", 
             "roomID": "", 
-            "description": "Oh no! You've run into a drop of water.  You are trapped.  The only way out is to solve this problem."
+            "description": "When you stare into the darkness, the darkness stares back at you."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "When you stare into the darkness, the darkness stares back at you."
         }, 
         {
             "direction": "east", 
             "roomID": "", 
-            "description": "Heads to the mystery room"
+            "description": "When you stare into the darkness, the darkness stares back at you."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "When you stare into the darkness, the darkness stares back at you."
         }, 
         {
             "direction": "south", 
             "roomID": "", 
-            "description": "This is a wonderful passageway."
+            "description": "The door is shut tightly.  Even if it weren't locked, there's no way to climb to the handle.  And that's assuming you could see the handle, which you can't.  It's dark, remember?"
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "When you stare into the darkness, the darkness stares back at you."
         }, 
         {
             "direction": "west", 
             "roomID": "", 
-            "description": "You're back in the shag carpet room"
+            "description": "When you stare into the darkness, the darkness stares back at you."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "When you stare into the darkness, the darkness stares back at you."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You look up and see a fan."
+            "description": "You can hear a fan far above you, its quiet whirring barely audible through the growling of whatever it is that wants to eat you."
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You look down and see tile."
+            "description": "You can feel the hardwood floor underneath you, though you cannot begin to guess what color it is."
         }
     ], 
     "items": [], 
-    "problemDescription": "You've fallen into a drop of water.  Solve this problem to get out.", 
-    "nextState": "room4", 
+    "problemDescription": "Upon entering what you now realize is a storage closet, you see something flash past you out of the corner of your eye.  This is followed quickly by the sound of the closet door shutting loudly, submerging the room in an ocean of jet black.  This would not bother you so much, if it was not accompanied by a growl that could curdle fresh milk.  'Mmmm, I smell brains.  I happen to love the ones that are rotten and moldy.  Let me test you to see if your muscles have atrophied just the right amount...'", 
+    "nextState": "room33-1", 
     "record_type": "room", 
     "_id": "room33", 
-    "description": ""
+    "description": "The inky black darkness surrounds you, sending chills down your spine.  It's either that, or the rumblings and growlings you hear near at hand."
 }
