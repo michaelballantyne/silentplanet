@@ -95,33 +95,45 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
             case "examine":
                 look.look(command, roomLogic.currentRoom, context);
                 break;
+            case "n":
             case "north":
+            case "no":
                 move.move("north", context);
                 break;
+            case "s":
             case "south":
+            case "so":
                 move.move("south", context);
                 break;
+            case "e":
             case "east":
                 move.move("east", context);
                 break;
+            case "w":
             case "west":
                 move.move("west", context);
                 break;
+            case "nw":
             case "northwest":
                 move.move("northwest", context);
                 break;
+            case "ne":
             case "northeast":
                 move.move("northeast", context);
                 break;
+            case "sw":
             case "southwest":
                 move.move("southwest", context);
                 break;
+            case "se":
             case "southeast":
                 move.move("southeast", context);
                 break;
+            case "u":
             case "up":
                 move.move("up", context);
                 break;
+            case "d":
             case "down":
                 move.move("down", context);
                 break;
@@ -150,26 +162,31 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                 inventory.take(command[1], context);
                 break;
             case "inventory":
+            case "inv":
+            case "i":
                 inventory.inventory();
                 break;
             case "say":
             case "speak":
             case "shout":
             case "yell":
-                answer(command[1], context);
+                command.shift();
+                display.append("You say '" + command.join(" ") + "'. In response, all you hear is the echo of your own voice in the distance.");
                 break;
             case "zzz":
+            case "z":
             case "wait":
                 wait();
                 break;
             case "help":
-                 display.append("<p>Commands</p>");
-                 display.append("<p>Type look, or examine followed by what you want to look at.</p>");
-                 display.append("<p>Type up, down, north, south, east, west, northwest, northeast, southeast, southwest to move in that direction</p>");
-                 display.append("<p>Type drop, or discard to remove something from you inventory</p>");
-                 display.append("<p>Type inventory to look in you inventory</p>");
-                 display.append("<p>Type get, pick up, grab, or take followed by the item you want to take</p>");
-                 display.append("<p>Type speak, shout, or say followed by what you want to say</p>");
+            case "h":
+                 display.append("Commands:");
+                 display.append("Type look, or examine followed by what you want to look at");
+                 display.append("Type up, down, north, south, east, west, northwest, northeast, southeast, southwest to move in that direction");
+                 display.append("Type drop, or discard to remove something from you inventory");
+                 display.append("Type inventory to look in you inventory");
+                 display.append("Type get, pick up, grab, or take followed by the item you want to take");
+                 display.append("Type speak, shout, or say followed by what you want to say");
                 break;
             default:
                 answer(this.params.command, context);

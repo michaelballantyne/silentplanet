@@ -2,7 +2,7 @@ define(['libraries/jquery'], function ($) {
 
     var display = {};
     
-    display.delay = 40;
+    display.delay = 20;
     display.pending = [[]];
     display.current = null;
     display.pendingTick = null;
@@ -26,7 +26,7 @@ define(['libraries/jquery'], function ($) {
             clearTimeout(display.pendingTick);
         }
         
-        display.pendingTick = setTimeout(display.tick, 1);
+        display.pendingTick = setTimeout(display.tick, display.delay);
     };
     
     display.tick = function () {
