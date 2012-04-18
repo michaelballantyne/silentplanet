@@ -4,8 +4,8 @@
     "exits": [
         {
             "direction": "north", 
-            "roomID": "", 
-            "description": "The hike back to the dirt hill is to much for you. You can't go this direction."
+            "roomID": "room32", 
+            "description": "To the north a smaller hill is visible, with buildings towering high above it in the distance."
         }, 
         {
             "direction": "northeast", 
@@ -15,7 +15,7 @@
         {
             "direction": "east", 
             "roomID": "room9", 
-            "description": "You head to a new room that seems to transition slowly from outside to inside."
+            "description": "To the East is a mysterious sight.  It is as if a hallway is there one moment, and gone the next, leaving behind only a sea of grass.  It seems to be flickering in and out of existence."
         }, 
         {
             "direction": "southeast", 
@@ -49,16 +49,14 @@
         }, 
         {
             "direction": "down", 
-            "roomID": "", 
-            "description": "You see dirt."
+            "roomID": "room34", 
+            "description": "Looking into the crevice, you realize this is a deserted ant hill, and the crevice is its entrance."
         }
     ], 
-    "items": [
-        "powder"
-    ], 
-    "problemDescription": "Solve this problem to get the magic powder.", 
+    "items": [], 
+    "problemDescription": "", 
     "nextState": "", 
     "record_type": "room", 
     "_id": "room8", 
-    "description": "The walk was exhausting but you finally made it.  You are at the deserted ant hill and you decide to go inside ant take a look around. You walk through what feels like a maze of tunnels and finally you reach it. What you assume used to be the queen ants den. There you find a pile of magic powder but in order to take a handful you must answer a question then you can put it into your pocket. You find your way out and continue on your journey."
+    "description": "The anthill has clearly been deserted for awhile, with no ant tracks visible in the sand  The entrance yawns below you, leaving much to the imagination about what may be lying in wait.  To the East is a perfectly normal hallway.  Or, wait, there was a perfectly normal hallway.  Now all that appears is an ocean of grass.  Down the path to the north lies a smaller hill."
 }

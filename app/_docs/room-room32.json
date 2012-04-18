@@ -5,58 +5,58 @@
         {
             "direction": "north", 
             "roomID": "room3", 
-            "description": "You're back into the great outdoors."
+            "description": "The little garden outside your lab is visible to the North."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "There is no path in this direction."
         }, 
         {
             "direction": "east", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "There is no path in this direction."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "There is no path in this direction."
         }, 
         {
             "direction": "south", 
             "roomID": "room8", 
-            "description": "You head towards the ant hill."
+            "description": "The path continues to another hill with a crevice at its peak to the South."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "There is no path in this direction."
         }, 
         {
             "direction": "west", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "There is no path in this direction."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "There is no path in this direction."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You see the clear blue sky and the sun. You can not head this direction."
+            "description": "You see the clear blue sky and the sun."
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You see dirt."
+            "description": "The dirt on this mound is soft enough to dig into, had you a shovel."
         }
     ], 
     "items": [], 
-    "problemDescription": "Solve this problem to get to the ant hill.", 
+    "problemDescription": "", 
     "nextState": "", 
     "record_type": "room", 
     "_id": "room32", 
-    "description": "After a huge struggle you have reached the top of the dirt mound. From here you can see several things but only one you can reach - a massive ant hill.  You can not see any ants.  Since this is the only place you can see that you can get to you decide to head that direction.  South be your course."
+    "description": "You are standing on a fairly generic dirt mound, rising slightly above the surrounding grass.  To the North the lab buildings open up into a little garden.  To the South the path continues towards a larger hill."
 }

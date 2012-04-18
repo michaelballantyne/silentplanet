@@ -1,0 +1,64 @@
+{
+    "problemWrapUp": "", 
+    "name": "Ant Hill", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "room32", 
+            "description": "To the north a smaller hill is visible, with buildings towering high above it in the distance."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You can not head this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "room9", 
+            "description": "To the East is a mysterious sight.  It is as if a hallway is there one moment, and gone the next, leaving behind only a sea of grass.  It seems to be flickering in and out of existence."
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You can not head this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "You can not go this direction."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You can not head this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You can not head this direction."
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You can not head this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You see the clear blue sky and the sun. You can not head this direction."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "room34", 
+            "description": "Looking into the crevice, you realize this is a deserted ant hill, and the crevice is its entrance."
+        }
+    ], 
+    "items": [
+        "crystalCage"
+    ], 
+    "problemDescription": "On the wall is written a problem, and there seems to be something like a chalkboard hanging next to it, with chalk-like material to boot!  Answer the following problem and maybe something will happen:", 
+    "nextState": "room34-1", 
+    "record_type": "room", 
+    "_id": "room34", 
+    "description": "The walls seem to glow dully, casting the inside of the ant hill in an eerie ambient chartreuse.  While there appear to have been tunnels dug out in each direction at one time, they have since collapsed.  What draws attention, however, is the large pink crystal cage in the middle of the cave"
+}
