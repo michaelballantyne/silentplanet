@@ -1,37 +1,49 @@
-define(['libraries/jquery', 'libraries/jquery.jticker'], function ($) {
+define(['libraries/jquery'], function ($) {
 
     var display = {};
     
-    display.text = "";
+    display.delay = 40;
+    display.pending = [[]];
+    display.current = null;
+    display.pendingTick = null;
         
     display.element = function () {
-        return $('#tickerBox');
+        return $('#displayBox');
     };
-    
-    var animateText = function(element) {
-        //setup ticker for animated text
-        element.ticker({
-            cursorList: " ",
-            rate: 6,
-            delay: 1000000
-        }).trigger('play').trigger("stop");
-    };
-    
+
     display.clear = function() {
-        display.text = "";
-        return display
+        display.pending = [[]];
+        display.element().html('');
     }
     
     display.append = function(text) {
-        display.text += "<p>" + text + "</p>";
-        
-        return display;
+        display.pending.push(text.split(''));
+        display.schedule();
     };
     
-    display.animate = function() {
-        $('#tickerBox').html(display.text);
-        animateText($('#displayBox'));
-    }
+    display.schedule = function () {
+        if (display.pendingTick) {
+            clearTimeout(display.pendingTick);
+        }
+        
+        display.pendingTick = setTimeout(display.tick, 1);
+    };
+    
+    display.tick = function () {
+        if (display.pending.length == 0) {
+            return;
+        }
+        
+        if (display.pending[0].length != 0) {
+            display.current.append(display.pending[0].shift());
+        } else {
+            display.pending.shift();
+            display.current = $('<p>');
+            display.element().append(display.current);
+        }
+        
+        display.schedule()
+    }    
     
     return display;
 });

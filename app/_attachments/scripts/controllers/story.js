@@ -1,4 +1,4 @@
-define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms', 'controllers/display'], function ($, jticker, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic, display) {
+define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/problemreports', 'models/rooms', 'models/students', 'controllers/login', 'models/items', 'controllers/inventorycommands', 'controllers/lookcommands', 'controllers/movecommands', 'controllers/problems', 'controllers/rooms', 'controllers/display'], function ($, sammy, problemSet, problemReports, roomSet, studentSet, login, items, inventory, look, move, probLogic, roomLogic, display) {
     var story = {},
     displayIntro = function () {
         display.clear();
@@ -30,36 +30,33 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
     },
 
     //the answer command -- basically just checks to see if the current obstacle has been cleared.
-    answer = function (response, context, cont) {
+    answer = function (response, context) {
         //first check to see if there is actually a problem description
         if (roomLogic.currentRoom.problemDescription) {
             var correct = response.toUpperCase() === probLogic.currentProblem.answer.toUpperCase();
             //decide what to do if correct vs. incorrect
             if (correct) {
-                display.clear().append("Correct!");
+                display.append("Correct!");
                 display.append(roomLogic.currentRoom.problemWrapUp);
                 roomSet.addOrUpdateRoomFlag(roomLogic.currentRoom._id, roomLogic.currentRoom.nextState);
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
                 probLogic.currentProblem = null;
-                move.moveTo(roomLogic.currentRoom.nextState, context, cont);
+                move.moveTo(roomLogic.currentRoom.nextState, context);
             } else {
                 display.append("Your answer was incorrect!");
                 display.append(probLogic.currentProblem.problem);
-                cont();
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
             }
         } else {
-            errorMessage(cont);
+            errorMessage();
         }
     },
 
-    wait = function (cont) {
+    wait = function () {
         display.append("You pace back and forth for a few minutes.");
-        cont();
     },
-     errorMessage = function (cont) {
+     errorMessage = function () {
         display.append("I'm sorry, I didn't understand that.  Can you try saying it a different way? Type help for a list of words I understand.");
-        cont();
     };
 
 
@@ -74,10 +71,8 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                 if (!returningRoomID) {
                     returningRoomID = newGame();
                 }
-                var cont = function () {
-                    display.animate();
-                }
-                move.moveTo(returningRoomID, context, cont);
+                
+                move.moveTo(returningRoomID, context);
                 $('#input').focus();
             });
         });
@@ -94,82 +89,78 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
             if (command[0] === "move") {
                 command[0] = command[1];
             }
-            
-            var cont = function() {
-                display.animate()
-            }
 
             switch (command[0]) {
             case "look":
             case "examine":
-                look.look(command, roomLogic.currentRoom, context, cont);
+                look.look(command, roomLogic.currentRoom, context);
                 break;
             case "north":
-                move.move("north", context, cont);
+                move.move("north", context);
                 break;
             case "south":
-                move.move("south", context, cont);
+                move.move("south", context);
                 break;
             case "east":
-                move.move("east", context, cont);
+                move.move("east", context);
                 break;
             case "west":
-                move.move("west", context, cont);
+                move.move("west", context);
                 break;
             case "northwest":
-                move.move("northwest", context, cont);
+                move.move("northwest", context);
                 break;
             case "northeast":
-                move.move("northeast", context, cont);
+                move.move("northeast", context);
                 break;
             case "southwest":
-                move.move("southwest", context, cont);
+                move.move("southwest", context);
                 break;
             case "southeast":
-                move.move("southeast", context, cont);
+                move.move("southeast", context);
                 break;
             case "up":
-                move.move("up", context, cont);
+                move.move("up", context);
                 break;
             case "down":
-                move.move("down", context, cont);
+                move.move("down", context);
                 break;
             case "use":
-                inventory.use(command, context, cont);
+                inventory.use(command, context);
                 break;
             case "put":
-                inventory.put(command, context, cont);
+                inventory.put(command, context);
                 break;
             case "drop":
             case "discard":
-                inventory.drop(command[1], cont);
+                inventory.drop(command[1]);
                 break;
             case "pick":
                 //we'll assume here that the user typed "pick up -----"
                 if (command[1] === "up") {
-                    inventory.take(command[2], context, cont);
+                    inventory.take(command[2], context);
                 } else {
-                    look.errorMessage(cont);
+                    look.errorMessage();
                 }
                 break;
             case "get":
             case "grab":
             case "take":
             case "yoink":
-                inventory.take(command[1], context, cont);
+                inventory.take(command[1], context);
                 break;
             case "inventory":
-                inventory.inventory(cont);
+                inventory.inventory();
                 break;
             case "say":
             case "speak":
             case "shout":
             case "yell":
-                answer(command[1], context, cont);
+                answer(command[1], context);
                 break;
             case "zzz":
             case "wait":
-                wait(cont);
+                wait();
                 break;
             case "help":
                  display.append("<p>Commands</p>");
@@ -179,10 +170,9 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                  display.append("<p>Type inventory to look in you inventory</p>");
                  display.append("<p>Type get, pick up, grab, or take followed by the item you want to take</p>");
                  display.append("<p>Type speak, shout, or say followed by what you want to say</p>");
-                 cont();
                 break;
             default:
-                answer(this.params.command, context, cont);
+                answer(this.params.command, context);
             break;
             }
         });

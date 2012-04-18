@@ -43,7 +43,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
         //checks the given item dialog of a particular item if the item is in the vicinity
         checkItemDialogIfInRoom: function (item, dialog, room) {
             if (!this.isInCurrentRoom(item.name, room) && !this.isInInventory(item.name)) {
-                display.clear().append("I'm sorry but I don't see a " + item.name + " in the vicinity.");
+                display.append("I'm sorry but I don't see a " + item.name + " in the vicinity.");
                 return false;
             } else {
                 var itemDialog = item.getItemDialog(dialog);
@@ -58,7 +58,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
         },
 
         //display each of the items
-        displayItems: function (context, cont) {
+        displayItems: function (context, callback) {
             var itemLogic = this;
             items.getItems(context, function (view) {
                 var i, itemVals, thisItem;
@@ -70,7 +70,7 @@ define(['models/items', 'controllers/rooms', 'controllers/login', 'models/rooms'
                         display.append("There is a " + thisItem.name + " here.");
                     }
                 }
-                cont();
+                callback();
             });
         }
     };

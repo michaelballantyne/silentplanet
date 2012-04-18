@@ -46,14 +46,14 @@ define(['models/db'], function (db) {
         },
 
         getStudents: function (context, callback) {
-            context.load('/localhost/_design/app/_view/students', {
+            context.load('_view/students', {
                 json: true,
                 cache: false
             }).then(callback);
         },
 
         getStudent: function (username, context, callback) {
-            context.load('/localhost/_design/app/_view/students?key=' + '"' + escape(username) + '"', {
+            context.load('_view/students?key=' + '"' + escape(username) + '"', {
                 json: true,
                 cache: false
             }).then(callback);

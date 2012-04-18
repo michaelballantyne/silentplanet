@@ -29,14 +29,14 @@ define(['models/db', 'controllers/login', 'models/students'], function (db, logi
         PLAYER_MARKER: "player",
 
         getItems: function (context, callback) {
-            context.load('/localhost/_design/app/_view/items', {
+            context.load('_view/items', {
                 json: true,
                 cache: false
             }).then(callback);
         },
 
         getItem: function (itemName, context, callback) {
-            context.load('/localhost/_design/app/_view/items?key=' + '"' + escape(itemName) + '"', {
+            context.load('_view/items?key=' + '"' + escape(itemName) + '"', {
                 json: true,
                 cache: false
             }).then(callback);

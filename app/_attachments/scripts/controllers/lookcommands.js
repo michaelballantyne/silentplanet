@@ -4,21 +4,19 @@
  */
 define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/items', 'controllers/display', 'controllers/problems', 'controllers/rooms'], function ($, items, login, itemLogic, display, probLogic, rooms) {
     //displays the basic error message if a command was not parseable for some reason
-    var errorMessage = function (cont) {
+    var errorMessage = function () {
         display.append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
-        cont();
     };
 
     return {
         //helper function for looking in a particular direction
-        lookDirection: function (direction, room, cont) {
+        lookDirection: function (direction, room) {
             display.append(room.getDirection(direction).description);
-            cont();
         },
 
         //basic 'look' command -- just displays the description of the room you're in
         //gets called when the user types "look _____ _____" or "examine _____"
-        look: function (command, room, context, cont) {
+        look: function (command, room, context) {
             switch (command[1]) {
             case undefined:
             case "around":
@@ -28,7 +26,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                 display.append(room.description);
                 
                 var callback = function () {
-                    probLogic.activateProblem(rooms.currentRoom.problemDescription, context, cont)
+                    probLogic.activateProblem(rooms.currentRoom.problemDescription, context)
                 }
                 
                 itemLogic.displayItems(context, callback);
@@ -37,44 +35,44 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
             case "n":
             case "north":
             case "no":
-                this.lookDirection("north", room, cont);
+                this.lookDirection("north", room);
                 break;
             case "s":
             case "south":
             case "so":
-                this.lookDirection("south", room, cont);
+                this.lookDirection("south", room);
                 break;
             case "e":
             case "east":
-                this.lookDirection("east", room, cont);
+                this.lookDirection("east", room);
                 break;
             case "w":
             case "west":
-                this.lookDirection("west", room, cont);
+                this.lookDirection("west", room);
                 break;
             case "nw":
             case "northwest":
-                this.lookDirection("northwest", room, cont);
+                this.lookDirection("northwest", room);
                 break;
             case "ne":
             case "northeast":
-                this.lookDirection("northeast", room, cont);
+                this.lookDirection("northeast", room);
                 break;
             case "sw":
             case "southwest":
-                this.lookDirection("southwest", room, cont);
+                this.lookDirection("southwest", room);
                 break;
             case "se":
             case "southeast":
-                this.lookDirection("southeast", room, cont);
+                this.lookDirection("southeast", room);
                 break;
             case "u":
             case "up":
-                this.lookDirection("up", room, cont);
+                this.lookDirection("up", room);
                 break;
             case "d":
             case "down":
-                this.lookDirection("down", room, cont);
+                this.lookDirection("down", room);
                 break;
             default:
                 //look at/in/on item
@@ -82,12 +80,11 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                     items.getItem(command[2], context, function (view) {
                         var itemVals, thisItem;
                         if (view.rows.length !== 1) {
-                            errorMessage(cont);
+                            errorMessage();
                         } else {
                             itemVals = view.rows[0].value;
                             thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
                             itemLogic.checkItemDialogIfInRoom(thisItem, [command[1]], room);
-                            cont();
                         }
                     });
                 } else if (command.length === 2) {
@@ -95,12 +92,11 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'controllers/it
                     items.getItem(command[1], context, function (view) {
                         var itemVals, thisItem;
                         if (view.rows.length !== 1) {
-                            errorMessage(cont);
+                            errorMessage();
                         } else {
                             itemVals = view.rows[0].value;
                             thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
                             itemLogic.checkItemDialogIfInRoom(thisItem, ["at"], room);
-                            cont();
                         }
                     });
                 }

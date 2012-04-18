@@ -33,14 +33,14 @@ define(['libraries/jquery', 'models/db', 'controllers/login', 'models/students']
         FIRST_ROOM_ID: "room1",
         INVENTORY_ID: "room0",
         getRoom: function (id, context, callback) {
-            context.load('/localhost/_design/app/_view/rooms?key=' + '"' + escape(id) + '"', {
+            context.load('_view/rooms?key=' + '"' + escape(id) + '"', {
                 json: true,
                 cache: false
             }).then(callback);
         },
 
         getRooms: function (context, callback) {
-            context.load('/localhost/_design/app/_view/rooms', {
+            context.load('_view/rooms', {
                 json: true,
                 cache: false
             }).then(callback);

@@ -5,13 +5,12 @@
  */
 define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms', 'controllers/movecommands', 'controllers/rooms', 'controllers/items', 'controllers/display'], function ($, items, login, roomSet, move, roomLogic, itemLogic, display) {
     //displays the basic error message if a command was not parseable for some reason
-    var errorMessage = function (cont) {
+    var errorMessage = function () {
         display.append("I'm sorry, I didn't understand that.  Can you try saying it a different way?");
-        cont();
     };
 
     return {
-        take: function (itemName, context, cont) {
+        take: function (itemName, context) {
             if (!itemLogic.isInCurrentRoom(itemName, roomLogic.currentRoom) && !itemLogic.isInInventory(itemName)) {
                 display.append("I'm sorry but I don't see a "+ itemName + " in the vicinity.");
             } else {
@@ -20,7 +19,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 } else {
                     items.getItem(itemName, context, function (view) {
                         if (view.rows.length !== 1) {
-                            errorMessage(cont);
+                            errorMessage();
                             return;
                         }
 
@@ -30,25 +29,23 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                             display.append("You can't lift " + thisItem.name);
                         } else {
                             items.moveItem(thisItem.name, roomSet.INVENTORY_ID);
-                            display.append("You took the " + isItem.name);
+                            display.append("You took the " + thisItem.name);
                         }
-                        cont();
                     });
                 }
             }
         },
 
-        drop: function (itemName, cont) {
+        drop: function (itemName) {
             if (!itemLogic.isInInventory(itemName)) {
                 display.append("You are not carrying " + itemName + ".");
             } else {
                 display.append("You dropped the " + itemName);
                 items.moveItem(itemName, roomLogic.currentRoom._id);
             }
-            cont();
         },
 
-        inventory: function (cont) {
+        inventory: function () {
             display.append("Searching through your bag reveals that it contains the following:");
 
             var i;
@@ -57,22 +54,20 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                     display.append(login.currentStudent.itemFlags[i].itemName);
                 }
             }
-            
-            cont();
         },
 
-        use: function (command, context, cont) {
-            this.useOrPut(command, context, cont);
+        use: function (command, context) {
+            this.useOrPut(command, context);
         },
 
-        put: function (command, context, cont) {
-            this.useOrPut(command, context, cont);
+        put: function (command, context) {
+            this.useOrPut(command, context);
         },
 
         /**
          * This function can be used for put or use;
          */
-        useOrPut: function (command, context, cont) {
+        useOrPut: function (command, context) {
             var itemName;
             //going to assume the phrase is "use a with b" or "put a in b"
             if (command.length === 4) {
@@ -81,7 +76,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 itemName = command.splice(1, 1);
                 items.getItem(itemName, context, function (view) {
                     if (view.rows.length !== 1) {
-                        errorMessage(cont);
+                        errorMessage();
                     } else {
                         var itemVals = view.rows[0].value,
                             thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
@@ -98,7 +93,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 itemName = command.pop(); //makes itemName "a", and leaves command as "use"
                 items.getItem(itemName, context, function (view) {
                     if (view.rows.length !== 1) {
-                        errorMessage(cont);
+                        errorMessage();
                     } else {
                         var itemVals = view.rows[0].value,
                             thisItem = items.createItem(itemVals.name, itemVals.dialogs, itemVals.sceneryFlag);
@@ -110,7 +105,7 @@ define(['libraries/jquery', 'models/items', 'controllers/login', 'models/rooms',
                 });
             } else {
                 //we don't recognize other uses of "use" or "put"
-                errorMessage(cont);
+                errorMessage();
             }
         }
     };
