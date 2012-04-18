@@ -1,7 +1,7 @@
 body
 {
   background-color:#000;
-  font:1em Lucida Console, sans-serif;
+  font:1.3em Lucida Console, sans-serif;
   color:green;
 }
 
@@ -9,7 +9,7 @@ input
 {
   width:auto;
   background-color:#000;
-  font:1em Lucida Console, sans-serif;
+  font:1.3em Lucida Console, sans-serif;
   color:green;
   border-color:gray;
   border-width:1px;
