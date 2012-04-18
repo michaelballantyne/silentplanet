@@ -1,56 +1,56 @@
 {
-    "problemWrapUp": "", 
-    "name": "Ant Hill", 
+    "problemWrapUp": "A click sounds behind the board as you finish writing what you hope is the correct answer.  A large cloud of smoke explodes from the crystal cage, which temporarily blinds you.  As the smoke dissipates into wisps, you notice the cage has disappeared, leaving a glowing technicolor powder in its wake.", 
+    "name": "Ant Hell", 
     "exits": [
         {
             "direction": "north", 
-            "roomID": "room32", 
-            "description": "To the north a smaller hill is visible, with buildings towering high above it in the distance."
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "east", 
-            "roomID": "room9", 
-            "description": "To the East is a mysterious sight.  It is as if a hallway is there one moment, and gone the next, leaving behind only a sea of grass.  It seems to be flickering in and out of existence."
+            "roomID": "", 
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "south", 
             "roomID": "", 
-            "description": "You can not go this direction."
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "west", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Debris clogs the tunnel that must have existed down this route."
         }, 
         {
             "direction": "up", 
-            "roomID": "", 
-            "description": "You see the clear blue sky and the sun. You can not head this direction."
+            "roomID": "room8", 
+            "description": "Through the gap at the top of the cavern light filters through.  There are some handholds along the wall that you might consider ascending."
         }, 
         {
             "direction": "down", 
-            "roomID": "room34", 
-            "description": "Looking into the crevice, you realize this is a deserted ant hill, and the crevice is its entrance."
+            "roomID": "", 
+            "description": "The bottom of the cave is the bottom indeed."
         }
     ], 
     "items": [

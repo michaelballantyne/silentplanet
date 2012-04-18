@@ -1,0 +1,13 @@
+{
+    "record_type": "item", 
+    "dialogs": [
+        {
+            "interactWord": [
+                "at"
+            ], 
+            "description": "The cage is slightly transparent, and inside there appears to be a multicolored powder."
+        }
+    ], 
+    "name": "crystalCage", 
+    "sceneryFlag": true
+}

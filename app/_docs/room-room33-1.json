@@ -24,7 +24,7 @@
         }, 
         {
             "direction": "south", 
-            "roomID": "", 
+            "roomID": "room2", 
             "description": "The door is ajar, and while the shag carpeting in the room beyond is as ugly as anything you have ever seen, it seems very inviting when you look at it from this room..."
         }, 
         {
