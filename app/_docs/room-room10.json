@@ -53,10 +53,12 @@
             "description": "You see the hard wood floor."
         }
     ], 
-    "items": [], 
-    "problemDescription": "A riddle type problem that will enlarge the player.", 
-    "nextState": "", 
+    "items": [
+    "wizard"
+    ], 
+    "problemDescription": "The man in the wide-brimmed hat approaches you in an intimidating manner, sizing you up as it were.  'I see you have the proper equipment gathered.  Take this wand, and rub the powder into it.  After the powder is rubbed in well enough, you will know what to do with the vial.'  As you begin rubbing the powder into the wand, yet another question resounds in your head.", 
+    "nextState": "room11", 
     "record_type": "room", 
     "_id": "room10", 
-    "description": "You enter what looks like a magical room owned by a wizard. There is a spell book in the room.  The spell book has only one spell in it.  The spell of enlargement.  This spell requires three items: A tiny vial, a tiny shiny pebble, and a hand full of magic powder. If you do not have these items you must exit the building and go searching for them. If you already have them then you must answer the riddle spell and see what happens."
+    "description": "You are in the only room of a cozy little log cabin, lighted by paper lanterns hanging from the ceiling.  Empty door frames stand in front of the walls in each of the cardinal directions, and no apparent exit.  The cabin is lined with bookshelves, armoires, and desks, each brimming with papers and books.  The whole room could do with a good dusting."
 }

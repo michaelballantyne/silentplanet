@@ -1,16 +1,16 @@
 {
     "problemWrapUp": "", 
-    "name": "transition room", 
+    "name": "Disappearing Hallway", 
     "exits": [
         {
             "direction": "north", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Even when your sight fails you, your sense of touch tells you there's a wall in this direction."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Even when your sight fails you, your sense of touch tells you there's a wall in this direction."
         }, 
         {
             "direction": "east", 
@@ -20,37 +20,37 @@
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Even when your sight fails you, your sense of touch tells you there's a wall in this direction."
         }, 
         {
             "direction": "south", 
             "roomID": "", 
-            "description": "You can not go this direction."
+            "description": "Even when your sight fails you, your sense of touch tells you there's a wall in this direction."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Even when your sight fails you, your sense of touch tells you there's a wall in this direction."
         }, 
         {
             "direction": "west", 
-            "roomID": "", 
-            "description": "You can not head this direction."
+            "roomID": "room8", 
+            "description": "To the West, the Ant Hill dominates the surrounding scenery."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can not head this direction."
+            "description": "Even when your sight fails you, your sense of touch tells you there's a wall in this direction."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You see the ceiling."
+            "description": "Now you see the ceiling.  Now you see the sky"
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You see the hard wood floor."
+            "description": "Now you see the hard wood floor.  Now you see dirt."
         }
     ], 
     "items": [], 
@@ -58,5 +58,5 @@
     "nextState": "", 
     "record_type": "room", 
     "_id": "room9", 
-    "description": "You discover a room that is slowly transitioning from outside to inside... I know this sounds weird but it is happening. The walls appear to be going from clear to opaque. There is nothing in this room it is just transitioning you to the inside."
+    "description": "You are in an East-West hallway, or surrounded on all sides by tall grass.  The walls around seem to be constantly flickering in and out of existence -- sometimes opaque white, sometimes transparent."
 }

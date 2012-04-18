@@ -10,53 +10,55 @@
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "There's a wall in this direction."
         }, 
         {
             "direction": "east", 
-            "roomID": "room5", 
-            "description": "Heads to the mystery room."
+            "roomID": "", 
+            "description": "There's a wall in this direction."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "There's a wall in this direction."
         }, 
         {
             "direction": "south", 
             "roomID": "room6", 
-            "description": "This is a wonderful passageway."
+            "description": "There's a door in this direction, but it is closed shut."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "There's a wall in this direction."
         }, 
         {
             "direction": "west", 
             "roomID": "room2", 
-            "description": "You're back in the shag carpet room."
+            "description": "To the West is a room carpeted with an ugly orange shag."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "There's a wall in this direction."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You look up and see a fan."
+            "description": "On the ceiling is a fan, which does not seem to have seen much action lately."
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You look down and see tile."
+            "description": "You look down and see your the room reflected in the tile."
         }
     ], 
-    "items": [], 
-    "problemDescription": "You've fallen into a drop of water. Solve this problem to get out.", 
+    "items": [
+    "vial"
+    ], 
+    "problemDescription": "", 
     "nextState": "", 
     "record_type": "room", 
     "_id": "room4-1", 
-    "description": "You've already been here. This is the tile room. You obtained a tiny vial from this room.  Please proceed."
+    "description": "The tile on the floor of this room shines with an otherworldly brightness.  It is sparkly clean.  There are doors to the West and South, but only the one to the West is open."
 }
