@@ -1,0 +1,62 @@
+{
+    "problemWrapUp": "", 
+    "name": "Waterdrop", 
+    "exits": [
+        {
+            "direction": "north", 
+            "roomID": "", 
+            "description": "Oh no! You've run into a drop of water.  You are trapped.  The only way out is to solve this problem."
+        }, 
+        {
+            "direction": "northeast", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "east", 
+            "roomID": "", 
+            "description": "Heads to the mystery room"
+        }, 
+        {
+            "direction": "southeast", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "south", 
+            "roomID": "", 
+            "description": "This is a wonderful passageway."
+        }, 
+        {
+            "direction": "southwest", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "west", 
+            "roomID": "", 
+            "description": "You're back in the shag carpet room"
+        }, 
+        {
+            "direction": "northwest", 
+            "roomID": "", 
+            "description": "You can't go this direction."
+        }, 
+        {
+            "direction": "up", 
+            "roomID": "", 
+            "description": "You look up and see a fan."
+        }, 
+        {
+            "direction": "down", 
+            "roomID": "", 
+            "description": "You look down and see tile."
+        }
+    ], 
+    "items": [], 
+    "problemDescription": "You've fallen into a drop of water.  Solve this problem to get out.", 
+    "nextState": "room4", 
+    "record_type": "room", 
+    "_id": "room33", 
+    "description": ""
+}

@@ -44,6 +44,7 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                 move.moveTo(roomLogic.currentRoom.nextState, context, cont);
             } else {
                 display.append("Your answer was incorrect!");
+                display.append(probLogic.currentProblem.problem);
                 cont();
                 problemReports.addOrUpdateProblemReport(probLogic.currentProblem._id, correct, context);
             }
@@ -68,6 +69,7 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
             var context = this;
             this.partial('templates/storygame.hb').then(function () {
                 //find initial room, and place character there
+                display.clear();
                 var returningRoomID = move.findPlayerRoom();
                 if (!returningRoomID) {
                     returningRoomID = newGame();
@@ -174,13 +176,13 @@ define(['libraries/jquery', 'libraries/jquery.jticker', 'libraries/sammy', 'mode
                  display.append("<p>Type look, or examine followed by what you want to look at.</p>");
                  display.append("<p>Type up, down, north, south, east, west, northwest, northeast, southeast, southwest to move in that direction</p>");
                  display.append("<p>Type drop, or discard to remove something from you inventory</p>");
-                 display.append("<p>Type inventory, inv, or i to look in you inventory</p>");
+                 display.append("<p>Type inventory to look in you inventory</p>");
                  display.append("<p>Type get, pick up, grab, or take followed by the item you want to take</p>");
                  display.append("<p>Type speak, shout, or say followed by what you want to say</p>");
                  cont();
                 break;
             default:
-                answer(command[0], context, cont);
+                answer(this.params.command, context, cont);
             break;
             }
         });

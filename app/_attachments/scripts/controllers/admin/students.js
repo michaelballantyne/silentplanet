@@ -9,26 +9,43 @@ define(['libraries/jquery', 'libraries/sammy', 'controllers/login', 'models/stud
 
     sammy('#main', function () {
         this.post("#/admin/students", function (context) {
-            var hasher, student = studentSet.createStudent(this.params.username, this.params.difficultySetting, [], [], []),
-                callback = function (hash) {
-                    if (hash) {
-                        student.hash = hash;
-                    }
-                    studentSet.saveStudent(student, function () {
-                        context.redirect('#/admin/students/new');
-                    });
-                };
-
-            if (this.params.password !== "") {
-                hasher = new PBKDF2(this.params.password, '22b1ffd0-76e3-11e1-b0c4-0800200c9a66', 100, 100);
-                hasher.deriveKey(function () {}, callback);
-            } else {
-                callback();
+            var hasher, hashcallback, student;
+            var newStudentVals = this.params;
+            hashcallback = function (hash) {
+                        if (hash) {
+                            student.hash = hash;
+                        }
+                    studentSet.saveStudent(student , function () {
+                            context.redirect('#/admin/students/new');
+                        });
+                    };
+            studentSet.getStudent(newStudentVals.username, context, function(view){
+                if(view.rows.length === 0){
+                    $('#main').append("<br/>");
+                    $('#main').append("There are no students with this name in the database...Creating new student.");
+                    $('#main').append("<br/>");
+                    student = studentSet.createStudent(newStudentVals.username, newStudentVals.difficultySetting, [], [], []);;
+                }
+                else{
+                    student = view.rows[0].value;
+                    student.difficultySetting = newStudentVals.difficultySetting;
+                }
+                if (newStudentVals.password !== "") {
+                hasher = new PBKDF2(newStudentVals.password, '22b1ffd0-76e3-11e1-b0c4-0800200c9a66', 100, 100);
+                hasher.deriveKey(function () {}, hashcallback);
+                } 
+                else {
+                hashcallback();
             }
+            });            
         });
 
         this.get("#/admin/students/new", function () {
             studentSet.getStudents(this, function (view) {
+                $.validator.addMethod("username", function (value, element) {
+                    return this.optional(element) || /^[a-zA-Z0-9-]{3,16}$/i.test(value); 
+                }, "Usernames must be 3-15 characters in length, and may only contain letters, numbers, and dashes.");
+
                 this.partial('templates/admin/addstudent.hb', {
                     rows: view.rows
                 }).then(function () {
