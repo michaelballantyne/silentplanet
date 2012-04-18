@@ -184,7 +184,7 @@ define(['libraries/jquery', 'libraries/sammy', 'models/problems', 'models/proble
                  display.append("Type look, or examine followed by what you want to look at");
                  display.append("Type up, down, north, south, east, west, northwest, northeast, southeast, southwest to move in that direction");
                  display.append("Type drop, or discard to remove something from you inventory");
-                 display.append("Type inventory to look in you inventory");
+                 display.append("Type inventory to look in your inventory");
                  display.append("Type get, pick up, grab, or take followed by the item you want to take");
                  display.append("Type speak, shout, or say followed by what you want to say");
                 break;
