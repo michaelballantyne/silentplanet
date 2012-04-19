@@ -92,7 +92,7 @@ tr
 {
   border:2px inset grey;
   width:100%;
-  height:80%;
+  height:70%;
   position:absolute;
   overflow:auto;
 }
@@ -100,7 +100,7 @@ tr
 #inputBox
 {
   position:absolute;
-  bottom:10%;
+  bottom:20%;
   width:100%;
 }
 

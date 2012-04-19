@@ -1,0 +1,13 @@
+{
+    "record_type": "item", 
+    "dialogs": [
+        {
+            "interactWord": [
+                "at"
+            ], 
+            "description": "There does not seem to be an up or down to this slime.  It has a player struggling to breathe inside, who will probably melt into a puddle of tasty chemicals any day now."
+        }
+    ], 
+    "name": "slime", 
+    "sceneryFlag": true
+}

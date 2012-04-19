@@ -1,64 +1,64 @@
 {
-    "problemWrapUp": "", 
+    "problemWrapUp": "The slime seems to sigh as it seeps off you and into the floor, leaving behind a small vial, which couldn't fit through whatever microscopic cracks the slime went through.", 
     "name": "Tile room", 
     "exits": [
         {
             "direction": "north", 
-            "roomID": "room33", 
-            "description": "Oh no! You've run into a drop of water.  You are trapped.  The only way out is to solve this problem."
+            "roomID": "", 
+            "description": "Hey, there's a wall in this direction.  You might care if you could breathe."
         }, 
         {
             "direction": "northeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "Hey, there's a wall in this direction.  You might care if you could breathe."
         }, 
         {
             "direction": "east", 
-            "roomID": "room5", 
-            "description": "Heads to the mystery room"
+            "roomID": "", 
+            "description": "Hey, there's a wall in this direction.  You might care if you could breathe."
         }, 
         {
             "direction": "southeast", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "Hey, there's a wall in this direction.  You might care if you could breathe."
         }, 
         {
             "direction": "south", 
-            "roomID": "room6", 
-            "description": "This is a wonderful passageway."
+            "roomID": "", 
+            "description": "Hey, there's a closed door here.  You might care if you could breathe."
         }, 
         {
             "direction": "southwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "Hey, there's a wall in this direction.  You might care if you could breathe."
         }, 
         {
             "direction": "west", 
-            "roomID": "room2", 
-            "description": "You're back in the shag carpet room"
+            "roomID": "", 
+            "description": "To the West is a room carpeted with an ugly orange shag.  You might care if you could breathe."
         }, 
         {
             "direction": "northwest", 
             "roomID": "", 
-            "description": "You can't go this direction."
+            "description": "Hey, there's a wall in this direction.  You might care if you could breathe."
         }, 
         {
             "direction": "up", 
             "roomID": "", 
-            "description": "You look up and see a fan."
+            "description": "There is a large fan, not currently in use, on the ceiling."
         }, 
         {
             "direction": "down", 
             "roomID": "", 
-            "description": "You look down and see tile."
+            "description": "You look down and see the tiled floor."
         }
     ], 
     "items": [
-        "vial"
+        "slime"
     ], 
-    "problemDescription": "You've fallen into a drop of water.  Solve this problem to get out.", 
+    "problemDescription": "As you ponder why this room seems to get so much attention, a liquidy, gelatinous green substance falls from the counter-top above.  All too quickly, it envelops you in itself, moving as if it had a will of its own.  A voice resounds in your head 'Pitiful tiny man, I am the slime.  Answer my question, or spend the rest of your days corroding in my stomach acids.'", 
     "nextState": "room4-1", 
     "record_type": "room", 
     "_id": "room4", 
-    "description": "You've entered a strange room where everything feels hard as stone and there are deep crevices in straight lines.  It takes you a minute but you recognize this as tile.  In the center of the room you notice something very small and clear.  You head to it and pick it up.  It is a tiny vial.  You look around the room some more to see if you can find anything else. You notice that the floor is shiny like it has just been mopped.  Be careful because the water droplets are as big as you!  Which direction would you like to head?"
+    "description": "The tile on the floor of this room shines with an otherworldly brightness.  It is sparkly clean.  There are doors to the West and South, but only the one to the West is open."
 }
